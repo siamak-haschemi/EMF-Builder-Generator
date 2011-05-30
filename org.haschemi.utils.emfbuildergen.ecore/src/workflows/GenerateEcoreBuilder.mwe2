@@ -1,0 +1,11 @@
+module EcoreBuilder
+
+import org.haschemi.utils.emfbuilder.*
+
+@EMFBuilder{
+ ecoreURI = "model/Ecore.ecore"
+ metaModelPackage = "org.eclipse.emf.ecore.EcorePackage"
+ targetPackage = "org.haschemi.utils.emfbuildergen.ecore"
+ targetDir = "src-gen"
+}
+

@@ -1,0 +1,202 @@
+«IMPORT ecore»
+
+«EXTENSION templates::extensions»
+
+«DEFINE main(String p_metaModelJavaPackage, String p_targetPackagePrefix) FOR EPackage»
+  «EXPAND ePackage(javaPackage(p_metaModelJavaPackage), p_targetPackagePrefix)»
+«ENDDEFINE»
+
+«DEFINE ePackage(String p_metaModelJavaPackage, String p_targetPackagePrefix) FOR EPackage»
+  «EXPAND ePackage(p_metaModelJavaPackage, p_targetPackagePrefix) FOREACH eSubpackages»
+  «EXPAND eClassifier(p_metaModelJavaPackage, p_targetPackagePrefix) FOREACH eClassifiers»
+«ENDDEFINE»
+
+«DEFINE eClassifier(String p_metaModelJavaPackage, String p_targetPackagePrefix) FOR EClassifier»
+«ENDDEFINE»
+
+«DEFINE eClassifier(String p_metaModelJavaPackage, String p_targetPackagePrefix) FOR EClass»
+  «IF isBuilderType()»  
+  «FILE builderJavaFilePath(p_targetPackagePrefix)»
+    package «builderJavaPath(p_targetPackagePrefix)»;
+    
+    import java.util.*;        
+    import «p_metaModelJavaPackage».*;
+    
+    /**
+     * <!-- begin-user-doc --> 
+     *   A builder for the model object ' <em><b>«name»</b></em>'.
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public class «builderName()» {
+      «EXPAND declaration FOREACH structuralFeatures()»
+      «EXPAND assignmentHelperDeclaration FOREACH structuralFeatures()»
+    
+      /**
+       * Builder is not instantiated with a constructor.
+       * @see #new«builderName()»()
+       */ 
+      private «builderName()»() {
+      }     
+      
+      /**
+       * This method creates a new instance of the «builderName()».
+       * @return new instance of the «builderName()»
+       */
+      public static «builderName()» new«builderName()»() {
+        return new «builderName()»();
+      }
+      
+      /**
+       * This method can be used to override attributes of the builder.
+       */
+      public «builderName()» but() {
+        «builderName()» _builder = new«builderName()»();
+        
+        «FOREACH structuralFeatures() AS sf»
+          if(m_feature«sf.name.toFirstUpper()»Set) {
+            _builder.with«sf.name.toFirstUpper()»(m_«sf.name»);
+          }   
+        «ENDFOREACH»      
+        return _builder;  
+      }
+      
+      /**
+       * This method constructs the final «name» type.
+       * @return new instance of the «name» type
+       */
+      public «name» build() {
+        final «name.toFirstUpper()» _newInstance = «ePackage.name.toFirstUpper()»Factory.eINSTANCE.create«name.toFirstUpper()»();
+        «EXPAND assignment FOREACH structuralFeatures()»
+        return _newInstance;
+      }      
+      
+      «EXPAND method(this) FOREACH structuralFeatures()»
+    }
+  «ENDFILE»
+  «ENDIF»
+«ENDDEFINE»
+
+«DEFINE declaration FOR EStructuralFeature»
+«ENDDEFINE»
+
+«DEFINE declaration FOR EAttribute»
+  private «EXPAND typeDeclaration FOR eType» m_«name»
+  «IF defaultValueLiteral != null»
+    = «defaultValueLiteral»
+  «ENDIF»;  
+«ENDDEFINE»
+
+«DEFINE declaration FOR EReference»
+  «IF isMulti()»
+    private Collection<«EXPAND typeDeclaration FOR eType»> m_«name» = new LinkedList<«EXPAND typeDeclaration FOR eType»>();
+  «ELSE»
+    private «EXPAND typeDeclaration FOR eType» m_«name»
+    «IF defaultValueLiteral != null»
+      = «defaultValueLiteral»
+    «ENDIF»
+    ;
+  «ENDIF»
+«ENDDEFINE»
+
+«DEFINE assignmentHelperDeclaration FOR EStructuralFeature»
+  private boolean m_feature«name.toFirstUpper()»Set = false;
+«ENDDEFINE»
+
+«DEFINE typeDeclaration FOR ETypedElement»
+«ENDDEFINE»
+
+«DEFINE typeDeclaration FOR EClassifier»   
+«ENDDEFINE»
+
+«DEFINE typeDeclaration FOR EDataType»
+  «instanceClassName.toJavaRef()»
+«ENDDEFINE»
+
+«DEFINE typeDeclaration FOR EClass»
+  «IF instanceClassName == null»
+    «name»
+  «ELSE»
+    «instanceClassName.toJavaRef()»
+    «IF !structuralFeatures().isEmpty»
+      <«FOREACH structuralFeatures() AS sf SEPARATOR ","»
+        «EXPAND typeDeclaration FOR sf.eType»
+      «ENDFOREACH»>
+    «ENDIF»    
+  «ENDIF»
+«ENDDEFINE»
+
+
+«DEFINE assignment FOR EStructuralFeature»
+«ENDDEFINE»
+
+«DEFINE assignment FOR EAttribute»
+  if(m_feature«name.toFirstUpper()»Set) {
+    _newInstance.set«name.toFirstUpper()»(m_«name»);
+  }  
+«ENDDEFINE»
+
+«DEFINE assignment FOR EReference»
+  if(m_feature«name.toFirstUpper()»Set) {
+    «IF isMulti()»  
+        _newInstance.get«name.toFirstUpper()»().addAll(m_«name»);
+    «ELSE»
+      _newInstance.set«name.toFirstUpper()»(m_«name»);
+    «ENDIF»  
+  }
+«ENDDEFINE»
+
+
+«DEFINE method(EClass p_context) FOR EStructuralFeature»
+«ENDDEFINE»
+
+«DEFINE method(EClass p_context) FOR EAttribute»
+  public «p_context.builderName()» with«name.toFirstUpper()»(«EXPAND typeDeclaration FOR eType» p_«name»){
+    m_«name» = p_«name»;
+    m_feature«name.toFirstUpper()»Set = true;
+    return this;
+  }    
+  «IF eType.isBuilderType()»
+    public «p_context.builderName()» with«name.toFirstUpper()»(«eType.builderName()» p_«eType.builderName().toFirstLower()»){
+      m_«name» = p_«eType.builderName().toFirstLower()».build();
+      m_feature«name.toFirstUpper()»Set = true;
+      return this;
+    }
+  «ENDIF»
+«ENDDEFINE»
+
+«DEFINE method(EClass p_context) FOR EReference»
+  «IF isMulti()»
+    public «p_context.builderName()» with«name.toFirstUpper()»(«EXPAND typeDeclaration FOR eType» p_«name»){
+      m_«name».add(p_«name»);
+      m_feature«name.toFirstUpper()»Set = true;
+      return this;
+    }    
+    public «p_context.builderName()» with«name.toFirstUpper()»(Collection<? extends «EXPAND typeDeclaration FOR eType»> p_«name»){
+      m_«name».addAll(p_«name»);
+      m_feature«name.toFirstUpper()»Set = true;
+      return this;
+    }
+    «IF eType.isBuilderType()»
+      public «p_context.builderName()» with«name.toFirstUpper()»(«eType.builderName()» p_«eType.builderName().toFirstLower()»){
+        m_«name».add(p_«eType.builderName().toFirstLower()».build());
+        m_feature«name.toFirstUpper()»Set = true;
+        return this;
+      }            
+    «ENDIF»
+  «ELSE»
+    public «p_context.builderName()» with«name.toFirstUpper()»(«EXPAND typeDeclaration FOR eType» p_«name»){
+      m_«name» = p_«name»;
+      m_feature«name.toFirstUpper()»Set = true;
+      return this;
+    }
+    «IF eType.isBuilderType()»
+      public «p_context.builderName()» with«name.toFirstUpper()»(«eType.builderName()» p_«eType.builderName().toFirstLower()»){
+        m_«name» = p_«eType.builderName().toFirstLower()».build();
+        m_feature«name.toFirstUpper()»Set = true;
+        return this;
+      }
+    «ENDIF»
+  «ENDIF»
+«ENDDEFINE»

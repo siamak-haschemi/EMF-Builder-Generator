@@ -1,0 +1,27 @@
+import ecore;
+
+cached String className(EClassifier p_ec) : p_ec.name.toFirstUpper();
+
+cached String builderName(EClassifier p_ec) : p_ec.className() + "Builder";
+
+cached String path(ecore::EPackage p_ePackage, String p_separator) : p_ePackage.name + (p_ePackage.eSuperPackage == null ? "" : (p_separator + path(p_ePackage.eSuperPackage, p_separator)));
+ 
+cached String builderJavaFilePath(EClassifier p_ec, String p_targetPackagePrefix) : p_targetPackagePrefix.trim().length > 0 ? p_targetPackagePrefix.replaceAll("\\.", "/") + "/" + p_ec.builderName() + ".java" : p_ec.ePackage.path("/") + "/" + p_ec.builderName() + ".java";
+
+cached String builderJavaPath(EClassifier p_ec, String p_targetPackagePrefix) : p_targetPackagePrefix.trim().length > 0 ? p_targetPackagePrefix : p_ec.ePackage.path(".");
+
+cached String toJavaRef(String p_binaryRef): p_binaryRef.replaceAll("\\$", ".");
+
+cached structuralFeatures(EClass p_ec):  p_ec.eAllStructuralFeatures.reject(e|e.derived || !e.changeable);
+
+cached isMulti(EReference p_reference): p_reference.upperBound > 1 || p_reference.upperBound == -1;
+
+cached isBuilderType(EDataType p_ec) : false; 
+
+cached isBuilderType(EClassifier p_ec) : false;    
+
+cached isBuilderType(EClass p_ec) :  
+    p_ec.eAllSuperTypes.exists(e|e.isBuilderType())
+    || (p_ec.instanceClassName == null && !(p_ec.abstract));
+
+cached String javaPackage(String p_javaClass) : JAVA templates.JavaExtensions.javaPackage(java.lang.String);

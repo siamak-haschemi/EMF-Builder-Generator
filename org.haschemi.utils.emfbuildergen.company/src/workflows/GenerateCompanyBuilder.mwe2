@@ -1,0 +1,10 @@
+module CompanyBuilder
+
+import org.haschemi.utils.emfbuilder.*
+
+@EMFBuilder{
+ ecoreURI = "model/Company.ecore"
+ metaModelPackage = "org.haschemi.utils.emfbuildergen.company.CompanyPackage"
+ targetPackage = "org.haschemi.utils.emfbuildergen.company.util.builder"
+ targetDir = "src-gen"
+}

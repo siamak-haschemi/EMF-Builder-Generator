@@ -1,0 +1,37 @@
+module org.haschemi.utils.emfbuilder.EMFBuilder
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.xtend.typesystem.emf.*
+import org.eclipse.xpand2.*
+
+var projectPath = "."
+var targetDir = "src-gen"
+var ecoreURI = "model/Ecore.ecore"
+var metaModelPackage = "org.eclipse.emf.ecore.EcorePackage"
+var targetPackage = "org.haschemi.ecore"
+var fileEncoding = "UTF-8"
+var modelSlot = "model"
+
+Workflow {
+ bean = StandaloneSetup {
+  platformUri = ".."
+ }
+
+ component = Reader {
+  uri = ecoreURI
+  modelSlot = modelSlot
+ }
+
+ component = Generator {
+  metaModel = EmfRegistryMetaModel {}
+  metaModel = EmfMetaModel {
+   metaModelPackage = metaModelPackage
+  }
+
+  expand = "templates::Main::main(\"${metaModelPackage}\", \"${targetPackage}\") FOR ${modelSlot}"
+  outlet = {
+   path = "${projectPath}/${targetDir}"
+  }
+  fileEncoding = fileEncoding
+ }
+}
