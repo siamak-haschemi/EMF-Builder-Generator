@@ -20,11 +20,15 @@
   </properties>
 
   <modules>
+    <module>org.haschemi.utils.emfbuildergen.updatesite</module>
+
     <module>org.haschemi.utils.emfbuildergen</module>
+    <module>org.haschemi.utils.emfbuildergen.feature</module>
+
+    <module>org.haschemi.utils.emfbuildergen.feature.examples</module>
     <module>org.haschemi.utils.emfbuildergen.company</module>
     <module>org.haschemi.utils.emfbuildergen.ecore</module>
-    <module>org.haschemi.utils.emfbuildergen.feature</module>
-    <module>org.haschemi.utils.emfbuildergen.updatesite</module>
+    <module>org.haschemi.utils.emfbuildergen.uml2</module>
   </modules>
   <build>
     <sourceDirectory>src</sourceDirectory>

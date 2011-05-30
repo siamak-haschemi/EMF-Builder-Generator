@@ -5,6 +5,7 @@ import org.haschemi.utils.emfbuilder.*
 @EMFBuilder{
  ecoreURI = "model/Company.ecore"
  metaModelPackage = "org.haschemi.utils.emfbuildergen.company.CompanyPackage"
+ metaModelFactory = "org.haschemi.utils.emfbuildergen.company.CompanyFactory"
  targetPackage = "org.haschemi.utils.emfbuildergen.company.util.builder"
  targetDir = "src-gen"
 }

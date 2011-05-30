@@ -8,9 +8,11 @@ var projectPath = "."
 var targetDir = "src-gen"
 var ecoreURI
 var metaModelPackage
+var metaModelFactory
 var targetPackage
 var fileEncoding = "UTF-8"
 var modelSlot = "model"
+var pluralizedGetters = false
 
 Workflow {
  bean = StandaloneSetup {
@@ -28,7 +30,7 @@ Workflow {
    metaModelPackage = metaModelPackage
   }
 
-  expand = "templates::Main::main(\"${metaModelPackage}\", \"${targetPackage}\") FOR ${modelSlot}"
+  expand = "templates::Main::main(\"${metaModelPackage}\", \"${metaModelFactory}\", \"${targetPackage}\", ${pluralizedGetters}) FOR ${modelSlot}"
   outlet = {
    path = "${projectPath}/${targetDir}"
   }

@@ -1,0 +1,12 @@
+module CompanyBuilder
+
+import org.haschemi.utils.emfbuilder.*
+
+@EMFBuilder{
+ ecoreURI = "model/UML.ecore"
+ metaModelPackage = "org.eclipse.uml2.uml.UMLPackage"
+ metaModelFactory = "org.eclipse.uml2.uml.UMLFactory"
+ pluralizedGetters = true
+ targetPackage = "org.haschemi.utils.emfbuildergen.uml2.util.builder"
+ targetDir = "src-gen"
+}

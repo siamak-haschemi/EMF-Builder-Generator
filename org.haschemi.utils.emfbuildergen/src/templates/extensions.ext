@@ -10,18 +10,22 @@ cached String builderJavaFilePath(EClassifier p_ec, String p_targetPackagePrefix
 
 cached String builderJavaPath(EClassifier p_ec, String p_targetPackagePrefix) : p_targetPackagePrefix.trim().length > 0 ? p_targetPackagePrefix : p_ec.ePackage.path(".");
 
-cached String toJavaRef(String p_binaryRef): p_binaryRef.replaceAll("\\$", ".");
+cached String toJavaRef(String p_binaryRef): p_binaryRef.replaceAll("\\$", ".").replaceAll("boolean", "Boolean").replaceAll("int", "Integer");
 
 cached structuralFeatures(EClass p_ec):  p_ec.eAllStructuralFeatures.reject(e|e.derived || !e.changeable);
 
-cached isMulti(EReference p_reference): p_reference.upperBound > 1 || p_reference.upperBound == -1;
+cached isMulti(EStructuralFeature p_sf): p_sf.upperBound > 1 || p_sf.upperBound == -1;
 
 cached isBuilderType(EDataType p_ec) : false; 
 
 cached isBuilderType(EClassifier p_ec) : false;    
 
-cached isBuilderType(EClass p_ec) :  
-    p_ec.eAllSuperTypes.exists(e|e.isBuilderType())
-    || (p_ec.instanceClassName == null && !(p_ec.abstract));
+cached isBuilderType(EClass p_ec) : p_ec.instanceClassName == null && !p_ec.abstract;
 
 cached String javaPackage(String p_javaClass) : JAVA templates.JavaExtensions.javaPackage(java.lang.String);
+
+Void throwRuntimeException(String p_message): JAVA templates.JavaExtensions.throwRuntimeException(java.lang.String);
+
+cached String pluralize(String p_featureName): JAVA templates.JavaExtensions.pluralize(java.lang.String);
+
+cached String normalizedName(EStructuralFeature p_sf): JAVA templates.JavaExtensions.normalizedName(org.eclipse.emf.ecore.EStructuralFeature);

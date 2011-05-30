@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.haschemi.utils.emfbuildergen.feature"
-      label="EMF Builder Generator Feature"
+      id="org.haschemi.utils.emfbuildergen.feature.examples"
+      label="EMF Builder Generator Examples"
       version="0.0.1.qualifier"
       provider-name="www.haschemi.org">
 
    <description url="https://github.com/siamak-haschemi/EMF-Builder-Generator">
-      EMF Builder Generator
+      EMF Builder Generator Examples
    </description>
 
    <copyright url="http://www.example.com/copyright">
       Copyright Siamak Haschemi, 2010-2011
    </copyright>
 
-   <license url="http://www.opensource.org/licenses/eclipse-1.0.txt">
+   <license url="http://www.example.com/license">
       Copyright Siamak Haschemi, 2010-2011
+Copyright Siamak Haschemi, 2010-2011
 Eclipse Public License - v 1.0
 THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS
 ECLIPSE PUBLIC LICENSE (&quot;AGREEMENT&quot;). ANY USE, REPRODUCTION OR
@@ -214,23 +215,30 @@ litigation.
    </license>
 
    <requires>
-      <import plugin="org.eclipse.xpand" version="1.0.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtend" version="1.0.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext" version="1.0.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.mwe2.launch" version="1.0.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.mwe.utils" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtend.typesystem.emf" version="1.0.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf" version="2.6.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.codegen.ecore" version="2.6.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.eclipse.emf.common"/>
-      <import plugin="org.junit"/>
-      <import plugin="org.apache.commons.logging"/>
-      <import plugin="org.apache.log4j"/>
+      <import plugin="org.eclipse.emf.ecore.xmi" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.haschemi.utils.emfbuildergen"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.6.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.uml2.uml" version="3.1.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.osgi"/>
    </requires>
 
    <plugin
-         id="org.haschemi.utils.emfbuildergen"
+         id="org.haschemi.utils.emfbuildergen.company"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.haschemi.utils.emfbuildergen.ecore"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.haschemi.utils.emfbuildergen.uml2"
          download-size="0"
          install-size="0"
          version="0.0.0"
