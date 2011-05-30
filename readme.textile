@@ -2,7 +2,7 @@ The _EMF Builder Generator_ project helps with generating "Java builders":http:/
 
 In a nutshell, instead of writing:
 
-<pre>
+```java
 Company company = CompanyFactory.eINSTANCE.createCompany();
 company.setName("MyCompany");
 
@@ -18,11 +18,11 @@ bob.setName("Bob");
 department.getEmployees().add(alice);
 department.getEmployees().add(bob);
 company.getDepartment().add(department);
-</pre>
+```
 
 you now can write:
 
-<pre>
+```java
 Company company = newCompanyBuilder()
   .withName("MyCompany")
   .withDepartment(
@@ -35,8 +35,9 @@ Company company = newCompanyBuilder()
       .withEmployees(
         newEmployeeBuilder()
           .withName("Bob"))
-      )
-  .build();
-</pre>
+  )
+.build();
+```
 
-See more examples in the "wiki":https://github.com/siamak-haschemi/EMF-Builder-Generator/wiki
+h2. See more examples in the "wiki":https://github.com/siamak-haschemi/EMF-Builder-Generator/wiki
+
