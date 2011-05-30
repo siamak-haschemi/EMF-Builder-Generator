@@ -6,9 +6,9 @@ import org.eclipse.xpand2.*
 
 var projectPath = "."
 var targetDir = "src-gen"
-var ecoreURI = "model/Ecore.ecore"
-var metaModelPackage = "org.eclipse.emf.ecore.EcorePackage"
-var targetPackage = "org.haschemi.ecore"
+var ecoreURI
+var metaModelPackage
+var targetPackage
 var fileEncoding = "UTF-8"
 var modelSlot = "model"
 
