@@ -1,3 +1,43 @@
 The _EMF Builder Generator_ project helps with generating "Java builders":http://en.wikipedia.org/wiki/Builder_pattern for EMF metamodels. The generated Java classes follow a fluent API. Builders are very useful to create test data, but can also be used to construct object graphs in production code.
 
-See the examples in the "wiki":http://metrikforge.informatik.hu-berlin.de/projects/emfbuildergen/wiki.
+In a nutshell, instead of writing:
+
+<pre>
+Company company = CompanyFactory.eINSTANCE.createCompany();
+company.setName("MyCompany");
+
+Department department = CompanyFactory.eINSTANCE.createDepartment();
+department.setNumber(1);
+
+Employee alice = CompanyFactory.eINSTANCE.createEmployee();
+alice.setName("Alice");
+
+Employee bob = CompanyFactory.eINSTANCE.createEmployee();
+bob.setName("Bob");
+
+department.getEmployees().add(alice);
+department.getEmployees().add(bob);
+company.getDepartment().add(department);
+</pre>
+
+you now can write:
+
+<pre>
+Company company = newCompanyBuilder()
+  .withName("MyCompany")
+  .withDepartment(
+    newDepartmentBuilder()
+      .withNumber(1)
+      .withEmployees(
+        newEmployeeBuilder()
+          .withName("Alice")
+      )
+      .withEmployees(
+        newEmployeeBuilder()
+          .withName("Bob"))
+      )
+  .build();
+</pre>
+
+See more examples in the "wiki":http://metrikforge.informatik.hu-berlin.de/projects/emfbuildergen/wiki
+
