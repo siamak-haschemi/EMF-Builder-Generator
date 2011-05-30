@@ -39,5 +39,4 @@ Company company = newCompanyBuilder()
   .build();
 </pre>
 
-See more examples in the "wiki":http://metrikforge.informatik.hu-berlin.de/projects/emfbuildergen/wiki
-
+See more examples in the "wiki":https://github.com/siamak-haschemi/EMF-Builder-Generator/wiki
