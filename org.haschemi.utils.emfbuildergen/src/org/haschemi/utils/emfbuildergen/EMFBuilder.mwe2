@@ -4,19 +4,23 @@ import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtend.typesystem.emf.*
 import org.eclipse.xpand2.*
 
-var projectPath = "."
-var targetDir = "src-gen"
 var ecoreURI
 var metaModelPackage
 var metaModelFactory
 var targetPackage
+
+var projectPath = "."
+var targetDir = "src-gen"
 var fileEncoding = "UTF-8"
 var modelSlot = "model"
 var pluralizedGetters = false
+var formatterConfigFile = "formatter.xml"
+var expandTemplate = "templates::Main::main(\"${metaModelFactory}\", \"${targetPackage}\", ${pluralizedGetters}) FOR ${modelSlot}"
+var platformUri = ".."
 
 Workflow {
  bean = StandaloneSetup {
-  platformUri = ".."
+  platformUri = platformUri
  }
 
  component = Reader {
@@ -30,8 +34,11 @@ Workflow {
    metaModelPackage = metaModelPackage
   }
 
-  expand = "templates::Main::main(\"${metaModelPackage}\", \"${metaModelFactory}\", \"${targetPackage}\", ${pluralizedGetters}) FOR ${modelSlot}"
+  expand = expandTemplate
   outlet = {
+   postprocessor = output.JavaBeautifier {
+     configFile = formatterConfigFile
+   }
    path = "${projectPath}/${targetDir}"
   }
   fileEncoding = fileEncoding

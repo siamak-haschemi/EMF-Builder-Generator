@@ -2,13 +2,13 @@
 
 «EXTENSION templates::extensions»
 
-«DEFINE main(String p_metaModelJavaPackage, String p_metaModelFactory, String p_targetPackagePrefix, Boolean p_pluralizedGetters) FOR EPackage»
-  «EXPAND ePackage(javaPackage(p_metaModelJavaPackage), p_metaModelFactory, p_targetPackagePrefix, p_pluralizedGetters)»
+«DEFINE main(String p_metaModelFactory, String p_targetPackagePrefix, Boolean p_pluralizedGetters) FOR EPackage»
+  «EXPAND ePackage(p_metaModelFactory, p_targetPackagePrefix, p_pluralizedGetters)»
 «ENDDEFINE»
 
-«DEFINE ePackage(String p_metaModelJavaPackage, String p_metaModelFactory, String p_targetPackagePrefix, Boolean p_pluralizedGetters) FOR EPackage»
-  «EXPAND ePackage(p_metaModelJavaPackage, p_metaModelFactory, p_targetPackagePrefix, p_pluralizedGetters) FOREACH eSubpackages»
-  «EXPAND eClassifier(p_metaModelJavaPackage, p_metaModelFactory, p_targetPackagePrefix, p_pluralizedGetters) FOREACH eClassifiers»
+«DEFINE ePackage(String p_metaModelFactory, String p_targetPackagePrefix, Boolean p_pluralizedGetters) FOR EPackage»
+  «EXPAND ePackage(p_metaModelFactory, p_targetPackagePrefix, p_pluralizedGetters) FOREACH eSubpackages»
+  «EXPAND eClassifier(javaPackage(p_metaModelFactory), p_metaModelFactory, p_targetPackagePrefix, p_pluralizedGetters) FOREACH eClassifiers»
 «ENDDEFINE»
 
 «DEFINE eClassifier(String p_metaModelJavaPackage, String p_metaModelFactory, String p_targetPackagePrefix, Boolean p_pluralizedGetters) FOR EClassifier» 
@@ -17,20 +17,20 @@
 «DEFINE eClassifier(String p_metaModelJavaPackage, String p_metaModelFactory, String p_targetPackagePrefix, Boolean p_pluralizedGetters) FOR EClass»
   «IF isBuilderType()»  
   «FILE builderJavaFilePath(p_targetPackagePrefix)»
-    package «builderJavaPath(p_targetPackagePrefix)»;
-    
-    import java.util.*;        
-    import «p_metaModelJavaPackage».*;
+    package «builderJavaPath(p_targetPackagePrefix)»;            
     
     /**
      * <!-- begin-user-doc --> 
-     *   A builder for the model object ' <em><b>«name»</b></em>'.
+     *   A builder for the model object ' <em><b>«p_metaModelJavaPackage».«name»</b></em>'.
      * <!-- end-user-doc -->
      * 
      * @generated
      */
     public class «builderName()» {
-      «EXPAND declaration(p_metaModelJavaPackage) FOREACH structuralFeatures()»
+      «EXPAND declaration(p_metaModelJavaPackage) FOREACH structuralFeatures().select(sf|!sf.isMulti())»
+      
+      «EXPAND declaration(p_metaModelJavaPackage) FOREACH structuralFeatures().select(sf|sf.isMulti())»
+      
       «EXPAND assignmentHelperDeclaration FOREACH structuralFeatures()»
     
       /**
@@ -80,7 +80,7 @@
 
 «DEFINE declaration(String p_metaModelJavaPackage) FOR EStructuralFeature»
   «IF isMulti()»
-    private Collection<«EXPAND typeDeclaration(p_metaModelJavaPackage) FOR eType»> m_«normalizedName()» = new LinkedList<«EXPAND typeDeclaration(p_metaModelJavaPackage) FOR eType»>();
+    private java.util.Collection<«EXPAND typeDeclaration(p_metaModelJavaPackage) FOR eType»> m_«normalizedName()» = new java.util.LinkedList<«EXPAND typeDeclaration(p_metaModelJavaPackage) FOR eType»>();
   «ELSE»
     private «EXPAND typeDeclaration(p_metaModelJavaPackage) FOR eType» m_«normalizedName()»;
   «ENDIF»
@@ -141,7 +141,7 @@
       m_feature«normalizedName().toFirstUpper()»Set = true;
       return this;
     }    
-    public «p_context.builderName()» with«normalizedName().toFirstUpper()»(Collection<? extends «EXPAND typeDeclaration(p_metaModelJavaPackage) FOR eType»> p_«normalizedName()»){
+    public «p_context.builderName()» with«normalizedName().toFirstUpper()»(java.util.Collection<? extends «EXPAND typeDeclaration(p_metaModelJavaPackage) FOR eType»> p_«normalizedName()»){
       m_«normalizedName()».addAll(p_«normalizedName()»);
       m_feature«normalizedName().toFirstUpper()»Set = true;
       return this;
