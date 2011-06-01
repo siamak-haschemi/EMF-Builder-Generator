@@ -8,39 +8,29 @@ var ecoreURI
 var metaModelPackage
 var metaModelFactory
 var targetPackage
-
 var projectPath = "."
 var targetDir = "src-gen"
 var fileEncoding = "UTF-8"
 var modelSlot = "model"
 var pluralizedGetters = false
 var formatterConfigFile = "formatter.xml"
-var expandTemplate = "templates::Main::main(\"${metaModelFactory}\", \"${targetPackage}\", ${pluralizedGetters}) FOR ${modelSlot}"
+var expandTemplate =
+"templates::Main::main(\"${metaModelFactory}\", \"${targetPackage}\", ${pluralizedGetters}) FOR ${modelSlot}"
 var platformUri = ".."
 
 Workflow {
- bean = StandaloneSetup {
-  platformUri = platformUri
- }
-
- component = Reader {
-  uri = ecoreURI
-  modelSlot = modelSlot
- }
-
- component = Generator {
-  metaModel = EmfRegistryMetaModel {}
-  metaModel = EmfMetaModel {
-   metaModelPackage = metaModelPackage
+  component = org.haschemi.utils.emfbuildergen.EMFBuilderGenerator {
+    ecoreURI = ecoreURI
+    metaModelPackage = metaModelPackage
+    metaModelFactory = metaModelFactory
+    targetPackage = targetPackage
+    projectPath = projectPath
+    targetDir = targetDir
+    fileEncoding = fileEncoding
+    modelSlot = modelSlot
+    pluralizedGetters = pluralizedGetters
+    formatterConfigFile = formatterConfigFile
+    expandTemplate = expandTemplate
+    platformUri = platformUri
   }
-
-  expand = expandTemplate
-  outlet = {
-   postprocessor = output.JavaBeautifier {
-     configFile = formatterConfigFile
-   }
-   path = "${projectPath}/${targetDir}"
-  }
-  fileEncoding = fileEncoding
- }
 }

@@ -1,6 +1,7 @@
 «IMPORT ecore»
 
 «EXTENSION templates::extensions»
+«EXTENSION org::eclipse::xtend::util::stdlib::io»
 
 «DEFINE main(String p_metaModelFactory, String p_targetPackagePrefix, Boolean p_pluralizedGetters) FOR EPackage»
   «EXPAND ePackage(p_metaModelFactory, p_targetPackagePrefix, p_pluralizedGetters)»
@@ -106,12 +107,12 @@
   «instanceClassName.toJavaRef()»
 «ENDDEFINE»
 
-«DEFINE typeDeclaration(String p_metaModelJavaPackage) FOR EClass»
+«DEFINE typeDeclaration(String p_metaModelJavaPackage) FOR EClass»  
   «IF instanceClassName == null»
     «p_metaModelJavaPackage».«name»
-  «ELSE»
+  «ELSE»     
     «instanceClassName.toJavaRef()»
-    «IF !structuralFeatures().isEmpty»
+    «IF instanceClassName == "java.util.Map$Entry" && !structuralFeatures().isEmpty»
       <«FOREACH structuralFeatures() AS sf SEPARATOR ","»
         «EXPAND typeDeclaration(p_metaModelJavaPackage) FOR sf.eType»
       «ENDFOREACH»>
