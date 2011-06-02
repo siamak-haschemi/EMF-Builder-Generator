@@ -12,6 +12,7 @@
  *******************************************************************************/
 package org.haschemi.utils.emfbuildergen;
 
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.mwe.core.WorkflowContext;
 import org.eclipse.emf.mwe.core.issues.Issues;
 import org.eclipse.emf.mwe.core.lib.WorkflowComponentWithModelSlot;
@@ -28,6 +29,7 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
   private String ecoreURI = null;
   private String metaModelPackage = null;
   private String metaModelFactory = null;
+  private EPackage metaModelPackageInstance = null;
   private String targetPackage = null;
 
   private String projectPath = ".";
@@ -50,7 +52,7 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
     if (isEmpty(ecoreURI)) {
       p_issues.addError("Mandatory property 'ecoreURI' not set");
     }
-    if (isEmpty(metaModelPackage)) {
+    if (isEmpty(metaModelPackage) && metaModelPackageInstance == null) {
       p_issues.addError("Mandatory property 'metaModelPackage' not set");
     }
     if (isEmpty(metaModelFactory)) {
@@ -70,9 +72,15 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
 
     generator = new Generator();
     generator.addMetaModel(new EmfRegistryMetaModel());
-    EmfMetaModel emfMetaModel = new EmfMetaModel();
-    emfMetaModel.setMetaModelPackage(metaModelPackage);
-    generator.addMetaModel(emfMetaModel);
+
+    if (metaModelPackageInstance != null) {
+      generator.addMetaModel(new EmfMetaModel(metaModelPackageInstance));
+    } else {
+      EmfMetaModel emfMetaModel = new EmfMetaModel();
+      emfMetaModel.setMetaModelPackage(metaModelPackage);
+      generator.addMetaModel(emfMetaModel);
+    }
+
     generator.setExpand("templates::Main::main(\"" + metaModelFactory + "\", \"" + targetPackage + "\", " + pluralizedGetters + ") FOR " + getModelSlot());
     Outlet outlet = new Outlet();
     JavaBeautifier javaBeautifier = new JavaBeautifier();
@@ -147,5 +155,9 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
     if (!isEmpty(p_platformUri)) {
       platformUri = p_platformUri;
     }
+  }
+
+  public void setMetaModelPackageInstance(EPackage p_package) {
+    metaModelPackageInstance = p_package;
   }
 }

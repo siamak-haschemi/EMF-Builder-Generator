@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.haschemi.utils.emfbuildergen.feature"
-      label="EMF Builder Generator Feature"
+      label="EMF Builder Generator (Core/UI)"
       version="0.0.1.qualifier"
       provider-name="www.haschemi.org">
 

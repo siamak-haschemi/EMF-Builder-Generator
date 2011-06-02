@@ -14,7 +14,6 @@ package org.haschemi.utils.emfbuildergen.ui;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -28,9 +27,10 @@ import org.eclipse.emf.mwe.core.WorkflowContext;
 import org.eclipse.emf.mwe.core.WorkflowRunner;
 import org.eclipse.emf.mwe.core.issues.Issues;
 import org.eclipse.emf.mwe.core.issues.IssuesImpl;
-import org.eclipse.emf.mwe.core.monitor.NullProgressMonitor;
 import org.eclipse.emf.mwe.core.monitor.ProgressMonitor;
 import org.eclipse.emf.mwe.core.monitor.ProgressMonitorAdapter;
+import org.eclipse.emf.mwe.core.resources.ResourceLoaderFactory;
+import org.eclipse.emf.mwe.core.resources.ResourceLoaderImpl;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -92,10 +92,10 @@ public class GenerateEMFBuildersAction implements IObjectActionDelegate {
         emfBuilderGenerator.setTargetDir(targetDir);
 
         GenPackage genPackage = genModel.getGenPackages().get(0);
+        emfBuilderGenerator.setMetaModelPackageInstance(genPackage.getEcorePackage());
+        
         String targetPackage = genPackage.getBasePackage() + "." + genPackage.getEcorePackage().getName();
-
         emfBuilderGenerator.setTargetPackage(targetPackage + ".util.builder");
-        emfBuilderGenerator.setMetaModelPackage(targetPackage + "." + genPackage.getPrefix() + "Package");
         emfBuilderGenerator.setMetaModelFactory(targetPackage + "." + genPackage.getPrefix() + "Factory");
 
         emfBuilderGenerator.checkConfiguration(issues);
@@ -107,6 +107,7 @@ public class GenerateEMFBuildersAction implements IObjectActionDelegate {
           }
           throw new RuntimeException(sb.toString());
         }
+                
         emfBuilderGenerator.invoke(context, progressMonitor, issues);
         try {
           file.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
