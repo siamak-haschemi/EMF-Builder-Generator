@@ -8,11 +8,11 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.mwe2.launch;bundle-version="1.0.1";resolution:=optional,
  org.junit;resolution:=optional,
  org.eclipse.emf.ecore.xmi;bundle-version="2.5.0"
 Bundle-ActivationPolicy: lazy
-Import-Package: org.haschemi.utils.emfbuildergen;version="[0.0.1,1.0.0)"
+Import-Package: org.apache.log4j;version="1.2.15",
+ org.haschemi.utils.emfbuildergen;version="[0.0.1,1.0.0)"
 Export-Package: org.haschemi.utils.emfbuildergen.company,
  org.haschemi.utils.emfbuildergen.company.impl,
  org.haschemi.utils.emfbuildergen.company.util

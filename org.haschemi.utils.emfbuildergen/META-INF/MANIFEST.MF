@@ -20,8 +20,8 @@ Require-Bundle: org.eclipse.xpand;bundle-version="1.0.1",
  org.eclipse.jdt.core;bundle-version="3.6.2",
  org.eclipse.core.runtime;bundle-version="3.6.0",
  org.eclipse.core.resources;bundle-version="3.6.1",
- org.eclipse.xtend.util.stdlib;bundle-version="1.0.1"
+ org.eclipse.xtend.util.stdlib;bundle-version="1.0.1",
+ org.apache.commons.logging;bundle-version="1.1.1";visibility:=reexport,
+ org.apache.log4j;bundle-version="1.2.15";visibility:=reexport
 Export-Package: org.haschemi.utils.emfbuildergen;version="0.0.1"
-Import-Package: org.apache.commons.logging,
- org.apache.commons.logging.impl,
- org.apache.log4j
+Bundle-ActivationPolicy: lazy

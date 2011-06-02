@@ -35,7 +35,6 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
   private String fileEncoding = "UTF-8";
   private boolean pluralizedGetters = false;
   private String formatterConfigFile = "formatter.xml";
-  private String expandTemplate = "templates::Main::main(\"" + metaModelFactory + "\", \"" + targetPackage + "\", " + pluralizedGetters + ") FOR " + getModelSlot();
   private String platformUri = "..";
 
   private Reader reader;
@@ -43,6 +42,28 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
 
   @Override
   public void checkConfiguration(Issues p_issues) {
+    if (isEmpty(getModelSlot())) {
+      setModelSlot("model");
+    }
+
+    super.checkConfiguration(p_issues);
+    if (isEmpty(ecoreURI)) {
+      p_issues.addError("Mandatory property 'ecoreURI' not set");
+    }
+    if (isEmpty(metaModelPackage)) {
+      p_issues.addError("Mandatory property 'metaModelPackage' not set");
+    }
+    if (isEmpty(metaModelFactory)) {
+      p_issues.addError("Mandatory property 'metaModelFactory' not set");
+    }
+    if (isEmpty(targetPackage)) {
+      p_issues.addError("Mandatory property 'targetPackage' not set");
+    }
+
+    if (p_issues.getErrors().length > 0) {
+      return;
+    }
+
     reader = new Reader();
     reader.setUri(ecoreURI);
     reader.setModelSlot(getModelSlot());
@@ -52,7 +73,7 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
     EmfMetaModel emfMetaModel = new EmfMetaModel();
     emfMetaModel.setMetaModelPackage(metaModelPackage);
     generator.addMetaModel(emfMetaModel);
-    generator.setExpand(expandTemplate);
+    generator.setExpand("templates::Main::main(\"" + metaModelFactory + "\", \"" + targetPackage + "\", " + pluralizedGetters + ") FOR " + getModelSlot());
     Outlet outlet = new Outlet();
     JavaBeautifier javaBeautifier = new JavaBeautifier();
     javaBeautifier.setConfigFile(formatterConfigFile);
@@ -63,20 +84,10 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
 
     reader.checkConfiguration(p_issues);
     generator.checkConfiguration(p_issues);
-    super.checkConfiguration(p_issues);
+  }
 
-    if (ecoreURI == null) {
-      p_issues.addError("Mandatory property 'ecoreURI' not set");
-    }
-    if (metaModelPackage == null) {
-      p_issues.addError("Mandatory property 'metaModelPackage' not set");
-    }
-    if (metaModelFactory == null) {
-      p_issues.addError("Mandatory property 'metaModelFactory' not set");
-    }
-    if (targetPackage == null) {
-      p_issues.addError("Mandatory property 'targetPackage' not set");
-    }
+  private boolean isEmpty(String p_str) {
+    return p_str == null || p_str.trim().length() == 0;
   }
 
   @Override
@@ -105,15 +116,21 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
   }
 
   public void setProjectPath(String p_projectPath) {
-    projectPath = p_projectPath;
+    if (!isEmpty(p_projectPath)) {
+      projectPath = p_projectPath;
+    }
   }
 
   public void setTargetDir(String p_targetDir) {
-    targetDir = p_targetDir;
+    if (!isEmpty(p_targetDir)) {
+      targetDir = p_targetDir;
+    }
   }
 
   public void setFileEncoding(String p_fileEncoding) {
-    fileEncoding = p_fileEncoding;
+    if (!isEmpty(p_fileEncoding)) {
+      fileEncoding = p_fileEncoding;
+    }
   }
 
   public void setPluralizedGetters(boolean p_pluralizedGetters) {
@@ -121,14 +138,14 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
   }
 
   public void setFormatterConfigFile(String p_formatterConfigFile) {
-    formatterConfigFile = p_formatterConfigFile;
-  }
-
-  public void setExpandTemplate(String p_expandTemplate) {
-    expandTemplate = p_expandTemplate;
+    if (!isEmpty(p_formatterConfigFile)) {
+      formatterConfigFile = p_formatterConfigFile;
+    }
   }
 
   public void setPlatformUri(String p_platformUri) {
-    platformUri = p_platformUri;
+    if (!isEmpty(p_platformUri)) {
+      platformUri = p_platformUri;
+    }
   }
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0"?> 
+<workflow>
+  <cartridge
+    file="org/haschemi/utils/emfbuildergen/EMFBuilder.mwe"
+    ecoreURI="model/Ecore.ecore"
+    metaModelPackage="org.eclipse.emf.ecore.EcorePackage"
+    metaModelFactory="org.eclipse.emf.ecore.EcoreFactory"
+    targetPackage="org.haschemi.utils.emfbuildergen.ecore"/>
+</workflow> 

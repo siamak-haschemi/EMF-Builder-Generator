@@ -8,15 +8,13 @@ var ecoreURI
 var metaModelPackage
 var metaModelFactory
 var targetPackage
-var projectPath = "."
-var targetDir = "src-gen"
-var fileEncoding = "UTF-8"
-var modelSlot = "model"
+var projectPath = ""
+var targetDir = ""
+var fileEncoding = ""
+var modelSlot = ""
 var pluralizedGetters = false
-var formatterConfigFile = "formatter.xml"
-var expandTemplate =
-"templates::Main::main(\"${metaModelFactory}\", \"${targetPackage}\", ${pluralizedGetters}) FOR ${modelSlot}"
-var platformUri = ".."
+var formatterConfigFile = ""
+var platformUri = ""
 
 Workflow {
   component = org.haschemi.utils.emfbuildergen.EMFBuilderGenerator {
@@ -30,7 +28,6 @@ Workflow {
     modelSlot = modelSlot
     pluralizedGetters = pluralizedGetters
     formatterConfigFile = formatterConfigFile
-    expandTemplate = expandTemplate
     platformUri = platformUri
   }
 }

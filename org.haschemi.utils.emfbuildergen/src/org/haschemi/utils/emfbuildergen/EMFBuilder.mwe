@@ -1,0 +1,30 @@
+<?xml version="1.0"?> 
+<workflow>
+
+<property name="ecoreURI"            value=""/>
+<property name="metaModelPackage"    value=""/>
+<property name="metaModelFactory"    value=""/>
+<property name="targetPackage"       value=""/>
+<property name="projectPath"         value=""/>
+<property name="targetDir"           value=""/>  
+<property name="fileEncoding"        value=""/>
+<property name="modelSlot"           value="model"/>
+<property name="pluralizedGetters"   value="false"/>
+<property name="formatterConfigFile" value=""/>
+<property name="platformUri"         value=""/>
+
+<component id="org.haschemi.utils.emfbuildergen.EMFBuilderGenerator" class="org.haschemi.utils.emfbuildergen.EMFBuilderGenerator">
+  <ecoreURI value="${ecoreURI}"/>
+  <metaModelPackage value="${metaModelPackage}"/>
+  <metaModelFactory value="${metaModelFactory}"/>
+  <targetPackage value="${targetPackage}"/>
+  <projectPath value="${projectPath}"/>
+  <targetDir value="${targetDir}"/>
+  <fileEncoding value="${fileEncoding}"/>
+  <modelSlot value="${modelSlot}"/>
+  <pluralizedGetters value="${pluralizedGetters}"/>
+  <formatterConfigFile value="${formatterConfigFile}"/>
+  <platformUri value="${platformUri}"/>
+</component>
+
+</workflow> 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.ui.popupMenus">
+    <objectContribution
+      id="org.haschemi.utils.emfbuildergen.ui.GenerateEMFBuilders"
+      objectClass="org.eclipse.emf.ecore.EObject">
+      <action
+        id="org.haschemi.utils.emfbuildergen.ui.GenerateEMFBuildersAction"
+        label="Generate Builder Code"
+        menubarPath="generate-actions"
+        class="org.haschemi.utils.emfbuildergen.ui.GenerateEMFBuildersAction"
+        enablesFor="1">
+      </action>
+    </objectContribution>
+  </extension>
+</plugin>
+
+<!--  menubarPath="additions"  -->

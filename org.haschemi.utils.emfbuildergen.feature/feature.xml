@@ -225,12 +225,34 @@ litigation.
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.common"/>
       <import plugin="org.junit"/>
-      <import plugin="org.apache.commons.logging"/>
-      <import plugin="org.apache.log4j"/>
+      <import plugin="org.eclipse.jface.text" version="3.6.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.core" version="3.6.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources" version="3.6.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtend.util.stdlib" version="1.0.1" match="greaterOrEqual"/>
+      <import plugin="org.apache.commons.logging" version="1.1.1" match="greaterOrEqual"/>
+      <import plugin="org.apache.log4j" version="1.2.15" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface" version="3.6.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.6.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.6.1" match="greaterOrEqual"/>
+      <import plugin="org.haschemi.utils.emfbuildergen" version="0.0.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.mwe2.language" version="1.0.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.mwe2.launch" version="1.0.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.mwe2.runtime" version="1.0.2" match="greaterOrEqual"/>
+      <import plugin="com.google.inject" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext" version="1.0.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.6.2" match="greaterOrEqual"/>
    </requires>
 
    <plugin
          id="org.haschemi.utils.emfbuildergen"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.haschemi.utils.emfbuildergen.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
