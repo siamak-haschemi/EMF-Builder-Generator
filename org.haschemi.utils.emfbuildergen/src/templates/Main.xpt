@@ -56,9 +56,11 @@
         «builderName()» _builder = new«builderName()»();
         
         «FOREACH structuralFeatures() AS sf»
-          if(m_feature«sf.normalizedName().toFirstUpper()»Set) {
-            _builder.with«sf.normalizedName().toFirstUpper()»(m_«sf.normalizedName()»);
-          }   
+          _builder.m_feature«sf.normalizedName().toFirstUpper()»Set = m_feature«sf.normalizedName().toFirstUpper()»Set;
+          _builder.m_«sf.normalizedName()» = m_«sf.normalizedName()»;
+          «IF sf.eType.isBuilderType()»
+            _builder.m_feature«sf.normalizedName().toFirstUpper()»Builder = m_feature«sf.normalizedName().toFirstUpper()»Builder;
+          «ENDIF»
         «ENDFOREACH»      
         return _builder;  
       }
@@ -84,6 +86,13 @@
     private java.util.Collection<«EXPAND typeDeclaration(p_metaModelJavaPackage) FOR eType»> m_«normalizedName()» = new java.util.LinkedList<«EXPAND typeDeclaration(p_metaModelJavaPackage) FOR eType»>();
   «ELSE»
     private «EXPAND typeDeclaration(p_metaModelJavaPackage) FOR eType» m_«normalizedName()»;
+  «ENDIF»
+  «IF eType.isBuilderType()»
+	  «IF isMulti()»
+	  	private java.util.Collection<«eType.builderName()»> m_feature«normalizedName().toFirstUpper()»Builder = new java.util.LinkedList<«eType.builderName()»>();
+	  «ELSE»
+	    private «eType.builderName()» m_feature«normalizedName().toFirstUpper()»Builder;
+	  «ENDIF»
   «ENDIF»
 «ENDDEFINE»
 
@@ -132,7 +141,27 @@
     «ELSE»
       _newInstance.set«normalizedName().toFirstUpper()»(m_«normalizedName()»);
     «ENDIF»  
+  «IF eType.isBuilderType()»
+  } else {
+  	 «IF isMulti()»
+  	   if (!m_feature«normalizedName().toFirstUpper()»Builder.isEmpty()) {
+	     for («eType.builderName()» builder: m_feature«normalizedName().toFirstUpper()»Builder) {
+	       «IF p_pluralizedGetters»
+	         _newInstance.get«normalizedName().toFirstUpper().pluralize()»().add(builder.build());
+	       «ELSE»
+	         _newInstance.get«normalizedName().toFirstUpper()»().add(builder.build());
+	       «ENDIF»  	       
+  	     }
+       } 
+  	 «ELSE»
+  	   if (m_feature«normalizedName().toFirstUpper()»Builder != null) {
+  	     _newInstance.set«normalizedName().toFirstUpper()»(m_feature«normalizedName().toFirstUpper()»Builder.build());
+  	   }
+  	 «ENDIF»
   }
+  «ELSE»
+  }
+  «ENDIF»
 «ENDDEFINE»
 
 «DEFINE method(EClass p_context, String p_metaModelJavaPackage) FOR EStructuralFeature»
@@ -149,8 +178,7 @@
     }
     «IF eType.isBuilderType()»
       public «p_context.builderName()» with«normalizedName().toFirstUpper()»(«eType.builderName()» p_«eType.builderName().toFirstLower()»){
-        m_«normalizedName()».add(p_«eType.builderName().toFirstLower()».build());
-        m_feature«normalizedName().toFirstUpper()»Set = true;
+        m_feature«normalizedName().toFirstUpper()»Builder.add(p_«eType.builderName().toFirstLower()»);
         return this;
       }            
     «ENDIF»
@@ -162,8 +190,7 @@
     }
     «IF eType.isBuilderType()»
       public «p_context.builderName()» with«normalizedName().toFirstUpper()»(«eType.builderName()» p_«eType.builderName().toFirstLower()»){
-        m_«normalizedName()» = p_«eType.builderName().toFirstLower()».build();
-        m_feature«normalizedName().toFirstUpper()»Set = true;
+        m_feature«normalizedName().toFirstUpper()»Builder = p_«eType.builderName().toFirstLower()»;
         return this;
       }
     «ENDIF»
