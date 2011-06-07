@@ -22,6 +22,7 @@
   <modules>
     <module>org.haschemi.utils.emfbuildergen.updatesite</module>
     <module>org.haschemi.utils.emfbuildergen</module>
+    <module>org.haschemi.utils.emfbuildergen.tests</module>
     <module>org.haschemi.utils.emfbuildergen.ui</module>
     <module>org.haschemi.utils.emfbuildergen.feature</module>
     <module>org.haschemi.utils.emfbuildergen.feature.examples</module>
