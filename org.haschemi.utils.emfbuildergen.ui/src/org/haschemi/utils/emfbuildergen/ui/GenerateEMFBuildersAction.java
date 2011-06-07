@@ -48,7 +48,7 @@ public class GenerateEMFBuildersAction implements IObjectActionDelegate {
   @Override
   public void run(IAction p_action) {
     Job job = new Job("Generate Builder Code") {
-      
+
       @Override
       protected IStatus run(IProgressMonitor p_monitor) {
         if (!(m_selection instanceof IStructuredSelection)) {
@@ -74,7 +74,7 @@ public class GenerateEMFBuildersAction implements IObjectActionDelegate {
           return Status.CANCEL_STATUS;
         }
         FileEditorInput fileEditorInput = (FileEditorInput) editorInput;
-        
+
         WorkflowRunner runner = new WorkflowRunner();
         WorkflowContext context = runner.getContext();
         Issues issues = new IssuesImpl();
@@ -93,8 +93,14 @@ public class GenerateEMFBuildersAction implements IObjectActionDelegate {
 
         GenPackage genPackage = genModel.getGenPackages().get(0);
         emfBuilderGenerator.setMetaModelPackageInstance(genPackage.getEcorePackage());
-        
-        String targetPackage = genPackage.getBasePackage() + "." + genPackage.getEcorePackage().getName();
+
+        StringBuilder targetPackageBuilder = new StringBuilder();
+        if (genPackage.getBasePackage() != null && genPackage.getBasePackage().trim().length() > 0) {
+          targetPackageBuilder.append(genPackage.getBasePackage()).append(".");
+        }
+        targetPackageBuilder.append(genPackage.getEcorePackage().getName());
+        String targetPackage = targetPackageBuilder.toString();
+
         emfBuilderGenerator.setTargetPackage(targetPackage + ".util.builder");
         emfBuilderGenerator.setMetaModelFactory(targetPackage + "." + genPackage.getPrefix() + "Factory");
 
@@ -107,16 +113,16 @@ public class GenerateEMFBuildersAction implements IObjectActionDelegate {
           }
           throw new RuntimeException(sb.toString());
         }
-                
+
         emfBuilderGenerator.invoke(context, progressMonitor, issues);
         try {
           file.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
         } catch (CoreException e) {
           throw new RuntimeException(e);
-        }    
+        }
         return Status.OK_STATUS;
       }
-    };    
+    };
     job.setUser(true);
     job.schedule();
   }
