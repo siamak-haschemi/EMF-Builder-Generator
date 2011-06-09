@@ -3,6 +3,6 @@ module UMLBuilder
 Workflow {
  component = org.haschemi.utils.emfbuildergen.EMFBuilderGenerator {
   ecoreURI = "platform:/resource/org.haschemi.utils.emfbuildergen.uml2/model/UML.ecore"
-  genModelUri = "platform:/resource/org.haschemi.utils.emfbuildergen.uml2/model/UML.genmodel"
+  genModelUri = "platform:/resource/org.haschemi.utils.emfbuildergen.uml2/model/UML.genmodel"  
  }
 }

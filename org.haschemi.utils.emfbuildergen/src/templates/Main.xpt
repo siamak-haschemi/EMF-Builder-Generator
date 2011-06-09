@@ -1,3 +1,16 @@
+«REM»
+/*******************************************************************************
+ * Copyright (c) 2010 - 2010 EMF Builder Generator project.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * EMF Builder Generator project committers - initial API and implementation
+ * Contact : siamak AT haschemi.org
+ *******************************************************************************/
+«ENDREM»
 «IMPORT ecore»
 «IMPORT emf»
 
@@ -195,14 +208,14 @@
 «ENDDEFINE»
 
 «DEFINE method(EClass p_context) FOR EStructuralFeature»  
-  public «p_context.builderName()» with«safeName().toFirstUpper()»(«EXPAND typeDeclaration FOR eType» p_«safeName()»){
+  public «p_context.builderName()» «featureAccessMethod()»(«EXPAND typeDeclaration FOR eType» p_«safeName()»){
     m_«safeName()» = p_«safeName()»;
     m_feature«safeName().toFirstUpper()»Set = true;
     return this;
   }
 
   «IF eType.isBuilderType()»
-    public «p_context.builderName()» with«safeName().toFirstUpper()»(«eType.fqBuilderJava()» p_«eType.builderName().toFirstLower()»){
+    public «p_context.builderName()» «featureAccessMethod()»(«eType.fqBuilderJava()» p_«eType.builderName().toFirstLower()»){
       m_feature«safeName().toFirstUpper()»Builder = p_«eType.builderName().toFirstLower()»;
       return this;
     }
@@ -210,20 +223,20 @@
 «ENDDEFINE»
 
 «DEFINE methodMulti(EClass p_context) FOR EStructuralFeature» 
-  public «p_context.builderName()» with«safeName().toFirstUpper()»(«EXPAND typeDeclaration FOR eType» p_«safeName()»){
+  public «p_context.builderName()» «featureAccessMethod()»(«EXPAND typeDeclaration FOR eType» p_«safeName()»){
     m_«safeName()».add(p_«safeName()»);
     m_feature«safeName().toFirstUpper()»Set = true;
     return this;
   }    
 
-  public «p_context.builderName()» with«safeName().toFirstUpper()»(java.util.Collection<? extends «EXPAND typeDeclaration FOR eType»> p_«safeName()»){
+  public «p_context.builderName()» «featureAccessMethod()»(java.util.Collection<? extends «EXPAND typeDeclaration FOR eType»> p_«safeName()»){
     m_«safeName()».addAll(p_«safeName()»);
     m_feature«safeName().toFirstUpper()»Set = true;
     return this;
   }
 
   «IF eType.isBuilderType()»
-    public «p_context.builderName()» with«safeName().toFirstUpper()»(«eType.builderName()» p_«eType.builderName().toFirstLower()»){
+    public «p_context.builderName()» «featureAccessMethod()»(«eType.builderName()» p_«eType.builderName().toFirstLower()»){
       m_feature«safeName().toFirstUpper()»Builder.add(p_«eType.builderName().toFirstLower()»);
       return this;
     }            

@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2010 - 2010 Azmun project.
+ * Copyright (c) 2010 - 2010 EMF Builder Generator project.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- * Azmun project committers - initial API and implementation
- * Web: http://www.azmun.de
+ * EMF Builder Generator project committers - initial API and implementation
  * Contact : siamak AT haschemi.org
  *******************************************************************************/
 package templates;
