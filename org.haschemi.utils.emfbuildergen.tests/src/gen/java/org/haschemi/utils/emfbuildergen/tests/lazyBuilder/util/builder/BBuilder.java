@@ -8,6 +8,8 @@ package org.haschemi.utils.emfbuildergen.tests.lazyBuilder.util.builder;
  * @generated
  */
 public class BBuilder {
+  // features and builders
+  // helper attributes
   /**
    * Builder is not instantiated with a constructor.
    * @see #newBBuilder()
@@ -24,7 +26,7 @@ public class BBuilder {
   }
 
   /**
-   * This method can be used to override attributes of the builder.
+   * This method can be used to override attributes of the builder. It constructs a new builder and copies the current values to it.
    */
   public BBuilder but() {
     BBuilder _builder = newBBuilder();

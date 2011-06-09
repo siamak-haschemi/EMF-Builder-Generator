@@ -14,8 +14,7 @@ package org.haschemi.utils.emfbuildergen.tests;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.haschemi.utils.emfbuildergen.tests.lazyBuilder.util.builder.ABuilder.newABuilder;
-import static org.haschemi.utils.emfbuildergen.tests.lazyBuilder.util.builder.BBuilder.newBBuilder;
+import static org.haschemi.utils.emfbuildergen.tests.lazyBuilder.util.builder.LazyBuilderBuilders.*;
 import static org.junit.Assert.assertThat;
 
 import org.haschemi.utils.emfbuildergen.tests.lazyBuilder.A;

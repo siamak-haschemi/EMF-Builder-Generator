@@ -8,8 +8,10 @@ package org.haschemi.utils.emfbuildergen.tests.lazyBuilder.util.builder;
  * @generated
  */
 public class ABuilder {
+  // features and builders
   private org.haschemi.utils.emfbuildergen.tests.lazyBuilder.B m_b;
-  private BBuilder m_featureBBuilder;
+  private org.haschemi.utils.emfbuildergen.tests.lazyBuilder.util.builder.BBuilder m_featureBBuilder;
+  // helper attributes
   private boolean m_featureBSet = false;
 
   /**
@@ -28,7 +30,7 @@ public class ABuilder {
   }
 
   /**
-   * This method can be used to override attributes of the builder.
+   * This method can be used to override attributes of the builder. It constructs a new builder and copies the current values to it.
    */
   public ABuilder but() {
     ABuilder _builder = newABuilder();
@@ -60,7 +62,7 @@ public class ABuilder {
     return this;
   }
 
-  public ABuilder withB(BBuilder p_bBuilder) {
+  public ABuilder withB(org.haschemi.utils.emfbuildergen.tests.lazyBuilder.util.builder.BBuilder p_bBuilder) {
     m_featureBBuilder = p_bBuilder;
     return this;
   }
