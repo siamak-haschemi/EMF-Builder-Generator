@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 
+<!-- 
 	<build>
 		<plugins>
 			<plugin>
@@ -24,4 +25,5 @@
 			</plugin>
 		</plugins>
 	</build>
+ -->
 </project>

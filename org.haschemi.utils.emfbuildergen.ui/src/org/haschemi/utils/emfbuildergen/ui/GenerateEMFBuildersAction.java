@@ -19,10 +19,14 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.IJobChangeEvent;
+import org.eclipse.core.runtime.jobs.IJobChangeListener;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.core.runtime.jobs.JobChangeAdapter;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.mwe.core.WorkflowContext;
 import org.eclipse.emf.mwe.core.WorkflowRunner;
 import org.eclipse.emf.mwe.core.issues.Issues;
@@ -47,84 +51,80 @@ public class GenerateEMFBuildersAction implements IObjectActionDelegate {
 
   @Override
   public void run(IAction p_action) {
+    if (!(m_selection instanceof IStructuredSelection)) {
+      return;
+    }
+    IStructuredSelection selection = (IStructuredSelection) m_selection;
+    if (selection.getFirstElement() == null) {
+      return;
+    }
+    Object firstElement = selection.getFirstElement();
+    if (!(firstElement instanceof GenModel)) {
+      return;
+    }
+    final GenModel genModel = (GenModel) firstElement;
+
+    if (!(m_activePart instanceof IEditorPart)) {
+      return;
+    }
+    IEditorPart editorPart = (IEditorPart) m_activePart;
+
+    IEditorInput editorInput = editorPart.getEditorInput();
+    if (!(editorInput instanceof FileEditorInput)) {
+      return;
+    }
+    final FileEditorInput fileEditorInput = (FileEditorInput) editorInput;
+    final String ecoreFile = genModel.getForeignModel().get(0);
+    final IFile file = fileEditorInput.getFile();
+    final IResource ecoreFileResource = file.getParent().findMember(ecoreFile);
+    final String platformRoot = file.getProject().getLocation().toString() + "/..";
+
     Job job = new Job("Generate Builder Code") {
 
       @Override
       protected IStatus run(IProgressMonitor p_monitor) {
-        if (!(m_selection instanceof IStructuredSelection)) {
-          return Status.CANCEL_STATUS;
-        }
-        IStructuredSelection selection = (IStructuredSelection) m_selection;
-        if (selection.getFirstElement() == null) {
-          return Status.CANCEL_STATUS;
-        }
-        Object firstElement = selection.getFirstElement();
-        if (!(firstElement instanceof GenModel)) {
-          return Status.CANCEL_STATUS;
-        }
-        GenModel genModel = (GenModel) firstElement;
-
-        if (!(m_activePart instanceof IEditorPart)) {
-          return Status.CANCEL_STATUS;
-        }
-        IEditorPart editorPart = (IEditorPart) m_activePart;
-
-        IEditorInput editorInput = editorPart.getEditorInput();
-        if (!(editorInput instanceof FileEditorInput)) {
-          return Status.CANCEL_STATUS;
-        }
-        FileEditorInput fileEditorInput = (FileEditorInput) editorInput;
-
         WorkflowRunner runner = new WorkflowRunner();
         WorkflowContext context = runner.getContext();
         Issues issues = new IssuesImpl();
         ProgressMonitor progressMonitor = new ProgressMonitorAdapter(p_monitor);
+
         EMFBuilderGenerator emfBuilderGenerator = new EMFBuilderGenerator();
-
-        String ecoreFile = genModel.getForeignModel().get(0);
-        IFile file = fileEditorInput.getFile();
-        emfBuilderGenerator.setProjectPath(file.getProject().getLocation().toString());
-
-        IResource ecoreFileResource = file.getParent().findMember(ecoreFile);
-        emfBuilderGenerator.setEcoreURI(ecoreFileResource.getFullPath().toString());
-
-        String targetDir = new Path(genModel.getModelDirectory()).makeRelativeTo(file.getProject().getFullPath()).toString();
-        emfBuilderGenerator.setTargetDir(targetDir);
-
-        GenPackage genPackage = genModel.getGenPackages().get(0);
-        emfBuilderGenerator.setMetaModelPackageInstance(genPackage.getEcorePackage());
-
-        StringBuilder targetPackageBuilder = new StringBuilder();
-        if (genPackage.getBasePackage() != null && genPackage.getBasePackage().trim().length() > 0) {
-          targetPackageBuilder.append(genPackage.getBasePackage()).append(".");
+        emfBuilderGenerator.setEcoreURI(URI.createPlatformResourceURI(ecoreFileResource.getFullPath().toString(), true).toString());
+        emfBuilderGenerator.addGenModel(genModel);
+        for (GenPackage genPackage : genModel.getUsedGenPackages()) {
+          final GenModel usedGenModel = genPackage.getGenModel();
+          if (emfBuilderGenerator.getGenModels().contains(usedGenModel)) {
+            emfBuilderGenerator.addGenModel(usedGenModel);
+          }
         }
-        targetPackageBuilder.append(genPackage.getEcorePackage().getName());
-        String targetPackage = targetPackageBuilder.toString();
 
-        emfBuilderGenerator.setTargetPackage(targetPackage + ".util.builder");
-        emfBuilderGenerator.setMetaModelFactory(targetPackage + "." + genPackage.getPrefix() + "Factory");
-
+        emfBuilderGenerator.setPlatformUri(platformRoot);
         emfBuilderGenerator.checkConfiguration(issues);
-
+        emfBuilderGenerator.invoke(context, progressMonitor, issues);
         if (issues.getErrors().length > 0) {
           StringBuilder sb = new StringBuilder();
           for (Diagnostic diagnostic : issues.getErrors()) {
             sb.append(diagnostic.getMessage()).append("\n");
           }
-          throw new RuntimeException(sb.toString());
-        }
-
-        emfBuilderGenerator.invoke(context, progressMonitor, issues);
-        try {
-          file.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
-        } catch (CoreException e) {
-          throw new RuntimeException(e);
+          return new Status(IStatus.ERROR, null, sb.toString());
         }
         return Status.OK_STATUS;
       }
     };
     job.setUser(true);
     job.schedule();
+    job.addJobChangeListener(new JobChangeAdapter() {
+      @Override
+      public void done(IJobChangeEvent p_event) {
+        if (p_event.getResult().getSeverity() == IStatus.OK) {
+          try {
+            file.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
+          } catch (CoreException e) {
+            throw new RuntimeException(e);
+          }
+        }
+      }
+    });
   }
 
   @Override

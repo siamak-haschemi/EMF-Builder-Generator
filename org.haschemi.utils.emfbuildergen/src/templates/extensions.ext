@@ -1,31 +1,43 @@
 import ecore;
 
-cached String className(EClassifier p_ec) : p_ec.name.toFirstUpper();
+extension org::eclipse::xtend::util::stdlib::globalvar;
 
-cached String builderName(EClassifier p_ec) : p_ec.className() + "Builder";
-
-cached String path(ecore::EPackage p_ePackage, String p_separator) : p_ePackage.name + (p_ePackage.eSuperPackage == null ? "" : (p_separator + path(p_ePackage.eSuperPackage, p_separator)));
- 
-cached String builderJavaFilePath(EClassifier p_ec, String p_targetPackagePrefix) : p_targetPackagePrefix.trim().length > 0 ? p_targetPackagePrefix.replaceAll("\\.", "/") + "/" + p_ec.builderName() + ".java" : p_ec.ePackage.path("/") + "/" + p_ec.builderName() + ".java";
-
-cached String builderJavaPath(EClassifier p_ec, String p_targetPackagePrefix) : p_targetPackagePrefix.trim().length > 0 ? p_targetPackagePrefix : p_ec.ePackage.path(".");
-
-cached String toJavaRef(String p_binaryRef): p_binaryRef.replaceAll("\\$", ".").replaceAll("boolean", "Boolean").replaceAll("int", "Integer");
-
-cached structuralFeatures(EClass p_ec):  p_ec.eAllStructuralFeatures.reject(e|e.derived || !e.changeable);
-
-cached isMulti(EStructuralFeature p_sf): p_sf.upperBound > 1 || p_sf.upperBound == -1;
-
+// extensions to decide whether the type is a element for which a builder should be generated
 cached isBuilderType(EDataType p_ec) : false; 
-
 cached isBuilderType(EClassifier p_ec) : false;    
-
 cached isBuilderType(EClass p_ec) : p_ec.instanceClassName == null && !p_ec.abstract;
 
-cached String javaPackage(String p_javaClass) : JAVA templates.JavaExtensions.javaPackage(java.lang.String);
+// extensions for the to be generated builder java classes of an Ecore metamodel
+cached String fqBuilderFile(EClassifier p_ec)       : p_ec.fqBuilderJava().replaceAll("\\.", "/") + ".java";
+cached String fqBuilderJava(EClassifier p_ec)       : p_ec.fqBuilderJavaPackage() + "." + p_ec.builderName();
+cached String fqBuilderJavaPackage(EClassifier p_ec): p_ec.fqGenJavaPackage() + ".util.builder";
+cached String builderName(EClassifier p_ec)         : p_ec.name + "Builder";
+
+cached String fqFacadeFile(EPackage p_ep)       : p_ep.fqFacadeJava().replaceAll("\\.", "/") + ".java";
+cached String fqFacadeJava(EPackage p_ep)       : p_ep.fqFacadeJavaPackage() + "." + p_ep.facadeName();
+cached String fqFacadeJavaPackage(EPackage p_ep): p_ep.eClassifiers.first().fqBuilderJavaPackage();
+cached String facadeName(EPackage p_ep)         : p_ep.name.toFirstUpper() + "Builders";
+
+
+// extensions for the already generated java classes of an Ecore metamodel
+cached String fqGenJava(EClassifier p_ec)        : p_ec.fqGenJavaPackage() + "." + p_ec.name.toJavaRef();
+cached String fqGenJavaPackage(EClassifier p_ec) : JAVA templates.JavaExtensions.fqGenJavaPackage(org.eclipse.emf.ecore.EClassifier);
+cached String factoryInstance(EClassifier p_ec)  : JAVA templates.JavaExtensions.factoryInstance(org.eclipse.emf.ecore.EClassifier);
+
+// an extension to filter the structural features of a EClass by derived or not changeable ones
+cached structuralFeatures(EClass p_ec): p_ec.eAllStructuralFeatures.reject(e|e.derived || !e.changeable).sortBy(e|e.name);
+cached unaryStructuralFeatures(EClass p_ec): p_ec.structuralFeatures().reject(sf|sf.isMulti());
+cached multipleStructuralFeatures(EClass p_ec): p_ec.structuralFeatures().select(sf|sf.isMulti());
+
+
+// an extension to decide whether the structural feature is a list
+cached isMulti(EStructuralFeature p_sf): p_sf.upperBound > 1 || p_sf.upperBound == -1;
+
+// an extension to get the name of a structural feature. If the name clashes with Java keyword like 'class', we append a '_' to the name
+cached String safeName(EStructuralFeature p_sf): JAVA templates.JavaExtensions.safeName(org.eclipse.emf.ecore.EStructuralFeature);
+cached String safeSetterName(EStructuralFeature p_sf): JAVA templates.JavaExtensions.safeSetterName(org.eclipse.emf.ecore.EStructuralFeature);
+cached String potentiallyPluralizedName(EStructuralFeature p_sf) : JAVA templates.JavaExtensions.potentiallyPluralizedName(org.eclipse.emf.ecore.EStructuralFeature);
+
+cached String toJavaRef(String p_binaryRef): p_binaryRef.replaceAll("\\$", ".").replaceAll("^boolean$", "Boolean").replaceAll("^int$", "Integer");
 
 Void throwRuntimeException(String p_message): JAVA templates.JavaExtensions.throwRuntimeException(java.lang.String);
-
-cached String pluralize(String p_featureName): JAVA templates.JavaExtensions.pluralize(java.lang.String);
-
-cached String normalizedName(EStructuralFeature p_sf): JAVA templates.JavaExtensions.normalizedName(org.eclipse.emf.ecore.EStructuralFeature);

@@ -12,52 +12,86 @@
  *******************************************************************************/
 package templates;
 
+import java.util.List;
+import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
+import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
+import org.eclipse.emf.codegen.util.CodeGenUtil;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.uml2.codegen.ecore.Generator;
 
 public class JavaExtensions {
-	public static String javaPackage(final String p_javaClass) {
-		return p_javaClass.substring(0, p_javaClass.lastIndexOf("."));
-	}
+  private static List<GenModel> s_genModels;
 
-	public static void throwRuntimeException(final String p_message) {
-		throw new RuntimeException(p_message);
-	}
+  public static String javaPackage(final String p_javaClass) {
+    return p_javaClass.substring(0, p_javaClass.lastIndexOf("."));
+  }
 
-	/**
-	 * Code taken from org.eclipse.uml2.codegen.ecore.Generator.
-	 */
-	public static String pluralize(String name) {
-		if (name.equalsIgnoreCase("children") || name.endsWith("Children")) { //$NON-NLS-1$ //$NON-NLS-2$
-			return name;
-		} else if (name.equalsIgnoreCase("child") || name.endsWith("Child")) { //$NON-NLS-1$ //$NON-NLS-2$
-			return name + "ren"; //$NON-NLS-1$
-		} else if (name.equalsIgnoreCase("data") || name.endsWith("Data")) { //$NON-NLS-1$ //$NON-NLS-2$
-			return name;
-		} else if (name.equalsIgnoreCase("datum") || name.endsWith("Datum")) { //$NON-NLS-1$ //$NON-NLS-2$
-			return name.substring(0, name.length() - 2) + "a"; //$NON-NLS-1$
-		} else if (name.endsWith("By")) { //$NON-NLS-1$
-			return name + "s"; //$NON-NLS-1$
-		} else if (name.endsWith("y")) { //$NON-NLS-1$
-			return name.substring(0, name.length() - 1) + "ies"; //$NON-NLS-1$
-		} else if (name.endsWith("ex")) { //$NON-NLS-1$
-			return name.substring(0, name.length() - 2) + "ices"; //$NON-NLS-1$
-		} else if (name.endsWith("x")) { //$NON-NLS-1$
-			return name + "es"; //$NON-NLS-1$
-		} else if (name.endsWith("us")) { //$NON-NLS-1$
-			return name.substring(0, name.length() - 2) + "i"; //$NON-NLS-1$
-		} else if (name.endsWith("ss")) { //$NON-NLS-1$
-			return name + "es"; //$NON-NLS-1$
-		} else if (name.endsWith("s")) { //$NON-NLS-1$
-			return name;
-		} else {
-			return name + "s"; //$NON-NLS-1$
-		}
-	}
-	
-	public String normalizedName(EStructuralFeature p_structuralFeature) {
-		if(p_structuralFeature.getName().equals("class")) {
-			return "class_";
-		}
-		return p_structuralFeature.getName();
-	}
+  public static void throwRuntimeException(final String p_message) {
+    throw new RuntimeException(p_message);
+  }
+
+  public static final String safeSetterName(final EStructuralFeature p_structuralFeature) {
+    return p_structuralFeature.getName().equals("class") ? p_structuralFeature.getName() + "_" : p_structuralFeature.getName();
+  }
+
+  public static final String safeName(final EStructuralFeature p_structuralFeature) {
+    return CodeGenUtil.safeName(p_structuralFeature.getName());
+  }
+
+  public static String fqGenJavaPackage(final EClassifier p_eClassifier) {
+    final GenPackage genPackage = findGenPackageFor(p_eClassifier);
+    final StringBuilder sb = new StringBuilder();
+    if (genPackage.getBasePackage() != null && genPackage.getBasePackage().trim().length() > 0) {
+      sb.append(genPackage.getBasePackage());
+      sb.append(".");
+    }
+    sb.append(genPackage.getEcorePackage().getName());
+    return sb.toString();
+  }
+
+  public static String factoryInstance(final EClassifier p_eClassifier) {
+    final GenPackage genPackage = findGenPackageFor(p_eClassifier);
+    final StringBuilder sb = new StringBuilder();
+    sb.append(genPackage.getFactoryName());
+    sb.append(".");
+    sb.append(genPackage.getFactoryInstanceName());
+    return sb.toString();
+  }
+
+  public static String potentiallyPluralizedName(final EStructuralFeature p_structuralFeature) {
+    final GenPackage genPackage = findGenPackageFor(p_structuralFeature.getEContainingClass());
+    if (genPackage instanceof org.eclipse.uml2.codegen.ecore.genmodel.GenPackage) {
+      final org.eclipse.uml2.codegen.ecore.genmodel.GenPackage umlGenpackage = (org.eclipse.uml2.codegen.ecore.genmodel.GenPackage) genPackage;
+      final org.eclipse.uml2.codegen.ecore.genmodel.GenModel umlGenModel = (org.eclipse.uml2.codegen.ecore.genmodel.GenModel) umlGenpackage.getGenModel();
+      if (umlGenModel.isPluralizedGetters()) {
+        return pluralize(p_structuralFeature.getName());
+      }
+    }
+    return p_structuralFeature.getName();
+  }
+
+  private static String pluralize(final String name) {
+    return Generator.pluralize(name);
+  }
+
+  private static final GenPackage findGenPackageFor(final EClassifier p_classifier) {
+    for (final GenModel genModel : s_genModels) {
+      for (final GenPackage genPackage : genModel.getGenPackages()) {
+        if (ePackageEquals(p_classifier.getEPackage(), genPackage.getEcorePackage())) {
+          return genPackage;
+        }
+      }
+    }
+    throw new RuntimeException("Did not find genpackage for '" + p_classifier + " using genmodel list " + s_genModels + ".");
+  }
+
+  private static boolean ePackageEquals(final EPackage p_this, final EPackage p_other) {
+    return p_this.getName().equals(p_other.getName()) && p_this.getNsPrefix().equals(p_other.getNsPrefix()) && p_this.getNsURI().equals(p_other.getNsURI());
+  }
+
+  public static void setGenmodels(final List<GenModel> p_genModels) {
+    s_genModels = p_genModels;
+  }
 }

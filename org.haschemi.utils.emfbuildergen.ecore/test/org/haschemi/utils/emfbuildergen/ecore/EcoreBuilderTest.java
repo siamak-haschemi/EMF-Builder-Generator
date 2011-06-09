@@ -13,10 +13,7 @@
 package org.haschemi.utils.emfbuildergen.ecore;
 
 import static junit.framework.Assert.fail;
-import static org.haschemi.utils.emfbuildergen.ecore.EAttributeBuilder.newEAttributeBuilder;
-import static org.haschemi.utils.emfbuildergen.ecore.EClassBuilder.newEClassBuilder;
-import static org.haschemi.utils.emfbuildergen.ecore.EPackageBuilder.newEPackageBuilder;
-import static org.haschemi.utils.emfbuildergen.ecore.EReferenceBuilder.newEReferenceBuilder;
+import static org.eclipse.emf.ecore.util.builder.EcoreBuilders.*;
 
 import java.io.File;
 import java.io.IOException;

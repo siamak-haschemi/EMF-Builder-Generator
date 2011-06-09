@@ -8,10 +8,13 @@ package org.haschemi.utils.emfbuildergen.company.util.builder;
  * @generated
  */
 public class CompanyBuilder {
+  // features and builders
   private java.lang.String m_name;
   private java.util.Collection<org.haschemi.utils.emfbuildergen.company.Department> m_department = new java.util.LinkedList<org.haschemi.utils.emfbuildergen.company.Department>();
-  private boolean m_featureNameSet = false;
+  private java.util.Collection<org.haschemi.utils.emfbuildergen.company.util.builder.DepartmentBuilder> m_featureDepartmentBuilder = new java.util.LinkedList<org.haschemi.utils.emfbuildergen.company.util.builder.DepartmentBuilder>();
+  // helper attributes
   private boolean m_featureDepartmentSet = false;
+  private boolean m_featureNameSet = false;
 
   /**
    * Builder is not instantiated with a constructor.
@@ -29,16 +32,15 @@ public class CompanyBuilder {
   }
 
   /**
-   * This method can be used to override attributes of the builder.
+   * This method can be used to override attributes of the builder. It constructs a new builder and copies the current values to it.
    */
   public CompanyBuilder but() {
     CompanyBuilder _builder = newCompanyBuilder();
-    if (m_featureNameSet) {
-      _builder.withName(m_name);
-    }
-    if (m_featureDepartmentSet) {
-      _builder.withDepartment(m_department);
-    }
+    _builder.m_featureDepartmentSet = m_featureDepartmentSet;
+    _builder.m_department = m_department;
+    _builder.m_featureDepartmentBuilder = m_featureDepartmentBuilder;
+    _builder.m_featureNameSet = m_featureNameSet;
+    _builder.m_name = m_name;
     return _builder;
   }
 
@@ -53,6 +55,12 @@ public class CompanyBuilder {
     }
     if (m_featureDepartmentSet) {
       _newInstance.getDepartment().addAll(m_department);
+    } else {
+      if (!m_featureDepartmentBuilder.isEmpty()) {
+        for (DepartmentBuilder builder : m_featureDepartmentBuilder) {
+          _newInstance.getDepartment().add(builder.build());
+        }
+      }
     }
     return _newInstance;
   }
@@ -76,8 +84,7 @@ public class CompanyBuilder {
   }
 
   public CompanyBuilder withDepartment(DepartmentBuilder p_departmentBuilder) {
-    m_department.add(p_departmentBuilder.build());
-    m_featureDepartmentSet = true;
+    m_featureDepartmentBuilder.add(p_departmentBuilder);
     return this;
   }
 }

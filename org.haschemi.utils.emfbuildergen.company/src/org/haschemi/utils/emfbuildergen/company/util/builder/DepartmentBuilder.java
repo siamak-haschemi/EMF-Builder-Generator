@@ -8,10 +8,13 @@ package org.haschemi.utils.emfbuildergen.company.util.builder;
  * @generated
  */
 public class DepartmentBuilder {
+  // features and builders
   private Integer m_number;
   private java.util.Collection<org.haschemi.utils.emfbuildergen.company.Employee> m_employees = new java.util.LinkedList<org.haschemi.utils.emfbuildergen.company.Employee>();
-  private boolean m_featureNumberSet = false;
+  private java.util.Collection<org.haschemi.utils.emfbuildergen.company.util.builder.EmployeeBuilder> m_featureEmployeesBuilder = new java.util.LinkedList<org.haschemi.utils.emfbuildergen.company.util.builder.EmployeeBuilder>();
+  // helper attributes
   private boolean m_featureEmployeesSet = false;
+  private boolean m_featureNumberSet = false;
 
   /**
    * Builder is not instantiated with a constructor.
@@ -29,16 +32,15 @@ public class DepartmentBuilder {
   }
 
   /**
-   * This method can be used to override attributes of the builder.
+   * This method can be used to override attributes of the builder. It constructs a new builder and copies the current values to it.
    */
   public DepartmentBuilder but() {
     DepartmentBuilder _builder = newDepartmentBuilder();
-    if (m_featureNumberSet) {
-      _builder.withNumber(m_number);
-    }
-    if (m_featureEmployeesSet) {
-      _builder.withEmployees(m_employees);
-    }
+    _builder.m_featureEmployeesSet = m_featureEmployeesSet;
+    _builder.m_employees = m_employees;
+    _builder.m_featureEmployeesBuilder = m_featureEmployeesBuilder;
+    _builder.m_featureNumberSet = m_featureNumberSet;
+    _builder.m_number = m_number;
     return _builder;
   }
 
@@ -53,6 +55,12 @@ public class DepartmentBuilder {
     }
     if (m_featureEmployeesSet) {
       _newInstance.getEmployees().addAll(m_employees);
+    } else {
+      if (!m_featureEmployeesBuilder.isEmpty()) {
+        for (EmployeeBuilder builder : m_featureEmployeesBuilder) {
+          _newInstance.getEmployees().add(builder.build());
+        }
+      }
     }
     return _newInstance;
   }
@@ -76,8 +84,7 @@ public class DepartmentBuilder {
   }
 
   public DepartmentBuilder withEmployees(EmployeeBuilder p_employeeBuilder) {
-    m_employees.add(p_employeeBuilder.build());
-    m_featureEmployeesSet = true;
+    m_featureEmployeesBuilder.add(p_employeeBuilder);
     return this;
   }
 }

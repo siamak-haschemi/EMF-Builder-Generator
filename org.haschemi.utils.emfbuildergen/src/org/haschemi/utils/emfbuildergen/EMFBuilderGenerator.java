@@ -12,11 +12,18 @@
  *******************************************************************************/
 package org.haschemi.utils.emfbuildergen;
 
+import java.util.LinkedList;
+import java.util.List;
+
+import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
+import org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage;
+import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.mwe.core.WorkflowContext;
 import org.eclipse.emf.mwe.core.issues.Issues;
 import org.eclipse.emf.mwe.core.lib.WorkflowComponentWithModelSlot;
 import org.eclipse.emf.mwe.core.monitor.ProgressMonitor;
+import org.eclipse.emf.mwe.utils.Mapping;
 import org.eclipse.emf.mwe.utils.Reader;
 import org.eclipse.emf.mwe.utils.StandaloneSetup;
 import org.eclipse.xpand2.Generator;
@@ -25,17 +32,14 @@ import org.eclipse.xpand2.output.Outlet;
 import org.eclipse.xtend.typesystem.emf.EmfMetaModel;
 import org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel;
 
+import templates.JavaExtensions;
+
 public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
   private String ecoreURI = null;
-  private String metaModelPackage = null;
-  private String metaModelFactory = null;
-  private EPackage metaModelPackageInstance = null;
-  private String targetPackage = null;
-
-  private String projectPath = ".";
-  private String targetDir = "src-gen";
+  private final List<Mapping> m_uriMaps = new LinkedList<Mapping>();
+  private final List<String> m_genModelUris = new LinkedList<String>();
+  private final List<GenModel> m_genModels = new LinkedList<GenModel>();
   private String fileEncoding = "UTF-8";
-  private boolean pluralizedGetters = false;
   private String formatterConfigFile = "formatter.xml";
   private String platformUri = "..";
 
@@ -43,7 +47,7 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
   private Generator generator;
 
   @Override
-  public void checkConfiguration(Issues p_issues) {
+  public void checkConfiguration(final Issues p_issues) {
     if (isEmpty(getModelSlot())) {
       setModelSlot("model");
     }
@@ -52,19 +56,25 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
     if (isEmpty(ecoreURI)) {
       p_issues.addError("Mandatory property 'ecoreURI' not set");
     }
-    if (isEmpty(metaModelPackage) && metaModelPackageInstance == null) {
-      p_issues.addError("Mandatory property 'metaModelPackage' not set");
-    }
-    if (isEmpty(metaModelFactory)) {
-      p_issues.addError("Mandatory property 'metaModelFactory' not set");
-    }
-    if (isEmpty(targetPackage)) {
-      p_issues.addError("Mandatory property 'targetPackage' not set");
-    }
 
     if (p_issues.getErrors().length > 0) {
       return;
     }
+  }
+
+  private boolean isEmpty(final String p_str) {
+    return p_str == null || p_str.trim().length() == 0;
+  }
+
+  @Override
+  protected void invokeInternal(final WorkflowContext p_ctx, final ProgressMonitor p_monitor, final Issues p_issues) {
+    final StandaloneSetup standaloneSetup = new StandaloneSetup();
+    standaloneSetup.setPlatformUri(platformUri);
+    for (final Mapping uriMap : m_uriMaps) {
+      standaloneSetup.addUriMap(uriMap);
+    }
+    standaloneSetup.addRegisterGeneratedEPackage(GenModelPackage.class.getName());
+    standaloneSetup.addRegisterGeneratedEPackage(org.eclipse.uml2.codegen.ecore.genmodel.GenModelPackage.class.getName());
 
     reader = new Reader();
     reader.setUri(ecoreURI);
@@ -72,92 +82,82 @@ public class EMFBuilderGenerator extends WorkflowComponentWithModelSlot {
 
     generator = new Generator();
     generator.addMetaModel(new EmfRegistryMetaModel());
-
-    if (metaModelPackageInstance != null) {
-      generator.addMetaModel(new EmfMetaModel(metaModelPackageInstance));
-    } else {
-      EmfMetaModel emfMetaModel = new EmfMetaModel();
-      emfMetaModel.setMetaModelPackage(metaModelPackage);
-      generator.addMetaModel(emfMetaModel);
-    }
-
-    generator.setExpand("templates::Main::main(\"" + metaModelFactory + "\", \"" + targetPackage + "\", " + pluralizedGetters + ") FOR " + getModelSlot());
-    Outlet outlet = new Outlet();
-    JavaBeautifier javaBeautifier = new JavaBeautifier();
-    javaBeautifier.setConfigFile(formatterConfigFile);
-    outlet.addPostprocessor(javaBeautifier);
-    outlet.setPath(projectPath + "/" + targetDir);
-    generator.addOutlet(outlet);
     generator.setFileEncoding(fileEncoding);
 
     reader.checkConfiguration(p_issues);
-    generator.checkConfiguration(p_issues);
-  }
-
-  private boolean isEmpty(String p_str) {
-    return p_str == null || p_str.trim().length() == 0;
-  }
-
-  @Override
-  protected void invokeInternal(WorkflowContext p_ctx, ProgressMonitor p_monitor, Issues p_issues) {
-    StandaloneSetup standaloneSetup = new StandaloneSetup();
-    standaloneSetup.setPlatformUri(platformUri);
-
     reader.invoke(p_ctx, p_monitor, p_issues);
+    final EPackage ePackage = (EPackage) p_ctx.get(getModelSlot());
+
+    final List<GenModel> genModels = new LinkedList<GenModel>();
+    final Reader readerTest = new Reader();
+    readerTest.setModelSlot("genmodel");
+    for (final String genModelUri : m_genModelUris) {
+      readerTest.setUri(genModelUri);
+      readerTest.invoke(p_ctx, p_monitor, p_issues);
+      final GenModel genModel = (GenModel) p_ctx.get("genmodel");
+      genModels.add(genModel);
+    }
+    genModels.addAll(m_genModels);
+
+    GenModel targetGenModel = null;
+    for (final GenModel genModel : genModels) {
+      for (final GenPackage genPackage : genModel.getGenPackages()) {
+        final EPackage p = genPackage.getEcorePackage();
+        generator.addMetaModel(new EmfMetaModel(p));
+        if (p.getName().equals(ePackage.getName()) && p.getNsURI().equals(ePackage.getNsURI()) && p.getNsPrefix().equals(ePackage.getNsPrefix())) {
+          targetGenModel = genModel;
+        }
+      }
+    }
+
+    generator.setExpand("templates::Main::main FOR " + getModelSlot());
+    final Outlet outlet = new Outlet();
+    final JavaBeautifier javaBeautifier = new JavaBeautifier();
+    javaBeautifier.setConfigFile(formatterConfigFile);
+    outlet.addPostprocessor(javaBeautifier);
+    outlet.setPath(platformUri + targetGenModel.getModelDirectory());
+    generator.addOutlet(outlet);
+
+    JavaExtensions.setGenmodels(genModels);
+    generator.checkConfiguration(p_issues);
     generator.invoke(p_ctx, p_monitor, p_issues);
   }
 
-  public void setEcoreURI(String p_ecoreURI) {
+  public void setEcoreURI(final String p_ecoreURI) {
     ecoreURI = p_ecoreURI;
   }
 
-  public void setMetaModelPackage(String p_metaModelPackage) {
-    metaModelPackage = p_metaModelPackage;
-  }
-
-  public void setMetaModelFactory(String p_metaModelFactory) {
-    metaModelFactory = p_metaModelFactory;
-  }
-
-  public void setTargetPackage(String p_targetPackage) {
-    targetPackage = p_targetPackage;
-  }
-
-  public void setProjectPath(String p_projectPath) {
-    if (!isEmpty(p_projectPath)) {
-      projectPath = p_projectPath;
-    }
-  }
-
-  public void setTargetDir(String p_targetDir) {
-    if (!isEmpty(p_targetDir)) {
-      targetDir = p_targetDir;
-    }
-  }
-
-  public void setFileEncoding(String p_fileEncoding) {
+  public void setFileEncoding(final String p_fileEncoding) {
     if (!isEmpty(p_fileEncoding)) {
       fileEncoding = p_fileEncoding;
     }
   }
 
-  public void setPluralizedGetters(boolean p_pluralizedGetters) {
-    pluralizedGetters = p_pluralizedGetters;
-  }
-
-  public void setFormatterConfigFile(String p_formatterConfigFile) {
+  public void setFormatterConfigFile(final String p_formatterConfigFile) {
     if (!isEmpty(p_formatterConfigFile)) {
       formatterConfigFile = p_formatterConfigFile;
     }
   }
 
-  public void setPlatformUri(String p_platformUri) {
+  public void setPlatformUri(final String p_platformUri) {
     if (!isEmpty(p_platformUri)) {
       platformUri = p_platformUri;
     }
   }
 
-  public void setMetaModelPackageInstance(EPackage p_package) {
-    metaModelPackageInstance = p_package;
+  public void addUriMap(final Mapping p_mapping) {
+    m_uriMaps.add(p_mapping);
+  }
+
+  public void addGenModelUri(final String p_genModelUri) {
+    m_genModelUris.add(p_genModelUri);
+  }
+  
+  public void addGenModel(final GenModel p_genModel) {
+    m_genModels.add(p_genModel);
+  }
+  
+  public List<GenModel> getGenModels() {
+    return m_genModels;
   }
 }

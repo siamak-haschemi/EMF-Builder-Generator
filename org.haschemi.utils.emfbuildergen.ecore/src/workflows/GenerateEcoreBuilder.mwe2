@@ -1,12 +1,8 @@
 module EcoreBuilder
 
-import org.haschemi.utils.emfbuilder.*
-
-@EMFBuilder{
- ecoreURI = "model/Ecore.ecore"
- metaModelPackage = "org.eclipse.emf.ecore.EcorePackage"
- metaModelFactory = "org.eclipse.emf.ecore.EcoreFactory"
- targetPackage = "org.haschemi.utils.emfbuildergen.ecore"
- targetDir = "src-gen"
+Workflow {
+ component = org.haschemi.utils.emfbuildergen.EMFBuilderGenerator {
+  ecoreURI = "platform:/resource/org.haschemi.utils.emfbuildergen.ecore/model/Ecore.ecore"
+  genModelUri = "platform:/resource/org.haschemi.utils.emfbuildergen.ecore/model/Ecore.genmodel"  
+ }
 }
-

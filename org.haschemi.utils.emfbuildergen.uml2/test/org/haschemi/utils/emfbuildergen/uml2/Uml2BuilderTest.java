@@ -13,11 +13,7 @@
 package org.haschemi.utils.emfbuildergen.uml2;
 
 import static junit.framework.Assert.fail;
-import static org.haschemi.utils.emfbuildergen.uml2.util.builder.ClassBuilder.newClassBuilder;
-import static org.haschemi.utils.emfbuildergen.uml2.util.builder.LiteralUnlimitedNaturalBuilder.newLiteralUnlimitedNaturalBuilder;
-import static org.haschemi.utils.emfbuildergen.uml2.util.builder.ModelBuilder.newModelBuilder;
-import static org.haschemi.utils.emfbuildergen.uml2.util.builder.PackageBuilder.newPackageBuilder;
-import static org.haschemi.utils.emfbuildergen.uml2.util.builder.PropertyBuilder.newPropertyBuilder;
+import static org.eclipse.uml2.uml.util.builder.UmlBuilders.*;
 
 import java.io.File;
 import java.net.URL;

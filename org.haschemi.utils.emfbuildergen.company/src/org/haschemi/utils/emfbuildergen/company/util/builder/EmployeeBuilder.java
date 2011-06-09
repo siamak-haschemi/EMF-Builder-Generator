@@ -8,7 +8,9 @@ package org.haschemi.utils.emfbuildergen.company.util.builder;
  * @generated
  */
 public class EmployeeBuilder {
+  // features and builders
   private java.lang.String m_name;
+  // helper attributes
   private boolean m_featureNameSet = false;
 
   /**
@@ -27,13 +29,12 @@ public class EmployeeBuilder {
   }
 
   /**
-   * This method can be used to override attributes of the builder.
+   * This method can be used to override attributes of the builder. It constructs a new builder and copies the current values to it.
    */
   public EmployeeBuilder but() {
     EmployeeBuilder _builder = newEmployeeBuilder();
-    if (m_featureNameSet) {
-      _builder.withName(m_name);
-    }
+    _builder.m_featureNameSet = m_featureNameSet;
+    _builder.m_name = m_name;
     return _builder;
   }
 
