@@ -7,18 +7,21 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class ProfileApplicationBuilder {
+public class ProfileApplicationBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.ProfileApplication> {
   // features and builders
   private org.eclipse.uml2.uml.Profile m_appliedProfile;
-  private org.eclipse.uml2.uml.util.builder.ProfileBuilder m_featureAppliedProfileBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Profile> m_featureAppliedProfileBuilder;
   private org.eclipse.uml2.uml.Package m_applyingPackage;
-  private org.eclipse.uml2.uml.util.builder.PackageBuilder m_featureApplyingPackageBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Package> m_featureApplyingPackageBuilder;
   private Boolean m_isStrict;
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   // helper attributes
   private boolean m_featureAppliedProfileSet = false;
   private boolean m_featureApplyingPackageSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureIsStrictSet = false;
   private boolean m_featureOwnedCommentSet = false;
 
@@ -48,6 +51,9 @@ public class ProfileApplicationBuilder {
     _builder.m_featureApplyingPackageSet = m_featureApplyingPackageSet;
     _builder.m_applyingPackage = m_applyingPackage;
     _builder.m_featureApplyingPackageBuilder = m_featureApplyingPackageBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureIsStrictSet = m_featureIsStrictSet;
     _builder.m_isStrict = m_isStrict;
     _builder.m_featureOwnedCommentSet = m_featureOwnedCommentSet;
@@ -79,11 +85,20 @@ public class ProfileApplicationBuilder {
     if (m_featureIsStrictSet) {
       _newInstance.setIsStrict(m_isStrict);
     }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
+        }
+      }
+    }
     if (m_featureOwnedCommentSet) {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -97,7 +112,7 @@ public class ProfileApplicationBuilder {
     return this;
   }
 
-  public ProfileApplicationBuilder withAppliedProfile(org.eclipse.uml2.uml.util.builder.ProfileBuilder p_profileBuilder) {
+  public ProfileApplicationBuilder withAppliedProfile(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Profile> p_profileBuilder) {
     m_featureAppliedProfileBuilder = p_profileBuilder;
     return this;
   }
@@ -108,7 +123,7 @@ public class ProfileApplicationBuilder {
     return this;
   }
 
-  public ProfileApplicationBuilder withApplyingPackage(org.eclipse.uml2.uml.util.builder.PackageBuilder p_packageBuilder) {
+  public ProfileApplicationBuilder withApplyingPackage(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Package> p_packageBuilder) {
     m_featureApplyingPackageBuilder = p_packageBuilder;
     return this;
   }
@@ -116,6 +131,23 @@ public class ProfileApplicationBuilder {
   public ProfileApplicationBuilder withIsStrict(Boolean p_isStrict) {
     m_isStrict = p_isStrict;
     m_featureIsStrictSet = true;
+    return this;
+  }
+
+  public ProfileApplicationBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ProfileApplicationBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ProfileApplicationBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -131,7 +163,7 @@ public class ProfileApplicationBuilder {
     return this;
   }
 
-  public ProfileApplicationBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public ProfileApplicationBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }

@@ -93,7 +93,7 @@ public class GenerateEMFBuildersAction implements IObjectActionDelegate {
         emfBuilderGenerator.addGenModel(genModel);
         for (GenPackage genPackage : genModel.getUsedGenPackages()) {
           final GenModel usedGenModel = genPackage.getGenModel();
-          if (emfBuilderGenerator.getGenModels().contains(usedGenModel)) {
+          if (!emfBuilderGenerator.getGenModels().contains(usedGenModel)) {
             emfBuilderGenerator.addGenModel(usedGenModel);
           }
         }

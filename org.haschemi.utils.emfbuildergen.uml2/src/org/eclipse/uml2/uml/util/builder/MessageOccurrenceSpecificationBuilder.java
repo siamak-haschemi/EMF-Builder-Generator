@@ -7,34 +7,38 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class MessageOccurrenceSpecificationBuilder {
+public class MessageOccurrenceSpecificationBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.MessageOccurrenceSpecification> {
   // features and builders
   private org.eclipse.uml2.uml.Interaction m_enclosingInteraction;
-  private org.eclipse.uml2.uml.util.builder.InteractionBuilder m_featureEnclosingInteractionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Interaction> m_featureEnclosingInteractionBuilder;
   private org.eclipse.uml2.uml.InteractionOperand m_enclosingOperand;
-  private org.eclipse.uml2.uml.util.builder.InteractionOperandBuilder m_featureEnclosingOperandBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InteractionOperand> m_featureEnclosingOperandBuilder;
   private org.eclipse.uml2.uml.Event m_event;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Event> m_featureEventBuilder;
   private org.eclipse.uml2.uml.Message m_message;
-  private org.eclipse.uml2.uml.util.builder.MessageBuilder m_featureMessageBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Message> m_featureMessageBuilder;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
   private java.util.Collection<org.eclipse.uml2.uml.Lifeline> m_covered = new java.util.LinkedList<org.eclipse.uml2.uml.Lifeline>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.LifelineBuilder> m_featureCoveredBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.LifelineBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline>> m_featureCoveredBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.GeneralOrdering> m_generalOrdering = new java.util.LinkedList<org.eclipse.uml2.uml.GeneralOrdering>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.GeneralOrderingBuilder> m_featureGeneralOrderingBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.GeneralOrderingBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering>> m_featureGeneralOrderingBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   private java.util.Collection<org.eclipse.uml2.uml.GeneralOrdering> m_toAfter = new java.util.LinkedList<org.eclipse.uml2.uml.GeneralOrdering>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.GeneralOrderingBuilder> m_featureToAfterBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.GeneralOrderingBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering>> m_featureToAfterBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering>>();
   private java.util.Collection<org.eclipse.uml2.uml.GeneralOrdering> m_toBefore = new java.util.LinkedList<org.eclipse.uml2.uml.GeneralOrdering>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.GeneralOrderingBuilder> m_featureToBeforeBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.GeneralOrderingBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering>> m_featureToBeforeBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering>>();
   // helper attributes
   private boolean m_featureClientDependencySet = false;
   private boolean m_featureCoveredSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureEnclosingInteractionSet = false;
   private boolean m_featureEnclosingOperandSet = false;
   private boolean m_featureEventSet = false;
@@ -73,6 +77,9 @@ public class MessageOccurrenceSpecificationBuilder {
     _builder.m_featureCoveredSet = m_featureCoveredSet;
     _builder.m_covered = m_covered;
     _builder.m_featureCoveredBuilder = m_featureCoveredBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureEnclosingInteractionSet = m_featureEnclosingInteractionSet;
     _builder.m_enclosingInteraction = m_enclosingInteraction;
     _builder.m_featureEnclosingInteractionBuilder = m_featureEnclosingInteractionBuilder;
@@ -81,6 +88,7 @@ public class MessageOccurrenceSpecificationBuilder {
     _builder.m_featureEnclosingOperandBuilder = m_featureEnclosingOperandBuilder;
     _builder.m_featureEventSet = m_featureEventSet;
     _builder.m_event = m_event;
+    _builder.m_featureEventBuilder = m_featureEventBuilder;
     _builder.m_featureGeneralOrderingSet = m_featureGeneralOrderingSet;
     _builder.m_generalOrdering = m_generalOrdering;
     _builder.m_featureGeneralOrderingBuilder = m_featureGeneralOrderingBuilder;
@@ -128,6 +136,10 @@ public class MessageOccurrenceSpecificationBuilder {
     }
     if (m_featureEventSet) {
       _newInstance.setEvent(m_event);
+    } else {
+      if (m_featureEventBuilder != null) {
+        _newInstance.setEvent(m_featureEventBuilder.build());
+      }
     }
     if (m_featureMessageSet) {
       _newInstance.setMessage(m_message);
@@ -153,7 +165,7 @@ public class MessageOccurrenceSpecificationBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
         }
       }
@@ -162,8 +174,17 @@ public class MessageOccurrenceSpecificationBuilder {
       _newInstance.getCovereds().addAll(m_covered);
     } else {
       if (!m_featureCoveredBuilder.isEmpty()) {
-        for (LifelineBuilder builder : m_featureCoveredBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline> builder : m_featureCoveredBuilder) {
           _newInstance.getCovereds().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -171,7 +192,7 @@ public class MessageOccurrenceSpecificationBuilder {
       _newInstance.getGeneralOrderings().addAll(m_generalOrdering);
     } else {
       if (!m_featureGeneralOrderingBuilder.isEmpty()) {
-        for (GeneralOrderingBuilder builder : m_featureGeneralOrderingBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering> builder : m_featureGeneralOrderingBuilder) {
           _newInstance.getGeneralOrderings().add(builder.build());
         }
       }
@@ -180,7 +201,7 @@ public class MessageOccurrenceSpecificationBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -189,7 +210,7 @@ public class MessageOccurrenceSpecificationBuilder {
       _newInstance.getToAfters().addAll(m_toAfter);
     } else {
       if (!m_featureToAfterBuilder.isEmpty()) {
-        for (GeneralOrderingBuilder builder : m_featureToAfterBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering> builder : m_featureToAfterBuilder) {
           _newInstance.getToAfters().add(builder.build());
         }
       }
@@ -198,7 +219,7 @@ public class MessageOccurrenceSpecificationBuilder {
       _newInstance.getToBefores().addAll(m_toBefore);
     } else {
       if (!m_featureToBeforeBuilder.isEmpty()) {
-        for (GeneralOrderingBuilder builder : m_featureToBeforeBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering> builder : m_featureToBeforeBuilder) {
           _newInstance.getToBefores().add(builder.build());
         }
       }
@@ -212,7 +233,7 @@ public class MessageOccurrenceSpecificationBuilder {
     return this;
   }
 
-  public MessageOccurrenceSpecificationBuilder withEnclosingInteraction(org.eclipse.uml2.uml.util.builder.InteractionBuilder p_interactionBuilder) {
+  public MessageOccurrenceSpecificationBuilder withEnclosingInteraction(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Interaction> p_interactionBuilder) {
     m_featureEnclosingInteractionBuilder = p_interactionBuilder;
     return this;
   }
@@ -223,7 +244,7 @@ public class MessageOccurrenceSpecificationBuilder {
     return this;
   }
 
-  public MessageOccurrenceSpecificationBuilder withEnclosingOperand(org.eclipse.uml2.uml.util.builder.InteractionOperandBuilder p_interactionOperandBuilder) {
+  public MessageOccurrenceSpecificationBuilder withEnclosingOperand(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InteractionOperand> p_interactionOperandBuilder) {
     m_featureEnclosingOperandBuilder = p_interactionOperandBuilder;
     return this;
   }
@@ -234,13 +255,18 @@ public class MessageOccurrenceSpecificationBuilder {
     return this;
   }
 
+  public MessageOccurrenceSpecificationBuilder withEvent(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Event> p_eventBuilder) {
+    m_featureEventBuilder = p_eventBuilder;
+    return this;
+  }
+
   public MessageOccurrenceSpecificationBuilder withMessage(org.eclipse.uml2.uml.Message p_message) {
     m_message = p_message;
     m_featureMessageSet = true;
     return this;
   }
 
-  public MessageOccurrenceSpecificationBuilder withMessage(org.eclipse.uml2.uml.util.builder.MessageBuilder p_messageBuilder) {
+  public MessageOccurrenceSpecificationBuilder withMessage(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Message> p_messageBuilder) {
     m_featureMessageBuilder = p_messageBuilder;
     return this;
   }
@@ -257,7 +283,7 @@ public class MessageOccurrenceSpecificationBuilder {
     return this;
   }
 
-  public MessageOccurrenceSpecificationBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public MessageOccurrenceSpecificationBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -280,7 +306,7 @@ public class MessageOccurrenceSpecificationBuilder {
     return this;
   }
 
-  public MessageOccurrenceSpecificationBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public MessageOccurrenceSpecificationBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
     return this;
   }
@@ -297,8 +323,25 @@ public class MessageOccurrenceSpecificationBuilder {
     return this;
   }
 
-  public MessageOccurrenceSpecificationBuilder withCovered(LifelineBuilder p_lifelineBuilder) {
+  public MessageOccurrenceSpecificationBuilder withCovered(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline> p_lifelineBuilder) {
     m_featureCoveredBuilder.add(p_lifelineBuilder);
+    return this;
+  }
+
+  public MessageOccurrenceSpecificationBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public MessageOccurrenceSpecificationBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public MessageOccurrenceSpecificationBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -314,7 +357,7 @@ public class MessageOccurrenceSpecificationBuilder {
     return this;
   }
 
-  public MessageOccurrenceSpecificationBuilder withGeneralOrdering(GeneralOrderingBuilder p_generalOrderingBuilder) {
+  public MessageOccurrenceSpecificationBuilder withGeneralOrdering(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering> p_generalOrderingBuilder) {
     m_featureGeneralOrderingBuilder.add(p_generalOrderingBuilder);
     return this;
   }
@@ -331,7 +374,7 @@ public class MessageOccurrenceSpecificationBuilder {
     return this;
   }
 
-  public MessageOccurrenceSpecificationBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public MessageOccurrenceSpecificationBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }
@@ -348,7 +391,7 @@ public class MessageOccurrenceSpecificationBuilder {
     return this;
   }
 
-  public MessageOccurrenceSpecificationBuilder withToAfter(GeneralOrderingBuilder p_generalOrderingBuilder) {
+  public MessageOccurrenceSpecificationBuilder withToAfter(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering> p_generalOrderingBuilder) {
     m_featureToAfterBuilder.add(p_generalOrderingBuilder);
     return this;
   }
@@ -365,7 +408,7 @@ public class MessageOccurrenceSpecificationBuilder {
     return this;
   }
 
-  public MessageOccurrenceSpecificationBuilder withToBefore(GeneralOrderingBuilder p_generalOrderingBuilder) {
+  public MessageOccurrenceSpecificationBuilder withToBefore(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering> p_generalOrderingBuilder) {
     m_featureToBeforeBuilder.add(p_generalOrderingBuilder);
     return this;
   }

@@ -7,16 +7,17 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class PropertyBuilder {
+public class PropertyBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.Property> {
   // features and builders
   private org.eclipse.uml2.uml.AggregationKind m_aggregation;
   private org.eclipse.uml2.uml.Association m_association;
-  private org.eclipse.uml2.uml.util.builder.AssociationBuilder m_featureAssociationBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Association> m_featureAssociationBuilder;
   private org.eclipse.uml2.uml.Property m_associationEnd;
-  private org.eclipse.uml2.uml.util.builder.PropertyBuilder m_featureAssociationEndBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property> m_featureAssociationEndBuilder;
   private org.eclipse.uml2.uml.DataType m_datatype;
-  private org.eclipse.uml2.uml.util.builder.DataTypeBuilder m_featureDatatypeBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.DataType> m_featureDatatypeBuilder;
   private org.eclipse.uml2.uml.ValueSpecification m_defaultValue;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ValueSpecification> m_featureDefaultValueBuilder;
   private Boolean m_isDerived;
   private Boolean m_isDerivedUnion;
   private Boolean m_isLeaf;
@@ -25,30 +26,35 @@ public class PropertyBuilder {
   private Boolean m_isStatic;
   private Boolean m_isUnique;
   private org.eclipse.uml2.uml.ValueSpecification m_lowerValue;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ValueSpecification> m_featureLowerValueBuilder;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.Association m_owningAssociation;
-  private org.eclipse.uml2.uml.util.builder.AssociationBuilder m_featureOwningAssociationBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Association> m_featureOwningAssociationBuilder;
   private org.eclipse.uml2.uml.TemplateParameter m_owningTemplateParameter;
-  private org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder m_featureOwningTemplateParameterBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> m_featureOwningTemplateParameterBuilder;
   private org.eclipse.uml2.uml.TemplateParameter m_templateParameter;
-  private org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder m_featureTemplateParameterBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> m_featureTemplateParameterBuilder;
   private org.eclipse.uml2.uml.Type m_type;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Type> m_featureTypeBuilder;
   private org.eclipse.uml2.uml.ValueSpecification m_upperValue;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ValueSpecification> m_featureUpperValueBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
   private java.util.Collection<org.eclipse.uml2.uml.Deployment> m_deployment = new java.util.LinkedList<org.eclipse.uml2.uml.Deployment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DeploymentBuilder> m_featureDeploymentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DeploymentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Deployment>> m_featureDeploymentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Deployment>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   private java.util.Collection<org.eclipse.uml2.uml.Property> m_qualifier = new java.util.LinkedList<org.eclipse.uml2.uml.Property>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.PropertyBuilder> m_featureQualifierBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.PropertyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property>> m_featureQualifierBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property>>();
   private java.util.Collection<org.eclipse.uml2.uml.Property> m_redefinedProperty = new java.util.LinkedList<org.eclipse.uml2.uml.Property>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.PropertyBuilder> m_featureRedefinedPropertyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.PropertyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property>> m_featureRedefinedPropertyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property>>();
   private java.util.Collection<org.eclipse.uml2.uml.Property> m_subsettedProperty = new java.util.LinkedList<org.eclipse.uml2.uml.Property>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.PropertyBuilder> m_featureSubsettedPropertyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.PropertyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property>> m_featureSubsettedPropertyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property>>();
   // helper attributes
   private boolean m_featureAggregationSet = false;
   private boolean m_featureAssociationSet = false;
@@ -57,6 +63,7 @@ public class PropertyBuilder {
   private boolean m_featureDatatypeSet = false;
   private boolean m_featureDefaultValueSet = false;
   private boolean m_featureDeploymentSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureIsDerivedSet = false;
   private boolean m_featureIsDerivedUnionSet = false;
   private boolean m_featureIsLeafSet = false;
@@ -114,9 +121,13 @@ public class PropertyBuilder {
     _builder.m_featureDatatypeBuilder = m_featureDatatypeBuilder;
     _builder.m_featureDefaultValueSet = m_featureDefaultValueSet;
     _builder.m_defaultValue = m_defaultValue;
+    _builder.m_featureDefaultValueBuilder = m_featureDefaultValueBuilder;
     _builder.m_featureDeploymentSet = m_featureDeploymentSet;
     _builder.m_deployment = m_deployment;
     _builder.m_featureDeploymentBuilder = m_featureDeploymentBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureIsDerivedSet = m_featureIsDerivedSet;
     _builder.m_isDerived = m_isDerived;
     _builder.m_featureIsDerivedUnionSet = m_featureIsDerivedUnionSet;
@@ -133,6 +144,7 @@ public class PropertyBuilder {
     _builder.m_isUnique = m_isUnique;
     _builder.m_featureLowerValueSet = m_featureLowerValueSet;
     _builder.m_lowerValue = m_lowerValue;
+    _builder.m_featureLowerValueBuilder = m_featureLowerValueBuilder;
     _builder.m_featureNameSet = m_featureNameSet;
     _builder.m_name = m_name;
     _builder.m_featureNameExpressionSet = m_featureNameExpressionSet;
@@ -161,8 +173,10 @@ public class PropertyBuilder {
     _builder.m_featureTemplateParameterBuilder = m_featureTemplateParameterBuilder;
     _builder.m_featureTypeSet = m_featureTypeSet;
     _builder.m_type = m_type;
+    _builder.m_featureTypeBuilder = m_featureTypeBuilder;
     _builder.m_featureUpperValueSet = m_featureUpperValueSet;
     _builder.m_upperValue = m_upperValue;
+    _builder.m_featureUpperValueBuilder = m_featureUpperValueBuilder;
     _builder.m_featureVisibilitySet = m_featureVisibilitySet;
     _builder.m_visibility = m_visibility;
     return _builder;
@@ -200,6 +214,10 @@ public class PropertyBuilder {
     }
     if (m_featureDefaultValueSet) {
       _newInstance.setDefaultValue(m_defaultValue);
+    } else {
+      if (m_featureDefaultValueBuilder != null) {
+        _newInstance.setDefaultValue(m_featureDefaultValueBuilder.build());
+      }
     }
     if (m_featureIsDerivedSet) {
       _newInstance.setIsDerived(m_isDerived);
@@ -224,6 +242,10 @@ public class PropertyBuilder {
     }
     if (m_featureLowerValueSet) {
       _newInstance.setLowerValue(m_lowerValue);
+    } else {
+      if (m_featureLowerValueBuilder != null) {
+        _newInstance.setLowerValue(m_featureLowerValueBuilder.build());
+      }
     }
     if (m_featureNameSet) {
       _newInstance.setName(m_name);
@@ -258,9 +280,17 @@ public class PropertyBuilder {
     }
     if (m_featureTypeSet) {
       _newInstance.setType(m_type);
+    } else {
+      if (m_featureTypeBuilder != null) {
+        _newInstance.setType(m_featureTypeBuilder.build());
+      }
     }
     if (m_featureUpperValueSet) {
       _newInstance.setUpperValue(m_upperValue);
+    } else {
+      if (m_featureUpperValueBuilder != null) {
+        _newInstance.setUpperValue(m_featureUpperValueBuilder.build());
+      }
     }
     if (m_featureVisibilitySet) {
       _newInstance.setVisibility(m_visibility);
@@ -269,7 +299,7 @@ public class PropertyBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
         }
       }
@@ -278,8 +308,17 @@ public class PropertyBuilder {
       _newInstance.getDeployments().addAll(m_deployment);
     } else {
       if (!m_featureDeploymentBuilder.isEmpty()) {
-        for (DeploymentBuilder builder : m_featureDeploymentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Deployment> builder : m_featureDeploymentBuilder) {
           _newInstance.getDeployments().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -287,7 +326,7 @@ public class PropertyBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -296,7 +335,7 @@ public class PropertyBuilder {
       _newInstance.getQualifiers().addAll(m_qualifier);
     } else {
       if (!m_featureQualifierBuilder.isEmpty()) {
-        for (PropertyBuilder builder : m_featureQualifierBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property> builder : m_featureQualifierBuilder) {
           _newInstance.getQualifiers().add(builder.build());
         }
       }
@@ -305,7 +344,7 @@ public class PropertyBuilder {
       _newInstance.getRedefinedProperties().addAll(m_redefinedProperty);
     } else {
       if (!m_featureRedefinedPropertyBuilder.isEmpty()) {
-        for (PropertyBuilder builder : m_featureRedefinedPropertyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property> builder : m_featureRedefinedPropertyBuilder) {
           _newInstance.getRedefinedProperties().add(builder.build());
         }
       }
@@ -314,7 +353,7 @@ public class PropertyBuilder {
       _newInstance.getSubsettedProperties().addAll(m_subsettedProperty);
     } else {
       if (!m_featureSubsettedPropertyBuilder.isEmpty()) {
-        for (PropertyBuilder builder : m_featureSubsettedPropertyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property> builder : m_featureSubsettedPropertyBuilder) {
           _newInstance.getSubsettedProperties().add(builder.build());
         }
       }
@@ -334,7 +373,7 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withAssociation(org.eclipse.uml2.uml.util.builder.AssociationBuilder p_associationBuilder) {
+  public PropertyBuilder withAssociation(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Association> p_associationBuilder) {
     m_featureAssociationBuilder = p_associationBuilder;
     return this;
   }
@@ -345,7 +384,7 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withAssociationEnd(org.eclipse.uml2.uml.util.builder.PropertyBuilder p_propertyBuilder) {
+  public PropertyBuilder withAssociationEnd(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property> p_propertyBuilder) {
     m_featureAssociationEndBuilder = p_propertyBuilder;
     return this;
   }
@@ -356,7 +395,7 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withDatatype(org.eclipse.uml2.uml.util.builder.DataTypeBuilder p_dataTypeBuilder) {
+  public PropertyBuilder withDatatype(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.DataType> p_dataTypeBuilder) {
     m_featureDatatypeBuilder = p_dataTypeBuilder;
     return this;
   }
@@ -364,6 +403,11 @@ public class PropertyBuilder {
   public PropertyBuilder withDefaultValue(org.eclipse.uml2.uml.ValueSpecification p_defaultValue) {
     m_defaultValue = p_defaultValue;
     m_featureDefaultValueSet = true;
+    return this;
+  }
+
+  public PropertyBuilder withDefaultValue(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ValueSpecification> p_valueSpecificationBuilder) {
+    m_featureDefaultValueBuilder = p_valueSpecificationBuilder;
     return this;
   }
 
@@ -415,6 +459,11 @@ public class PropertyBuilder {
     return this;
   }
 
+  public PropertyBuilder withLowerValue(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ValueSpecification> p_valueSpecificationBuilder) {
+    m_featureLowerValueBuilder = p_valueSpecificationBuilder;
+    return this;
+  }
+
   public PropertyBuilder withName(java.lang.String p_name) {
     m_name = p_name;
     m_featureNameSet = true;
@@ -427,7 +476,7 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public PropertyBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -438,7 +487,7 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withOwningAssociation(org.eclipse.uml2.uml.util.builder.AssociationBuilder p_associationBuilder) {
+  public PropertyBuilder withOwningAssociation(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Association> p_associationBuilder) {
     m_featureOwningAssociationBuilder = p_associationBuilder;
     return this;
   }
@@ -449,7 +498,7 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withOwningTemplateParameter(org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder p_templateParameterBuilder) {
+  public PropertyBuilder withOwningTemplateParameter(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> p_templateParameterBuilder) {
     m_featureOwningTemplateParameterBuilder = p_templateParameterBuilder;
     return this;
   }
@@ -460,7 +509,7 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withTemplateParameter(org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder p_templateParameterBuilder) {
+  public PropertyBuilder withTemplateParameter(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> p_templateParameterBuilder) {
     m_featureTemplateParameterBuilder = p_templateParameterBuilder;
     return this;
   }
@@ -471,9 +520,19 @@ public class PropertyBuilder {
     return this;
   }
 
+  public PropertyBuilder withType(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Type> p_typeBuilder) {
+    m_featureTypeBuilder = p_typeBuilder;
+    return this;
+  }
+
   public PropertyBuilder withUpperValue(org.eclipse.uml2.uml.ValueSpecification p_upperValue) {
     m_upperValue = p_upperValue;
     m_featureUpperValueSet = true;
+    return this;
+  }
+
+  public PropertyBuilder withUpperValue(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ValueSpecification> p_valueSpecificationBuilder) {
+    m_featureUpperValueBuilder = p_valueSpecificationBuilder;
     return this;
   }
 
@@ -495,7 +554,7 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public PropertyBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
     return this;
   }
@@ -512,8 +571,25 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withDeployment(DeploymentBuilder p_deploymentBuilder) {
+  public PropertyBuilder withDeployment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Deployment> p_deploymentBuilder) {
     m_featureDeploymentBuilder.add(p_deploymentBuilder);
+    return this;
+  }
+
+  public PropertyBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public PropertyBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public PropertyBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -529,7 +605,7 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public PropertyBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }
@@ -546,7 +622,7 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withQualifier(PropertyBuilder p_propertyBuilder) {
+  public PropertyBuilder withQualifier(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property> p_propertyBuilder) {
     m_featureQualifierBuilder.add(p_propertyBuilder);
     return this;
   }
@@ -563,7 +639,7 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withRedefinedProperty(PropertyBuilder p_propertyBuilder) {
+  public PropertyBuilder withRedefinedProperty(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property> p_propertyBuilder) {
     m_featureRedefinedPropertyBuilder.add(p_propertyBuilder);
     return this;
   }
@@ -580,7 +656,7 @@ public class PropertyBuilder {
     return this;
   }
 
-  public PropertyBuilder withSubsettedProperty(PropertyBuilder p_propertyBuilder) {
+  public PropertyBuilder withSubsettedProperty(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property> p_propertyBuilder) {
     m_featureSubsettedPropertyBuilder.add(p_propertyBuilder);
     return this;
   }

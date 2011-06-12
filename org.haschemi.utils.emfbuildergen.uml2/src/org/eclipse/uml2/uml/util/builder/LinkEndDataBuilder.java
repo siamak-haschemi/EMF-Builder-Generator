@@ -7,17 +7,20 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class LinkEndDataBuilder {
+public class LinkEndDataBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.LinkEndData> {
   // features and builders
   private org.eclipse.uml2.uml.Property m_end;
-  private org.eclipse.uml2.uml.util.builder.PropertyBuilder m_featureEndBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property> m_featureEndBuilder;
   private org.eclipse.uml2.uml.InputPin m_value;
-  private org.eclipse.uml2.uml.util.builder.InputPinBuilder m_featureValueBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InputPin> m_featureValueBuilder;
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   private java.util.Collection<org.eclipse.uml2.uml.QualifierValue> m_qualifier = new java.util.LinkedList<org.eclipse.uml2.uml.QualifierValue>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.QualifierValueBuilder> m_featureQualifierBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.QualifierValueBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.QualifierValue>> m_featureQualifierBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.QualifierValue>>();
   // helper attributes
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureEndSet = false;
   private boolean m_featureOwnedCommentSet = false;
   private boolean m_featureQualifierSet = false;
@@ -43,6 +46,9 @@ public class LinkEndDataBuilder {
    */
   public LinkEndDataBuilder but() {
     LinkEndDataBuilder _builder = newLinkEndDataBuilder();
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureEndSet = m_featureEndSet;
     _builder.m_end = m_end;
     _builder.m_featureEndBuilder = m_featureEndBuilder;
@@ -78,11 +84,20 @@ public class LinkEndDataBuilder {
         _newInstance.setValue(m_featureValueBuilder.build());
       }
     }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
+        }
+      }
+    }
     if (m_featureOwnedCommentSet) {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -91,7 +106,7 @@ public class LinkEndDataBuilder {
       _newInstance.getQualifiers().addAll(m_qualifier);
     } else {
       if (!m_featureQualifierBuilder.isEmpty()) {
-        for (QualifierValueBuilder builder : m_featureQualifierBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.QualifierValue> builder : m_featureQualifierBuilder) {
           _newInstance.getQualifiers().add(builder.build());
         }
       }
@@ -105,7 +120,7 @@ public class LinkEndDataBuilder {
     return this;
   }
 
-  public LinkEndDataBuilder withEnd(org.eclipse.uml2.uml.util.builder.PropertyBuilder p_propertyBuilder) {
+  public LinkEndDataBuilder withEnd(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property> p_propertyBuilder) {
     m_featureEndBuilder = p_propertyBuilder;
     return this;
   }
@@ -116,8 +131,25 @@ public class LinkEndDataBuilder {
     return this;
   }
 
-  public LinkEndDataBuilder withValue(org.eclipse.uml2.uml.util.builder.InputPinBuilder p_inputPinBuilder) {
+  public LinkEndDataBuilder withValue(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InputPin> p_inputPinBuilder) {
     m_featureValueBuilder = p_inputPinBuilder;
+    return this;
+  }
+
+  public LinkEndDataBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public LinkEndDataBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public LinkEndDataBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -133,7 +165,7 @@ public class LinkEndDataBuilder {
     return this;
   }
 
-  public LinkEndDataBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public LinkEndDataBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }
@@ -150,7 +182,7 @@ public class LinkEndDataBuilder {
     return this;
   }
 
-  public LinkEndDataBuilder withQualifier(QualifierValueBuilder p_qualifierValueBuilder) {
+  public LinkEndDataBuilder withQualifier(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.QualifierValue> p_qualifierValueBuilder) {
     m_featureQualifierBuilder.add(p_qualifierValueBuilder);
     return this;
   }

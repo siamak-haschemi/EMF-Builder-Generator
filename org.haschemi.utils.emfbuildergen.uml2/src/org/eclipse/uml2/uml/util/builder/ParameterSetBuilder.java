@@ -7,23 +7,26 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class ParameterSetBuilder {
+public class ParameterSetBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.ParameterSet> {
   // features and builders
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
   private java.util.Collection<org.eclipse.uml2.uml.Constraint> m_condition = new java.util.LinkedList<org.eclipse.uml2.uml.Constraint>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ConstraintBuilder> m_featureConditionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ConstraintBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint>> m_featureConditionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   private java.util.Collection<org.eclipse.uml2.uml.Parameter> m_parameter = new java.util.LinkedList<org.eclipse.uml2.uml.Parameter>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ParameterBuilder> m_featureParameterBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ParameterBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Parameter>> m_featureParameterBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Parameter>>();
   // helper attributes
   private boolean m_featureClientDependencySet = false;
   private boolean m_featureConditionSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureNameSet = false;
   private boolean m_featureNameExpressionSet = false;
   private boolean m_featureOwnedCommentSet = false;
@@ -56,6 +59,9 @@ public class ParameterSetBuilder {
     _builder.m_featureConditionSet = m_featureConditionSet;
     _builder.m_condition = m_condition;
     _builder.m_featureConditionBuilder = m_featureConditionBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureNameSet = m_featureNameSet;
     _builder.m_name = m_name;
     _builder.m_featureNameExpressionSet = m_featureNameExpressionSet;
@@ -95,7 +101,7 @@ public class ParameterSetBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
         }
       }
@@ -104,8 +110,17 @@ public class ParameterSetBuilder {
       _newInstance.getConditions().addAll(m_condition);
     } else {
       if (!m_featureConditionBuilder.isEmpty()) {
-        for (ConstraintBuilder builder : m_featureConditionBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> builder : m_featureConditionBuilder) {
           _newInstance.getConditions().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -113,7 +128,7 @@ public class ParameterSetBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -122,7 +137,7 @@ public class ParameterSetBuilder {
       _newInstance.getParameters().addAll(m_parameter);
     } else {
       if (!m_featureParameterBuilder.isEmpty()) {
-        for (ParameterBuilder builder : m_featureParameterBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Parameter> builder : m_featureParameterBuilder) {
           _newInstance.getParameters().add(builder.build());
         }
       }
@@ -142,7 +157,7 @@ public class ParameterSetBuilder {
     return this;
   }
 
-  public ParameterSetBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public ParameterSetBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -165,7 +180,7 @@ public class ParameterSetBuilder {
     return this;
   }
 
-  public ParameterSetBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public ParameterSetBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
     return this;
   }
@@ -182,8 +197,25 @@ public class ParameterSetBuilder {
     return this;
   }
 
-  public ParameterSetBuilder withCondition(ConstraintBuilder p_constraintBuilder) {
+  public ParameterSetBuilder withCondition(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> p_constraintBuilder) {
     m_featureConditionBuilder.add(p_constraintBuilder);
+    return this;
+  }
+
+  public ParameterSetBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ParameterSetBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ParameterSetBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -199,7 +231,7 @@ public class ParameterSetBuilder {
     return this;
   }
 
-  public ParameterSetBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public ParameterSetBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }
@@ -216,7 +248,7 @@ public class ParameterSetBuilder {
     return this;
   }
 
-  public ParameterSetBuilder withParameter(ParameterBuilder p_parameterBuilder) {
+  public ParameterSetBuilder withParameter(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Parameter> p_parameterBuilder) {
     m_featureParameterBuilder.add(p_parameterBuilder);
     return this;
   }

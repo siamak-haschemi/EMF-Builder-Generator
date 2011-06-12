@@ -7,18 +7,18 @@ package org.eclipse.emf.ecore.util.builder;
  * 
  * @generated
  */
-public class EEnumBuilder {
+public class EEnumBuilder implements org.eclipse.emf.ecore.util.builder.IEcoreBuilder<org.eclipse.emf.ecore.EEnum> {
   // features and builders
   private java.lang.String m_instanceClassName;
   private java.lang.String m_instanceTypeName;
   private java.lang.String m_name;
   private Boolean m_serializable;
   private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.emf.ecore.EEnumLiteral> m_eLiterals = new java.util.LinkedList<org.eclipse.emf.ecore.EEnumLiteral>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EEnumLiteralBuilder> m_featureELiteralsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EEnumLiteralBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EEnumLiteral>> m_featureELiteralsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EEnumLiteral>>();
   private java.util.Collection<org.eclipse.emf.ecore.ETypeParameter> m_eTypeParameters = new java.util.LinkedList<org.eclipse.emf.ecore.ETypeParameter>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.ETypeParameterBuilder> m_featureETypeParametersBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.ETypeParameterBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter>> m_featureETypeParametersBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter>>();
   // helper attributes
   private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureELiteralsSet = false;
@@ -90,7 +90,7 @@ public class EEnumBuilder {
       _newInstance.getEAnnotations().addAll(m_eAnnotations);
     } else {
       if (!m_featureEAnnotationsBuilder.isEmpty()) {
-        for (EAnnotationBuilder builder : m_featureEAnnotationsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
           _newInstance.getEAnnotations().add(builder.build());
         }
       }
@@ -99,7 +99,7 @@ public class EEnumBuilder {
       _newInstance.getELiterals().addAll(m_eLiterals);
     } else {
       if (!m_featureELiteralsBuilder.isEmpty()) {
-        for (EEnumLiteralBuilder builder : m_featureELiteralsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EEnumLiteral> builder : m_featureELiteralsBuilder) {
           _newInstance.getELiterals().add(builder.build());
         }
       }
@@ -108,7 +108,7 @@ public class EEnumBuilder {
       _newInstance.getETypeParameters().addAll(m_eTypeParameters);
     } else {
       if (!m_featureETypeParametersBuilder.isEmpty()) {
-        for (ETypeParameterBuilder builder : m_featureETypeParametersBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter> builder : m_featureETypeParametersBuilder) {
           _newInstance.getETypeParameters().add(builder.build());
         }
       }
@@ -152,7 +152,7 @@ public class EEnumBuilder {
     return this;
   }
 
-  public EEnumBuilder withEAnnotations(EAnnotationBuilder p_eAnnotationBuilder) {
+  public EEnumBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
     m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
@@ -169,7 +169,7 @@ public class EEnumBuilder {
     return this;
   }
 
-  public EEnumBuilder withELiterals(EEnumLiteralBuilder p_eEnumLiteralBuilder) {
+  public EEnumBuilder withELiterals(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EEnumLiteral> p_eEnumLiteralBuilder) {
     m_featureELiteralsBuilder.add(p_eEnumLiteralBuilder);
     return this;
   }
@@ -186,7 +186,7 @@ public class EEnumBuilder {
     return this;
   }
 
-  public EEnumBuilder withETypeParameters(ETypeParameterBuilder p_eTypeParameterBuilder) {
+  public EEnumBuilder withETypeParameters(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter> p_eTypeParameterBuilder) {
     m_featureETypeParametersBuilder.add(p_eTypeParameterBuilder);
     return this;
   }

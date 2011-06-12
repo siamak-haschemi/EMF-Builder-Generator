@@ -7,16 +7,16 @@ package org.eclipse.emf.ecore.util.builder;
  * 
  * @generated
  */
-public class EDataTypeBuilder {
+public class EDataTypeBuilder implements org.eclipse.emf.ecore.util.builder.IEcoreBuilder<org.eclipse.emf.ecore.EDataType> {
   // features and builders
   private java.lang.String m_instanceClassName;
   private java.lang.String m_instanceTypeName;
   private java.lang.String m_name;
   private Boolean m_serializable;
   private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.emf.ecore.ETypeParameter> m_eTypeParameters = new java.util.LinkedList<org.eclipse.emf.ecore.ETypeParameter>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.ETypeParameterBuilder> m_featureETypeParametersBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.ETypeParameterBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter>> m_featureETypeParametersBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter>>();
   // helper attributes
   private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureETypeParametersSet = false;
@@ -84,7 +84,7 @@ public class EDataTypeBuilder {
       _newInstance.getEAnnotations().addAll(m_eAnnotations);
     } else {
       if (!m_featureEAnnotationsBuilder.isEmpty()) {
-        for (EAnnotationBuilder builder : m_featureEAnnotationsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
           _newInstance.getEAnnotations().add(builder.build());
         }
       }
@@ -93,7 +93,7 @@ public class EDataTypeBuilder {
       _newInstance.getETypeParameters().addAll(m_eTypeParameters);
     } else {
       if (!m_featureETypeParametersBuilder.isEmpty()) {
-        for (ETypeParameterBuilder builder : m_featureETypeParametersBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter> builder : m_featureETypeParametersBuilder) {
           _newInstance.getETypeParameters().add(builder.build());
         }
       }
@@ -137,7 +137,7 @@ public class EDataTypeBuilder {
     return this;
   }
 
-  public EDataTypeBuilder withEAnnotations(EAnnotationBuilder p_eAnnotationBuilder) {
+  public EDataTypeBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
     m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
@@ -154,7 +154,7 @@ public class EDataTypeBuilder {
     return this;
   }
 
-  public EDataTypeBuilder withETypeParameters(ETypeParameterBuilder p_eTypeParameterBuilder) {
+  public EDataTypeBuilder withETypeParameters(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter> p_eTypeParameterBuilder) {
     m_featureETypeParametersBuilder.add(p_eTypeParameterBuilder);
     return this;
   }

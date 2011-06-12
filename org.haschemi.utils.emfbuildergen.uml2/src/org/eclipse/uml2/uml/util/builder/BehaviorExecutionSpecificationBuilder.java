@@ -7,33 +7,37 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class BehaviorExecutionSpecificationBuilder {
+public class BehaviorExecutionSpecificationBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.BehaviorExecutionSpecification> {
   // features and builders
   private org.eclipse.uml2.uml.Behavior m_behavior;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Behavior> m_featureBehaviorBuilder;
   private org.eclipse.uml2.uml.Interaction m_enclosingInteraction;
-  private org.eclipse.uml2.uml.util.builder.InteractionBuilder m_featureEnclosingInteractionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Interaction> m_featureEnclosingInteractionBuilder;
   private org.eclipse.uml2.uml.InteractionOperand m_enclosingOperand;
-  private org.eclipse.uml2.uml.util.builder.InteractionOperandBuilder m_featureEnclosingOperandBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InteractionOperand> m_featureEnclosingOperandBuilder;
   private org.eclipse.uml2.uml.OccurrenceSpecification m_finish;
-  private org.eclipse.uml2.uml.util.builder.OccurrenceSpecificationBuilder m_featureFinishBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OccurrenceSpecification> m_featureFinishBuilder;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.OccurrenceSpecification m_start;
-  private org.eclipse.uml2.uml.util.builder.OccurrenceSpecificationBuilder m_featureStartBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OccurrenceSpecification> m_featureStartBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
   private java.util.Collection<org.eclipse.uml2.uml.Lifeline> m_covered = new java.util.LinkedList<org.eclipse.uml2.uml.Lifeline>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.LifelineBuilder> m_featureCoveredBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.LifelineBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline>> m_featureCoveredBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.GeneralOrdering> m_generalOrdering = new java.util.LinkedList<org.eclipse.uml2.uml.GeneralOrdering>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.GeneralOrderingBuilder> m_featureGeneralOrderingBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.GeneralOrderingBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering>> m_featureGeneralOrderingBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   // helper attributes
   private boolean m_featureBehaviorSet = false;
   private boolean m_featureClientDependencySet = false;
   private boolean m_featureCoveredSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureEnclosingInteractionSet = false;
   private boolean m_featureEnclosingOperandSet = false;
   private boolean m_featureFinishSet = false;
@@ -66,12 +70,16 @@ public class BehaviorExecutionSpecificationBuilder {
     BehaviorExecutionSpecificationBuilder _builder = newBehaviorExecutionSpecificationBuilder();
     _builder.m_featureBehaviorSet = m_featureBehaviorSet;
     _builder.m_behavior = m_behavior;
+    _builder.m_featureBehaviorBuilder = m_featureBehaviorBuilder;
     _builder.m_featureClientDependencySet = m_featureClientDependencySet;
     _builder.m_clientDependency = m_clientDependency;
     _builder.m_featureClientDependencyBuilder = m_featureClientDependencyBuilder;
     _builder.m_featureCoveredSet = m_featureCoveredSet;
     _builder.m_covered = m_covered;
     _builder.m_featureCoveredBuilder = m_featureCoveredBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureEnclosingInteractionSet = m_featureEnclosingInteractionSet;
     _builder.m_enclosingInteraction = m_enclosingInteraction;
     _builder.m_featureEnclosingInteractionBuilder = m_featureEnclosingInteractionBuilder;
@@ -108,6 +116,10 @@ public class BehaviorExecutionSpecificationBuilder {
     final org.eclipse.uml2.uml.BehaviorExecutionSpecification _newInstance = org.eclipse.uml2.uml.UMLFactory.eINSTANCE.createBehaviorExecutionSpecification();
     if (m_featureBehaviorSet) {
       _newInstance.setBehavior(m_behavior);
+    } else {
+      if (m_featureBehaviorBuilder != null) {
+        _newInstance.setBehavior(m_featureBehaviorBuilder.build());
+      }
     }
     if (m_featureEnclosingInteractionSet) {
       _newInstance.setEnclosingInteraction(m_enclosingInteraction);
@@ -154,7 +166,7 @@ public class BehaviorExecutionSpecificationBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
         }
       }
@@ -163,8 +175,17 @@ public class BehaviorExecutionSpecificationBuilder {
       _newInstance.getCovereds().addAll(m_covered);
     } else {
       if (!m_featureCoveredBuilder.isEmpty()) {
-        for (LifelineBuilder builder : m_featureCoveredBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline> builder : m_featureCoveredBuilder) {
           _newInstance.getCovereds().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -172,7 +193,7 @@ public class BehaviorExecutionSpecificationBuilder {
       _newInstance.getGeneralOrderings().addAll(m_generalOrdering);
     } else {
       if (!m_featureGeneralOrderingBuilder.isEmpty()) {
-        for (GeneralOrderingBuilder builder : m_featureGeneralOrderingBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering> builder : m_featureGeneralOrderingBuilder) {
           _newInstance.getGeneralOrderings().add(builder.build());
         }
       }
@@ -181,7 +202,7 @@ public class BehaviorExecutionSpecificationBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -195,13 +216,18 @@ public class BehaviorExecutionSpecificationBuilder {
     return this;
   }
 
+  public BehaviorExecutionSpecificationBuilder withBehavior(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Behavior> p_behaviorBuilder) {
+    m_featureBehaviorBuilder = p_behaviorBuilder;
+    return this;
+  }
+
   public BehaviorExecutionSpecificationBuilder withEnclosingInteraction(org.eclipse.uml2.uml.Interaction p_enclosingInteraction) {
     m_enclosingInteraction = p_enclosingInteraction;
     m_featureEnclosingInteractionSet = true;
     return this;
   }
 
-  public BehaviorExecutionSpecificationBuilder withEnclosingInteraction(org.eclipse.uml2.uml.util.builder.InteractionBuilder p_interactionBuilder) {
+  public BehaviorExecutionSpecificationBuilder withEnclosingInteraction(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Interaction> p_interactionBuilder) {
     m_featureEnclosingInteractionBuilder = p_interactionBuilder;
     return this;
   }
@@ -212,7 +238,7 @@ public class BehaviorExecutionSpecificationBuilder {
     return this;
   }
 
-  public BehaviorExecutionSpecificationBuilder withEnclosingOperand(org.eclipse.uml2.uml.util.builder.InteractionOperandBuilder p_interactionOperandBuilder) {
+  public BehaviorExecutionSpecificationBuilder withEnclosingOperand(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InteractionOperand> p_interactionOperandBuilder) {
     m_featureEnclosingOperandBuilder = p_interactionOperandBuilder;
     return this;
   }
@@ -223,7 +249,7 @@ public class BehaviorExecutionSpecificationBuilder {
     return this;
   }
 
-  public BehaviorExecutionSpecificationBuilder withFinish(org.eclipse.uml2.uml.util.builder.OccurrenceSpecificationBuilder p_occurrenceSpecificationBuilder) {
+  public BehaviorExecutionSpecificationBuilder withFinish(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OccurrenceSpecification> p_occurrenceSpecificationBuilder) {
     m_featureFinishBuilder = p_occurrenceSpecificationBuilder;
     return this;
   }
@@ -240,7 +266,7 @@ public class BehaviorExecutionSpecificationBuilder {
     return this;
   }
 
-  public BehaviorExecutionSpecificationBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public BehaviorExecutionSpecificationBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -251,7 +277,7 @@ public class BehaviorExecutionSpecificationBuilder {
     return this;
   }
 
-  public BehaviorExecutionSpecificationBuilder withStart(org.eclipse.uml2.uml.util.builder.OccurrenceSpecificationBuilder p_occurrenceSpecificationBuilder) {
+  public BehaviorExecutionSpecificationBuilder withStart(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OccurrenceSpecification> p_occurrenceSpecificationBuilder) {
     m_featureStartBuilder = p_occurrenceSpecificationBuilder;
     return this;
   }
@@ -274,7 +300,7 @@ public class BehaviorExecutionSpecificationBuilder {
     return this;
   }
 
-  public BehaviorExecutionSpecificationBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public BehaviorExecutionSpecificationBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
     return this;
   }
@@ -291,8 +317,25 @@ public class BehaviorExecutionSpecificationBuilder {
     return this;
   }
 
-  public BehaviorExecutionSpecificationBuilder withCovered(LifelineBuilder p_lifelineBuilder) {
+  public BehaviorExecutionSpecificationBuilder withCovered(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline> p_lifelineBuilder) {
     m_featureCoveredBuilder.add(p_lifelineBuilder);
+    return this;
+  }
+
+  public BehaviorExecutionSpecificationBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public BehaviorExecutionSpecificationBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public BehaviorExecutionSpecificationBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -308,7 +351,7 @@ public class BehaviorExecutionSpecificationBuilder {
     return this;
   }
 
-  public BehaviorExecutionSpecificationBuilder withGeneralOrdering(GeneralOrderingBuilder p_generalOrderingBuilder) {
+  public BehaviorExecutionSpecificationBuilder withGeneralOrdering(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering> p_generalOrderingBuilder) {
     m_featureGeneralOrderingBuilder.add(p_generalOrderingBuilder);
     return this;
   }
@@ -325,7 +368,7 @@ public class BehaviorExecutionSpecificationBuilder {
     return this;
   }
 
-  public BehaviorExecutionSpecificationBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public BehaviorExecutionSpecificationBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }

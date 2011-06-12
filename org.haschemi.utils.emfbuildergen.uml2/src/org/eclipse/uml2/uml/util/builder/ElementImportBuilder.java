@@ -7,16 +7,21 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class ElementImportBuilder {
+public class ElementImportBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.ElementImport> {
   // features and builders
   private java.lang.String m_alias;
   private org.eclipse.uml2.uml.PackageableElement m_importedElement;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.PackageableElement> m_featureImportedElementBuilder;
   private org.eclipse.uml2.uml.Namespace m_importingNamespace;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Namespace> m_featureImportingNamespaceBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   // helper attributes
   private boolean m_featureAliasSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureImportedElementSet = false;
   private boolean m_featureImportingNamespaceSet = false;
   private boolean m_featureOwnedCommentSet = false;
@@ -44,10 +49,15 @@ public class ElementImportBuilder {
     ElementImportBuilder _builder = newElementImportBuilder();
     _builder.m_featureAliasSet = m_featureAliasSet;
     _builder.m_alias = m_alias;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureImportedElementSet = m_featureImportedElementSet;
     _builder.m_importedElement = m_importedElement;
+    _builder.m_featureImportedElementBuilder = m_featureImportedElementBuilder;
     _builder.m_featureImportingNamespaceSet = m_featureImportingNamespaceSet;
     _builder.m_importingNamespace = m_importingNamespace;
+    _builder.m_featureImportingNamespaceBuilder = m_featureImportingNamespaceBuilder;
     _builder.m_featureOwnedCommentSet = m_featureOwnedCommentSet;
     _builder.m_ownedComment = m_ownedComment;
     _builder.m_featureOwnedCommentBuilder = m_featureOwnedCommentBuilder;
@@ -67,18 +77,35 @@ public class ElementImportBuilder {
     }
     if (m_featureImportedElementSet) {
       _newInstance.setImportedElement(m_importedElement);
+    } else {
+      if (m_featureImportedElementBuilder != null) {
+        _newInstance.setImportedElement(m_featureImportedElementBuilder.build());
+      }
     }
     if (m_featureImportingNamespaceSet) {
       _newInstance.setImportingNamespace(m_importingNamespace);
+    } else {
+      if (m_featureImportingNamespaceBuilder != null) {
+        _newInstance.setImportingNamespace(m_featureImportingNamespaceBuilder.build());
+      }
     }
     if (m_featureVisibilitySet) {
       _newInstance.setVisibility(m_visibility);
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
+        }
+      }
     }
     if (m_featureOwnedCommentSet) {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -98,15 +125,42 @@ public class ElementImportBuilder {
     return this;
   }
 
+  public ElementImportBuilder withImportedElement(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.PackageableElement> p_packageableElementBuilder) {
+    m_featureImportedElementBuilder = p_packageableElementBuilder;
+    return this;
+  }
+
   public ElementImportBuilder withImportingNamespace(org.eclipse.uml2.uml.Namespace p_importingNamespace) {
     m_importingNamespace = p_importingNamespace;
     m_featureImportingNamespaceSet = true;
     return this;
   }
 
+  public ElementImportBuilder withImportingNamespace(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Namespace> p_namespaceBuilder) {
+    m_featureImportingNamespaceBuilder = p_namespaceBuilder;
+    return this;
+  }
+
   public ElementImportBuilder withVisibility(org.eclipse.uml2.uml.VisibilityKind p_visibility) {
     m_visibility = p_visibility;
     m_featureVisibilitySet = true;
+    return this;
+  }
+
+  public ElementImportBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ElementImportBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ElementImportBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -122,7 +176,7 @@ public class ElementImportBuilder {
     return this;
   }
 
-  public ElementImportBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public ElementImportBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }

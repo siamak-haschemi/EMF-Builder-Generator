@@ -7,18 +7,23 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class TemplateParameterSubstitutionBuilder {
+public class TemplateParameterSubstitutionBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.TemplateParameterSubstitution> {
   // features and builders
   private org.eclipse.uml2.uml.ParameterableElement m_actual;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ParameterableElement> m_featureActualBuilder;
   private org.eclipse.uml2.uml.TemplateParameter m_formal;
-  private org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder m_featureFormalBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> m_featureFormalBuilder;
   private org.eclipse.uml2.uml.ParameterableElement m_ownedActual;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ParameterableElement> m_featureOwnedActualBuilder;
   private org.eclipse.uml2.uml.TemplateBinding m_templateBinding;
-  private org.eclipse.uml2.uml.util.builder.TemplateBindingBuilder m_featureTemplateBindingBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateBinding> m_featureTemplateBindingBuilder;
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   // helper attributes
   private boolean m_featureActualSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureFormalSet = false;
   private boolean m_featureOwnedActualSet = false;
   private boolean m_featureOwnedCommentSet = false;
@@ -46,11 +51,16 @@ public class TemplateParameterSubstitutionBuilder {
     TemplateParameterSubstitutionBuilder _builder = newTemplateParameterSubstitutionBuilder();
     _builder.m_featureActualSet = m_featureActualSet;
     _builder.m_actual = m_actual;
+    _builder.m_featureActualBuilder = m_featureActualBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureFormalSet = m_featureFormalSet;
     _builder.m_formal = m_formal;
     _builder.m_featureFormalBuilder = m_featureFormalBuilder;
     _builder.m_featureOwnedActualSet = m_featureOwnedActualSet;
     _builder.m_ownedActual = m_ownedActual;
+    _builder.m_featureOwnedActualBuilder = m_featureOwnedActualBuilder;
     _builder.m_featureOwnedCommentSet = m_featureOwnedCommentSet;
     _builder.m_ownedComment = m_ownedComment;
     _builder.m_featureOwnedCommentBuilder = m_featureOwnedCommentBuilder;
@@ -68,6 +78,10 @@ public class TemplateParameterSubstitutionBuilder {
     final org.eclipse.uml2.uml.TemplateParameterSubstitution _newInstance = org.eclipse.uml2.uml.UMLFactory.eINSTANCE.createTemplateParameterSubstitution();
     if (m_featureActualSet) {
       _newInstance.setActual(m_actual);
+    } else {
+      if (m_featureActualBuilder != null) {
+        _newInstance.setActual(m_featureActualBuilder.build());
+      }
     }
     if (m_featureFormalSet) {
       _newInstance.setFormal(m_formal);
@@ -78,6 +92,10 @@ public class TemplateParameterSubstitutionBuilder {
     }
     if (m_featureOwnedActualSet) {
       _newInstance.setOwnedActual(m_ownedActual);
+    } else {
+      if (m_featureOwnedActualBuilder != null) {
+        _newInstance.setOwnedActual(m_featureOwnedActualBuilder.build());
+      }
     }
     if (m_featureTemplateBindingSet) {
       _newInstance.setTemplateBinding(m_templateBinding);
@@ -86,11 +104,20 @@ public class TemplateParameterSubstitutionBuilder {
         _newInstance.setTemplateBinding(m_featureTemplateBindingBuilder.build());
       }
     }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
+        }
+      }
+    }
     if (m_featureOwnedCommentSet) {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -104,13 +131,18 @@ public class TemplateParameterSubstitutionBuilder {
     return this;
   }
 
+  public TemplateParameterSubstitutionBuilder withActual(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ParameterableElement> p_parameterableElementBuilder) {
+    m_featureActualBuilder = p_parameterableElementBuilder;
+    return this;
+  }
+
   public TemplateParameterSubstitutionBuilder withFormal(org.eclipse.uml2.uml.TemplateParameter p_formal) {
     m_formal = p_formal;
     m_featureFormalSet = true;
     return this;
   }
 
-  public TemplateParameterSubstitutionBuilder withFormal(org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder p_templateParameterBuilder) {
+  public TemplateParameterSubstitutionBuilder withFormal(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> p_templateParameterBuilder) {
     m_featureFormalBuilder = p_templateParameterBuilder;
     return this;
   }
@@ -121,14 +153,36 @@ public class TemplateParameterSubstitutionBuilder {
     return this;
   }
 
+  public TemplateParameterSubstitutionBuilder withOwnedActual(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ParameterableElement> p_parameterableElementBuilder) {
+    m_featureOwnedActualBuilder = p_parameterableElementBuilder;
+    return this;
+  }
+
   public TemplateParameterSubstitutionBuilder withTemplateBinding(org.eclipse.uml2.uml.TemplateBinding p_templateBinding) {
     m_templateBinding = p_templateBinding;
     m_featureTemplateBindingSet = true;
     return this;
   }
 
-  public TemplateParameterSubstitutionBuilder withTemplateBinding(org.eclipse.uml2.uml.util.builder.TemplateBindingBuilder p_templateBindingBuilder) {
+  public TemplateParameterSubstitutionBuilder withTemplateBinding(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateBinding> p_templateBindingBuilder) {
     m_featureTemplateBindingBuilder = p_templateBindingBuilder;
+    return this;
+  }
+
+  public TemplateParameterSubstitutionBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public TemplateParameterSubstitutionBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public TemplateParameterSubstitutionBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -144,7 +198,7 @@ public class TemplateParameterSubstitutionBuilder {
     return this;
   }
 
-  public TemplateParameterSubstitutionBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public TemplateParameterSubstitutionBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }

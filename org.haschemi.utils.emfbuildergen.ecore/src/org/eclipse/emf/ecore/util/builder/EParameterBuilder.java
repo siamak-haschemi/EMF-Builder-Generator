@@ -7,18 +7,19 @@ package org.eclipse.emf.ecore.util.builder;
  * 
  * @generated
  */
-public class EParameterBuilder {
+public class EParameterBuilder implements org.eclipse.emf.ecore.util.builder.IEcoreBuilder<org.eclipse.emf.ecore.EParameter> {
   // features and builders
   private org.eclipse.emf.ecore.EGenericType m_eGenericType;
-  private org.eclipse.emf.ecore.util.builder.EGenericTypeBuilder m_featureEGenericTypeBuilder;
+  private org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType> m_featureEGenericTypeBuilder;
   private org.eclipse.emf.ecore.EClassifier m_eType;
+  private org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClassifier> m_featureETypeBuilder;
   private Integer m_lowerBound;
   private java.lang.String m_name;
   private Boolean m_ordered;
   private Boolean m_unique;
   private Integer m_upperBound;
   private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   // helper attributes
   private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureEGenericTypeSet = false;
@@ -57,6 +58,7 @@ public class EParameterBuilder {
     _builder.m_featureEGenericTypeBuilder = m_featureEGenericTypeBuilder;
     _builder.m_featureETypeSet = m_featureETypeSet;
     _builder.m_eType = m_eType;
+    _builder.m_featureETypeBuilder = m_featureETypeBuilder;
     _builder.m_featureLowerBoundSet = m_featureLowerBoundSet;
     _builder.m_lowerBound = m_lowerBound;
     _builder.m_featureNameSet = m_featureNameSet;
@@ -85,6 +87,10 @@ public class EParameterBuilder {
     }
     if (m_featureETypeSet) {
       _newInstance.setEType(m_eType);
+    } else {
+      if (m_featureETypeBuilder != null) {
+        _newInstance.setEType(m_featureETypeBuilder.build());
+      }
     }
     if (m_featureLowerBoundSet) {
       _newInstance.setLowerBound(m_lowerBound);
@@ -105,7 +111,7 @@ public class EParameterBuilder {
       _newInstance.getEAnnotations().addAll(m_eAnnotations);
     } else {
       if (!m_featureEAnnotationsBuilder.isEmpty()) {
-        for (EAnnotationBuilder builder : m_featureEAnnotationsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
           _newInstance.getEAnnotations().add(builder.build());
         }
       }
@@ -119,7 +125,7 @@ public class EParameterBuilder {
     return this;
   }
 
-  public EParameterBuilder withEGenericType(org.eclipse.emf.ecore.util.builder.EGenericTypeBuilder p_eGenericTypeBuilder) {
+  public EParameterBuilder withEGenericType(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType> p_eGenericTypeBuilder) {
     m_featureEGenericTypeBuilder = p_eGenericTypeBuilder;
     return this;
   }
@@ -127,6 +133,11 @@ public class EParameterBuilder {
   public EParameterBuilder withEType(org.eclipse.emf.ecore.EClassifier p_eType) {
     m_eType = p_eType;
     m_featureETypeSet = true;
+    return this;
+  }
+
+  public EParameterBuilder withEType(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClassifier> p_eClassifierBuilder) {
+    m_featureETypeBuilder = p_eClassifierBuilder;
     return this;
   }
 
@@ -172,7 +183,7 @@ public class EParameterBuilder {
     return this;
   }
 
-  public EParameterBuilder withEAnnotations(EAnnotationBuilder p_eAnnotationBuilder) {
+  public EParameterBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
     m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }

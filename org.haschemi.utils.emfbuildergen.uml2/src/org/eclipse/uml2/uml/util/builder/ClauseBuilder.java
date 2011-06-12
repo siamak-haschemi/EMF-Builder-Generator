@@ -7,24 +7,29 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class ClauseBuilder {
+public class ClauseBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.Clause> {
   // features and builders
   private org.eclipse.uml2.uml.OutputPin m_decider;
-  private org.eclipse.uml2.uml.util.builder.OutputPinBuilder m_featureDeciderBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OutputPin> m_featureDeciderBuilder;
   private java.util.Collection<org.eclipse.uml2.uml.ExecutableNode> m_body = new java.util.LinkedList<org.eclipse.uml2.uml.ExecutableNode>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExecutableNode>> m_featureBodyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExecutableNode>>();
   private java.util.Collection<org.eclipse.uml2.uml.OutputPin> m_bodyOutput = new java.util.LinkedList<org.eclipse.uml2.uml.OutputPin>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.OutputPinBuilder> m_featureBodyOutputBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.OutputPinBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OutputPin>> m_featureBodyOutputBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OutputPin>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   private java.util.Collection<org.eclipse.uml2.uml.Clause> m_predecessorClause = new java.util.LinkedList<org.eclipse.uml2.uml.Clause>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ClauseBuilder> m_featurePredecessorClauseBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ClauseBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Clause>> m_featurePredecessorClauseBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Clause>>();
   private java.util.Collection<org.eclipse.uml2.uml.Clause> m_successorClause = new java.util.LinkedList<org.eclipse.uml2.uml.Clause>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ClauseBuilder> m_featureSuccessorClauseBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ClauseBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Clause>> m_featureSuccessorClauseBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Clause>>();
   private java.util.Collection<org.eclipse.uml2.uml.ExecutableNode> m_test = new java.util.LinkedList<org.eclipse.uml2.uml.ExecutableNode>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExecutableNode>> m_featureTestBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExecutableNode>>();
   // helper attributes
   private boolean m_featureBodySet = false;
   private boolean m_featureBodyOutputSet = false;
   private boolean m_featureDeciderSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureOwnedCommentSet = false;
   private boolean m_featurePredecessorClauseSet = false;
   private boolean m_featureSuccessorClauseSet = false;
@@ -52,12 +57,16 @@ public class ClauseBuilder {
     ClauseBuilder _builder = newClauseBuilder();
     _builder.m_featureBodySet = m_featureBodySet;
     _builder.m_body = m_body;
+    _builder.m_featureBodyBuilder = m_featureBodyBuilder;
     _builder.m_featureBodyOutputSet = m_featureBodyOutputSet;
     _builder.m_bodyOutput = m_bodyOutput;
     _builder.m_featureBodyOutputBuilder = m_featureBodyOutputBuilder;
     _builder.m_featureDeciderSet = m_featureDeciderSet;
     _builder.m_decider = m_decider;
     _builder.m_featureDeciderBuilder = m_featureDeciderBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureOwnedCommentSet = m_featureOwnedCommentSet;
     _builder.m_ownedComment = m_ownedComment;
     _builder.m_featureOwnedCommentBuilder = m_featureOwnedCommentBuilder;
@@ -69,6 +78,7 @@ public class ClauseBuilder {
     _builder.m_featureSuccessorClauseBuilder = m_featureSuccessorClauseBuilder;
     _builder.m_featureTestSet = m_featureTestSet;
     _builder.m_test = m_test;
+    _builder.m_featureTestBuilder = m_featureTestBuilder;
     return _builder;
   }
 
@@ -87,13 +97,28 @@ public class ClauseBuilder {
     }
     if (m_featureBodySet) {
       _newInstance.getBodies().addAll(m_body);
+    } else {
+      if (!m_featureBodyBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExecutableNode> builder : m_featureBodyBuilder) {
+          _newInstance.getBodies().add(builder.build());
+        }
+      }
     }
     if (m_featureBodyOutputSet) {
       _newInstance.getBodyOutputs().addAll(m_bodyOutput);
     } else {
       if (!m_featureBodyOutputBuilder.isEmpty()) {
-        for (OutputPinBuilder builder : m_featureBodyOutputBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OutputPin> builder : m_featureBodyOutputBuilder) {
           _newInstance.getBodyOutputs().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -101,7 +126,7 @@ public class ClauseBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -110,7 +135,7 @@ public class ClauseBuilder {
       _newInstance.getPredecessorClauses().addAll(m_predecessorClause);
     } else {
       if (!m_featurePredecessorClauseBuilder.isEmpty()) {
-        for (ClauseBuilder builder : m_featurePredecessorClauseBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Clause> builder : m_featurePredecessorClauseBuilder) {
           _newInstance.getPredecessorClauses().add(builder.build());
         }
       }
@@ -119,13 +144,19 @@ public class ClauseBuilder {
       _newInstance.getSuccessorClauses().addAll(m_successorClause);
     } else {
       if (!m_featureSuccessorClauseBuilder.isEmpty()) {
-        for (ClauseBuilder builder : m_featureSuccessorClauseBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Clause> builder : m_featureSuccessorClauseBuilder) {
           _newInstance.getSuccessorClauses().add(builder.build());
         }
       }
     }
     if (m_featureTestSet) {
       _newInstance.getTests().addAll(m_test);
+    } else {
+      if (!m_featureTestBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExecutableNode> builder : m_featureTestBuilder) {
+          _newInstance.getTests().add(builder.build());
+        }
+      }
     }
     return _newInstance;
   }
@@ -136,7 +167,7 @@ public class ClauseBuilder {
     return this;
   }
 
-  public ClauseBuilder withDecider(org.eclipse.uml2.uml.util.builder.OutputPinBuilder p_outputPinBuilder) {
+  public ClauseBuilder withDecider(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OutputPin> p_outputPinBuilder) {
     m_featureDeciderBuilder = p_outputPinBuilder;
     return this;
   }
@@ -153,6 +184,11 @@ public class ClauseBuilder {
     return this;
   }
 
+  public ClauseBuilder withBody(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExecutableNode> p_executableNodeBuilder) {
+    m_featureBodyBuilder.add(p_executableNodeBuilder);
+    return this;
+  }
+
   public ClauseBuilder withBodyOutput(org.eclipse.uml2.uml.OutputPin p_bodyOutput) {
     m_bodyOutput.add(p_bodyOutput);
     m_featureBodyOutputSet = true;
@@ -165,8 +201,25 @@ public class ClauseBuilder {
     return this;
   }
 
-  public ClauseBuilder withBodyOutput(OutputPinBuilder p_outputPinBuilder) {
+  public ClauseBuilder withBodyOutput(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OutputPin> p_outputPinBuilder) {
     m_featureBodyOutputBuilder.add(p_outputPinBuilder);
+    return this;
+  }
+
+  public ClauseBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ClauseBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ClauseBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -182,7 +235,7 @@ public class ClauseBuilder {
     return this;
   }
 
-  public ClauseBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public ClauseBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }
@@ -199,7 +252,7 @@ public class ClauseBuilder {
     return this;
   }
 
-  public ClauseBuilder withPredecessorClause(ClauseBuilder p_clauseBuilder) {
+  public ClauseBuilder withPredecessorClause(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Clause> p_clauseBuilder) {
     m_featurePredecessorClauseBuilder.add(p_clauseBuilder);
     return this;
   }
@@ -216,7 +269,7 @@ public class ClauseBuilder {
     return this;
   }
 
-  public ClauseBuilder withSuccessorClause(ClauseBuilder p_clauseBuilder) {
+  public ClauseBuilder withSuccessorClause(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Clause> p_clauseBuilder) {
     m_featureSuccessorClauseBuilder.add(p_clauseBuilder);
     return this;
   }
@@ -230,6 +283,11 @@ public class ClauseBuilder {
   public ClauseBuilder withTest(java.util.Collection<? extends org.eclipse.uml2.uml.ExecutableNode> p_test) {
     m_test.addAll(p_test);
     m_featureTestSet = true;
+    return this;
+  }
+
+  public ClauseBuilder withTest(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExecutableNode> p_executableNodeBuilder) {
+    m_featureTestBuilder.add(p_executableNodeBuilder);
     return this;
   }
 }

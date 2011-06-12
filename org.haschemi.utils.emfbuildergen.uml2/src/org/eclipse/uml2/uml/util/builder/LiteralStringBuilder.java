@@ -7,24 +7,28 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class LiteralStringBuilder {
+public class LiteralStringBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.LiteralString> {
   // features and builders
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.TemplateParameter m_owningTemplateParameter;
-  private org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder m_featureOwningTemplateParameterBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> m_featureOwningTemplateParameterBuilder;
   private org.eclipse.uml2.uml.TemplateParameter m_templateParameter;
-  private org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder m_featureTemplateParameterBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> m_featureTemplateParameterBuilder;
   private org.eclipse.uml2.uml.Type m_type;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Type> m_featureTypeBuilder;
   private java.lang.String m_value;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   // helper attributes
   private boolean m_featureClientDependencySet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureNameSet = false;
   private boolean m_featureNameExpressionSet = false;
   private boolean m_featureOwnedCommentSet = false;
@@ -57,6 +61,9 @@ public class LiteralStringBuilder {
     _builder.m_featureClientDependencySet = m_featureClientDependencySet;
     _builder.m_clientDependency = m_clientDependency;
     _builder.m_featureClientDependencyBuilder = m_featureClientDependencyBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureNameSet = m_featureNameSet;
     _builder.m_name = m_name;
     _builder.m_featureNameExpressionSet = m_featureNameExpressionSet;
@@ -73,6 +80,7 @@ public class LiteralStringBuilder {
     _builder.m_featureTemplateParameterBuilder = m_featureTemplateParameterBuilder;
     _builder.m_featureTypeSet = m_featureTypeSet;
     _builder.m_type = m_type;
+    _builder.m_featureTypeBuilder = m_featureTypeBuilder;
     _builder.m_featureValueSet = m_featureValueSet;
     _builder.m_value = m_value;
     _builder.m_featureVisibilitySet = m_featureVisibilitySet;
@@ -112,6 +120,10 @@ public class LiteralStringBuilder {
     }
     if (m_featureTypeSet) {
       _newInstance.setType(m_type);
+    } else {
+      if (m_featureTypeBuilder != null) {
+        _newInstance.setType(m_featureTypeBuilder.build());
+      }
     }
     if (m_featureValueSet) {
       _newInstance.setValue(m_value);
@@ -123,8 +135,17 @@ public class LiteralStringBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -132,7 +153,7 @@ public class LiteralStringBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -152,7 +173,7 @@ public class LiteralStringBuilder {
     return this;
   }
 
-  public LiteralStringBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public LiteralStringBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -163,7 +184,7 @@ public class LiteralStringBuilder {
     return this;
   }
 
-  public LiteralStringBuilder withOwningTemplateParameter(org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder p_templateParameterBuilder) {
+  public LiteralStringBuilder withOwningTemplateParameter(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> p_templateParameterBuilder) {
     m_featureOwningTemplateParameterBuilder = p_templateParameterBuilder;
     return this;
   }
@@ -174,7 +195,7 @@ public class LiteralStringBuilder {
     return this;
   }
 
-  public LiteralStringBuilder withTemplateParameter(org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder p_templateParameterBuilder) {
+  public LiteralStringBuilder withTemplateParameter(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> p_templateParameterBuilder) {
     m_featureTemplateParameterBuilder = p_templateParameterBuilder;
     return this;
   }
@@ -182,6 +203,11 @@ public class LiteralStringBuilder {
   public LiteralStringBuilder withType(org.eclipse.uml2.uml.Type p_type) {
     m_type = p_type;
     m_featureTypeSet = true;
+    return this;
+  }
+
+  public LiteralStringBuilder withType(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Type> p_typeBuilder) {
+    m_featureTypeBuilder = p_typeBuilder;
     return this;
   }
 
@@ -209,8 +235,25 @@ public class LiteralStringBuilder {
     return this;
   }
 
-  public LiteralStringBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public LiteralStringBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
+    return this;
+  }
+
+  public LiteralStringBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public LiteralStringBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public LiteralStringBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -226,7 +269,7 @@ public class LiteralStringBuilder {
     return this;
   }
 
-  public LiteralStringBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public LiteralStringBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }

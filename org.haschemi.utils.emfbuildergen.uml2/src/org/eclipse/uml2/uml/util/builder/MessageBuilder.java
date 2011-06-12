@@ -7,28 +7,34 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class MessageBuilder {
+public class MessageBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.Message> {
   // features and builders
   private org.eclipse.uml2.uml.Connector m_connector;
-  private org.eclipse.uml2.uml.util.builder.ConnectorBuilder m_featureConnectorBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Connector> m_featureConnectorBuilder;
   private org.eclipse.uml2.uml.Interaction m_interaction;
-  private org.eclipse.uml2.uml.util.builder.InteractionBuilder m_featureInteractionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Interaction> m_featureInteractionBuilder;
   private org.eclipse.uml2.uml.MessageSort m_messageSort;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.MessageEnd m_receiveEvent;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.MessageEnd> m_featureReceiveEventBuilder;
   private org.eclipse.uml2.uml.MessageEnd m_sendEvent;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.MessageEnd> m_featureSendEventBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.ValueSpecification> m_argument = new java.util.LinkedList<org.eclipse.uml2.uml.ValueSpecification>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ValueSpecification>> m_featureArgumentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ValueSpecification>>();
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   // helper attributes
   private boolean m_featureArgumentSet = false;
   private boolean m_featureClientDependencySet = false;
   private boolean m_featureConnectorSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureInteractionSet = false;
   private boolean m_featureMessageSortSet = false;
   private boolean m_featureNameSet = false;
@@ -60,12 +66,16 @@ public class MessageBuilder {
     MessageBuilder _builder = newMessageBuilder();
     _builder.m_featureArgumentSet = m_featureArgumentSet;
     _builder.m_argument = m_argument;
+    _builder.m_featureArgumentBuilder = m_featureArgumentBuilder;
     _builder.m_featureClientDependencySet = m_featureClientDependencySet;
     _builder.m_clientDependency = m_clientDependency;
     _builder.m_featureClientDependencyBuilder = m_featureClientDependencyBuilder;
     _builder.m_featureConnectorSet = m_featureConnectorSet;
     _builder.m_connector = m_connector;
     _builder.m_featureConnectorBuilder = m_featureConnectorBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureInteractionSet = m_featureInteractionSet;
     _builder.m_interaction = m_interaction;
     _builder.m_featureInteractionBuilder = m_featureInteractionBuilder;
@@ -81,8 +91,10 @@ public class MessageBuilder {
     _builder.m_featureOwnedCommentBuilder = m_featureOwnedCommentBuilder;
     _builder.m_featureReceiveEventSet = m_featureReceiveEventSet;
     _builder.m_receiveEvent = m_receiveEvent;
+    _builder.m_featureReceiveEventBuilder = m_featureReceiveEventBuilder;
     _builder.m_featureSendEventSet = m_featureSendEventSet;
     _builder.m_sendEvent = m_sendEvent;
+    _builder.m_featureSendEventBuilder = m_featureSendEventBuilder;
     _builder.m_featureVisibilitySet = m_featureVisibilitySet;
     _builder.m_visibility = m_visibility;
     return _builder;
@@ -123,22 +135,45 @@ public class MessageBuilder {
     }
     if (m_featureReceiveEventSet) {
       _newInstance.setReceiveEvent(m_receiveEvent);
+    } else {
+      if (m_featureReceiveEventBuilder != null) {
+        _newInstance.setReceiveEvent(m_featureReceiveEventBuilder.build());
+      }
     }
     if (m_featureSendEventSet) {
       _newInstance.setSendEvent(m_sendEvent);
+    } else {
+      if (m_featureSendEventBuilder != null) {
+        _newInstance.setSendEvent(m_featureSendEventBuilder.build());
+      }
     }
     if (m_featureVisibilitySet) {
       _newInstance.setVisibility(m_visibility);
     }
     if (m_featureArgumentSet) {
       _newInstance.getArguments().addAll(m_argument);
+    } else {
+      if (!m_featureArgumentBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ValueSpecification> builder : m_featureArgumentBuilder) {
+          _newInstance.getArguments().add(builder.build());
+        }
+      }
     }
     if (m_featureClientDependencySet) {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -146,7 +181,7 @@ public class MessageBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -160,7 +195,7 @@ public class MessageBuilder {
     return this;
   }
 
-  public MessageBuilder withConnector(org.eclipse.uml2.uml.util.builder.ConnectorBuilder p_connectorBuilder) {
+  public MessageBuilder withConnector(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Connector> p_connectorBuilder) {
     m_featureConnectorBuilder = p_connectorBuilder;
     return this;
   }
@@ -171,7 +206,7 @@ public class MessageBuilder {
     return this;
   }
 
-  public MessageBuilder withInteraction(org.eclipse.uml2.uml.util.builder.InteractionBuilder p_interactionBuilder) {
+  public MessageBuilder withInteraction(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Interaction> p_interactionBuilder) {
     m_featureInteractionBuilder = p_interactionBuilder;
     return this;
   }
@@ -194,7 +229,7 @@ public class MessageBuilder {
     return this;
   }
 
-  public MessageBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public MessageBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -205,9 +240,19 @@ public class MessageBuilder {
     return this;
   }
 
+  public MessageBuilder withReceiveEvent(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.MessageEnd> p_messageEndBuilder) {
+    m_featureReceiveEventBuilder = p_messageEndBuilder;
+    return this;
+  }
+
   public MessageBuilder withSendEvent(org.eclipse.uml2.uml.MessageEnd p_sendEvent) {
     m_sendEvent = p_sendEvent;
     m_featureSendEventSet = true;
+    return this;
+  }
+
+  public MessageBuilder withSendEvent(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.MessageEnd> p_messageEndBuilder) {
+    m_featureSendEventBuilder = p_messageEndBuilder;
     return this;
   }
 
@@ -229,6 +274,11 @@ public class MessageBuilder {
     return this;
   }
 
+  public MessageBuilder withArgument(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ValueSpecification> p_valueSpecificationBuilder) {
+    m_featureArgumentBuilder.add(p_valueSpecificationBuilder);
+    return this;
+  }
+
   public MessageBuilder withClientDependency(org.eclipse.uml2.uml.Dependency p_clientDependency) {
     m_clientDependency.add(p_clientDependency);
     m_featureClientDependencySet = true;
@@ -241,8 +291,25 @@ public class MessageBuilder {
     return this;
   }
 
-  public MessageBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public MessageBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
+    return this;
+  }
+
+  public MessageBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public MessageBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public MessageBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -258,7 +325,7 @@ public class MessageBuilder {
     return this;
   }
 
-  public MessageBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public MessageBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }

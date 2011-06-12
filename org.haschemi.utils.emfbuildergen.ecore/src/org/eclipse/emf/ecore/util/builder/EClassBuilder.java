@@ -7,7 +7,7 @@ package org.eclipse.emf.ecore.util.builder;
  * 
  * @generated
  */
-public class EClassBuilder {
+public class EClassBuilder implements org.eclipse.emf.ecore.util.builder.IEcoreBuilder<org.eclipse.emf.ecore.EClass> {
   // features and builders
   private Boolean m_abstract_;
   private java.lang.String m_instanceClassName;
@@ -15,16 +15,17 @@ public class EClassBuilder {
   private Boolean m_interface_;
   private java.lang.String m_name;
   private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.emf.ecore.EGenericType> m_eGenericSuperTypes = new java.util.LinkedList<org.eclipse.emf.ecore.EGenericType>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EGenericTypeBuilder> m_featureEGenericSuperTypesBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EGenericTypeBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType>> m_featureEGenericSuperTypesBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType>>();
   private java.util.Collection<org.eclipse.emf.ecore.EOperation> m_eOperations = new java.util.LinkedList<org.eclipse.emf.ecore.EOperation>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EOperationBuilder> m_featureEOperationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EOperationBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EOperation>> m_featureEOperationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EOperation>>();
   private java.util.Collection<org.eclipse.emf.ecore.EStructuralFeature> m_eStructuralFeatures = new java.util.LinkedList<org.eclipse.emf.ecore.EStructuralFeature>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EStructuralFeature>> m_featureEStructuralFeaturesBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EStructuralFeature>>();
   private java.util.Collection<org.eclipse.emf.ecore.EClass> m_eSuperTypes = new java.util.LinkedList<org.eclipse.emf.ecore.EClass>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EClassBuilder> m_featureESuperTypesBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EClassBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClass>> m_featureESuperTypesBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClass>>();
   private java.util.Collection<org.eclipse.emf.ecore.ETypeParameter> m_eTypeParameters = new java.util.LinkedList<org.eclipse.emf.ecore.ETypeParameter>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.ETypeParameterBuilder> m_featureETypeParametersBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.ETypeParameterBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter>> m_featureETypeParametersBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter>>();
   // helper attributes
   private boolean m_featureAbstract_Set = false;
   private boolean m_featureEAnnotationsSet = false;
@@ -71,6 +72,7 @@ public class EClassBuilder {
     _builder.m_featureEOperationsBuilder = m_featureEOperationsBuilder;
     _builder.m_featureEStructuralFeaturesSet = m_featureEStructuralFeaturesSet;
     _builder.m_eStructuralFeatures = m_eStructuralFeatures;
+    _builder.m_featureEStructuralFeaturesBuilder = m_featureEStructuralFeaturesBuilder;
     _builder.m_featureESuperTypesSet = m_featureESuperTypesSet;
     _builder.m_eSuperTypes = m_eSuperTypes;
     _builder.m_featureESuperTypesBuilder = m_featureESuperTypesBuilder;
@@ -113,7 +115,7 @@ public class EClassBuilder {
       _newInstance.getEAnnotations().addAll(m_eAnnotations);
     } else {
       if (!m_featureEAnnotationsBuilder.isEmpty()) {
-        for (EAnnotationBuilder builder : m_featureEAnnotationsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
           _newInstance.getEAnnotations().add(builder.build());
         }
       }
@@ -122,7 +124,7 @@ public class EClassBuilder {
       _newInstance.getEGenericSuperTypes().addAll(m_eGenericSuperTypes);
     } else {
       if (!m_featureEGenericSuperTypesBuilder.isEmpty()) {
-        for (EGenericTypeBuilder builder : m_featureEGenericSuperTypesBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType> builder : m_featureEGenericSuperTypesBuilder) {
           _newInstance.getEGenericSuperTypes().add(builder.build());
         }
       }
@@ -131,19 +133,25 @@ public class EClassBuilder {
       _newInstance.getEOperations().addAll(m_eOperations);
     } else {
       if (!m_featureEOperationsBuilder.isEmpty()) {
-        for (EOperationBuilder builder : m_featureEOperationsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EOperation> builder : m_featureEOperationsBuilder) {
           _newInstance.getEOperations().add(builder.build());
         }
       }
     }
     if (m_featureEStructuralFeaturesSet) {
       _newInstance.getEStructuralFeatures().addAll(m_eStructuralFeatures);
+    } else {
+      if (!m_featureEStructuralFeaturesBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EStructuralFeature> builder : m_featureEStructuralFeaturesBuilder) {
+          _newInstance.getEStructuralFeatures().add(builder.build());
+        }
+      }
     }
     if (m_featureESuperTypesSet) {
       _newInstance.getESuperTypes().addAll(m_eSuperTypes);
     } else {
       if (!m_featureESuperTypesBuilder.isEmpty()) {
-        for (EClassBuilder builder : m_featureESuperTypesBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClass> builder : m_featureESuperTypesBuilder) {
           _newInstance.getESuperTypes().add(builder.build());
         }
       }
@@ -152,7 +160,7 @@ public class EClassBuilder {
       _newInstance.getETypeParameters().addAll(m_eTypeParameters);
     } else {
       if (!m_featureETypeParametersBuilder.isEmpty()) {
-        for (ETypeParameterBuilder builder : m_featureETypeParametersBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter> builder : m_featureETypeParametersBuilder) {
           _newInstance.getETypeParameters().add(builder.build());
         }
       }
@@ -202,7 +210,7 @@ public class EClassBuilder {
     return this;
   }
 
-  public EClassBuilder withEAnnotations(EAnnotationBuilder p_eAnnotationBuilder) {
+  public EClassBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
     m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
@@ -219,7 +227,7 @@ public class EClassBuilder {
     return this;
   }
 
-  public EClassBuilder withEGenericSuperTypes(EGenericTypeBuilder p_eGenericTypeBuilder) {
+  public EClassBuilder withEGenericSuperTypes(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType> p_eGenericTypeBuilder) {
     m_featureEGenericSuperTypesBuilder.add(p_eGenericTypeBuilder);
     return this;
   }
@@ -236,7 +244,7 @@ public class EClassBuilder {
     return this;
   }
 
-  public EClassBuilder withEOperations(EOperationBuilder p_eOperationBuilder) {
+  public EClassBuilder withEOperations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EOperation> p_eOperationBuilder) {
     m_featureEOperationsBuilder.add(p_eOperationBuilder);
     return this;
   }
@@ -253,6 +261,11 @@ public class EClassBuilder {
     return this;
   }
 
+  public EClassBuilder withEStructuralFeatures(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EStructuralFeature> p_eStructuralFeatureBuilder) {
+    m_featureEStructuralFeaturesBuilder.add(p_eStructuralFeatureBuilder);
+    return this;
+  }
+
   public EClassBuilder withESuperTypes(org.eclipse.emf.ecore.EClass p_eSuperTypes) {
     m_eSuperTypes.add(p_eSuperTypes);
     m_featureESuperTypesSet = true;
@@ -265,7 +278,7 @@ public class EClassBuilder {
     return this;
   }
 
-  public EClassBuilder withESuperTypes(EClassBuilder p_eClassBuilder) {
+  public EClassBuilder withESuperTypes(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClass> p_eClassBuilder) {
     m_featureESuperTypesBuilder.add(p_eClassBuilder);
     return this;
   }
@@ -282,7 +295,7 @@ public class EClassBuilder {
     return this;
   }
 
-  public EClassBuilder withETypeParameters(ETypeParameterBuilder p_eTypeParameterBuilder) {
+  public EClassBuilder withETypeParameters(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter> p_eTypeParameterBuilder) {
     m_featureETypeParametersBuilder.add(p_eTypeParameterBuilder);
     return this;
   }

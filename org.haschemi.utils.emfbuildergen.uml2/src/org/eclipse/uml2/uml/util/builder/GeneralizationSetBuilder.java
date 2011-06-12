@@ -7,27 +7,31 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class GeneralizationSetBuilder {
+public class GeneralizationSetBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.GeneralizationSet> {
   // features and builders
   private Boolean m_isCovering;
   private Boolean m_isDisjoint;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.TemplateParameter m_owningTemplateParameter;
-  private org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder m_featureOwningTemplateParameterBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> m_featureOwningTemplateParameterBuilder;
   private org.eclipse.uml2.uml.Classifier m_powertype;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Classifier> m_featurePowertypeBuilder;
   private org.eclipse.uml2.uml.TemplateParameter m_templateParameter;
-  private org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder m_featureTemplateParameterBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> m_featureTemplateParameterBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Generalization> m_generalization = new java.util.LinkedList<org.eclipse.uml2.uml.Generalization>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.GeneralizationBuilder> m_featureGeneralizationBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.GeneralizationBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Generalization>> m_featureGeneralizationBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Generalization>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   // helper attributes
   private boolean m_featureClientDependencySet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureGeneralizationSet = false;
   private boolean m_featureIsCoveringSet = false;
   private boolean m_featureIsDisjointSet = false;
@@ -62,6 +66,9 @@ public class GeneralizationSetBuilder {
     _builder.m_featureClientDependencySet = m_featureClientDependencySet;
     _builder.m_clientDependency = m_clientDependency;
     _builder.m_featureClientDependencyBuilder = m_featureClientDependencyBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureGeneralizationSet = m_featureGeneralizationSet;
     _builder.m_generalization = m_generalization;
     _builder.m_featureGeneralizationBuilder = m_featureGeneralizationBuilder;
@@ -82,6 +89,7 @@ public class GeneralizationSetBuilder {
     _builder.m_featureOwningTemplateParameterBuilder = m_featureOwningTemplateParameterBuilder;
     _builder.m_featurePowertypeSet = m_featurePowertypeSet;
     _builder.m_powertype = m_powertype;
+    _builder.m_featurePowertypeBuilder = m_featurePowertypeBuilder;
     _builder.m_featureTemplateParameterSet = m_featureTemplateParameterSet;
     _builder.m_templateParameter = m_templateParameter;
     _builder.m_featureTemplateParameterBuilder = m_featureTemplateParameterBuilder;
@@ -121,6 +129,10 @@ public class GeneralizationSetBuilder {
     }
     if (m_featurePowertypeSet) {
       _newInstance.setPowertype(m_powertype);
+    } else {
+      if (m_featurePowertypeBuilder != null) {
+        _newInstance.setPowertype(m_featurePowertypeBuilder.build());
+      }
     }
     if (m_featureTemplateParameterSet) {
       _newInstance.setTemplateParameter(m_templateParameter);
@@ -136,8 +148,17 @@ public class GeneralizationSetBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -145,7 +166,7 @@ public class GeneralizationSetBuilder {
       _newInstance.getGeneralizations().addAll(m_generalization);
     } else {
       if (!m_featureGeneralizationBuilder.isEmpty()) {
-        for (GeneralizationBuilder builder : m_featureGeneralizationBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Generalization> builder : m_featureGeneralizationBuilder) {
           _newInstance.getGeneralizations().add(builder.build());
         }
       }
@@ -154,7 +175,7 @@ public class GeneralizationSetBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -186,7 +207,7 @@ public class GeneralizationSetBuilder {
     return this;
   }
 
-  public GeneralizationSetBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public GeneralizationSetBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -197,7 +218,7 @@ public class GeneralizationSetBuilder {
     return this;
   }
 
-  public GeneralizationSetBuilder withOwningTemplateParameter(org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder p_templateParameterBuilder) {
+  public GeneralizationSetBuilder withOwningTemplateParameter(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> p_templateParameterBuilder) {
     m_featureOwningTemplateParameterBuilder = p_templateParameterBuilder;
     return this;
   }
@@ -208,13 +229,18 @@ public class GeneralizationSetBuilder {
     return this;
   }
 
+  public GeneralizationSetBuilder withPowertype(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Classifier> p_classifierBuilder) {
+    m_featurePowertypeBuilder = p_classifierBuilder;
+    return this;
+  }
+
   public GeneralizationSetBuilder withTemplateParameter(org.eclipse.uml2.uml.TemplateParameter p_templateParameter) {
     m_templateParameter = p_templateParameter;
     m_featureTemplateParameterSet = true;
     return this;
   }
 
-  public GeneralizationSetBuilder withTemplateParameter(org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder p_templateParameterBuilder) {
+  public GeneralizationSetBuilder withTemplateParameter(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> p_templateParameterBuilder) {
     m_featureTemplateParameterBuilder = p_templateParameterBuilder;
     return this;
   }
@@ -237,8 +263,25 @@ public class GeneralizationSetBuilder {
     return this;
   }
 
-  public GeneralizationSetBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public GeneralizationSetBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
+    return this;
+  }
+
+  public GeneralizationSetBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public GeneralizationSetBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public GeneralizationSetBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -254,7 +297,7 @@ public class GeneralizationSetBuilder {
     return this;
   }
 
-  public GeneralizationSetBuilder withGeneralization(GeneralizationBuilder p_generalizationBuilder) {
+  public GeneralizationSetBuilder withGeneralization(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Generalization> p_generalizationBuilder) {
     m_featureGeneralizationBuilder.add(p_generalizationBuilder);
     return this;
   }
@@ -271,7 +314,7 @@ public class GeneralizationSetBuilder {
     return this;
   }
 
-  public GeneralizationSetBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public GeneralizationSetBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }

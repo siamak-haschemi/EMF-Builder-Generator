@@ -7,30 +7,35 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class InstanceSpecificationBuilder {
+public class InstanceSpecificationBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.InstanceSpecification> {
   // features and builders
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.TemplateParameter m_owningTemplateParameter;
-  private org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder m_featureOwningTemplateParameterBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> m_featureOwningTemplateParameterBuilder;
   private org.eclipse.uml2.uml.ValueSpecification m_specification;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ValueSpecification> m_featureSpecificationBuilder;
   private org.eclipse.uml2.uml.TemplateParameter m_templateParameter;
-  private org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder m_featureTemplateParameterBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> m_featureTemplateParameterBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Classifier> m_classifier = new java.util.LinkedList<org.eclipse.uml2.uml.Classifier>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Classifier>> m_featureClassifierBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Classifier>>();
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
   private java.util.Collection<org.eclipse.uml2.uml.Deployment> m_deployment = new java.util.LinkedList<org.eclipse.uml2.uml.Deployment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DeploymentBuilder> m_featureDeploymentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DeploymentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Deployment>> m_featureDeploymentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Deployment>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   private java.util.Collection<org.eclipse.uml2.uml.Slot> m_slot = new java.util.LinkedList<org.eclipse.uml2.uml.Slot>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.SlotBuilder> m_featureSlotBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.SlotBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Slot>> m_featureSlotBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Slot>>();
   // helper attributes
   private boolean m_featureClassifierSet = false;
   private boolean m_featureClientDependencySet = false;
   private boolean m_featureDeploymentSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureNameSet = false;
   private boolean m_featureNameExpressionSet = false;
   private boolean m_featureOwnedCommentSet = false;
@@ -62,12 +67,16 @@ public class InstanceSpecificationBuilder {
     InstanceSpecificationBuilder _builder = newInstanceSpecificationBuilder();
     _builder.m_featureClassifierSet = m_featureClassifierSet;
     _builder.m_classifier = m_classifier;
+    _builder.m_featureClassifierBuilder = m_featureClassifierBuilder;
     _builder.m_featureClientDependencySet = m_featureClientDependencySet;
     _builder.m_clientDependency = m_clientDependency;
     _builder.m_featureClientDependencyBuilder = m_featureClientDependencyBuilder;
     _builder.m_featureDeploymentSet = m_featureDeploymentSet;
     _builder.m_deployment = m_deployment;
     _builder.m_featureDeploymentBuilder = m_featureDeploymentBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureNameSet = m_featureNameSet;
     _builder.m_name = m_name;
     _builder.m_featureNameExpressionSet = m_featureNameExpressionSet;
@@ -84,6 +93,7 @@ public class InstanceSpecificationBuilder {
     _builder.m_featureSlotBuilder = m_featureSlotBuilder;
     _builder.m_featureSpecificationSet = m_featureSpecificationSet;
     _builder.m_specification = m_specification;
+    _builder.m_featureSpecificationBuilder = m_featureSpecificationBuilder;
     _builder.m_featureTemplateParameterSet = m_featureTemplateParameterSet;
     _builder.m_templateParameter = m_templateParameter;
     _builder.m_featureTemplateParameterBuilder = m_featureTemplateParameterBuilder;
@@ -117,6 +127,10 @@ public class InstanceSpecificationBuilder {
     }
     if (m_featureSpecificationSet) {
       _newInstance.setSpecification(m_specification);
+    } else {
+      if (m_featureSpecificationBuilder != null) {
+        _newInstance.setSpecification(m_featureSpecificationBuilder.build());
+      }
     }
     if (m_featureTemplateParameterSet) {
       _newInstance.setTemplateParameter(m_templateParameter);
@@ -130,12 +144,18 @@ public class InstanceSpecificationBuilder {
     }
     if (m_featureClassifierSet) {
       _newInstance.getClassifiers().addAll(m_classifier);
+    } else {
+      if (!m_featureClassifierBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Classifier> builder : m_featureClassifierBuilder) {
+          _newInstance.getClassifiers().add(builder.build());
+        }
+      }
     }
     if (m_featureClientDependencySet) {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
         }
       }
@@ -144,8 +164,17 @@ public class InstanceSpecificationBuilder {
       _newInstance.getDeployments().addAll(m_deployment);
     } else {
       if (!m_featureDeploymentBuilder.isEmpty()) {
-        for (DeploymentBuilder builder : m_featureDeploymentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Deployment> builder : m_featureDeploymentBuilder) {
           _newInstance.getDeployments().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -153,7 +182,7 @@ public class InstanceSpecificationBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -162,7 +191,7 @@ public class InstanceSpecificationBuilder {
       _newInstance.getSlots().addAll(m_slot);
     } else {
       if (!m_featureSlotBuilder.isEmpty()) {
-        for (SlotBuilder builder : m_featureSlotBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Slot> builder : m_featureSlotBuilder) {
           _newInstance.getSlots().add(builder.build());
         }
       }
@@ -182,7 +211,7 @@ public class InstanceSpecificationBuilder {
     return this;
   }
 
-  public InstanceSpecificationBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public InstanceSpecificationBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -193,7 +222,7 @@ public class InstanceSpecificationBuilder {
     return this;
   }
 
-  public InstanceSpecificationBuilder withOwningTemplateParameter(org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder p_templateParameterBuilder) {
+  public InstanceSpecificationBuilder withOwningTemplateParameter(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> p_templateParameterBuilder) {
     m_featureOwningTemplateParameterBuilder = p_templateParameterBuilder;
     return this;
   }
@@ -204,13 +233,18 @@ public class InstanceSpecificationBuilder {
     return this;
   }
 
+  public InstanceSpecificationBuilder withSpecification(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ValueSpecification> p_valueSpecificationBuilder) {
+    m_featureSpecificationBuilder = p_valueSpecificationBuilder;
+    return this;
+  }
+
   public InstanceSpecificationBuilder withTemplateParameter(org.eclipse.uml2.uml.TemplateParameter p_templateParameter) {
     m_templateParameter = p_templateParameter;
     m_featureTemplateParameterSet = true;
     return this;
   }
 
-  public InstanceSpecificationBuilder withTemplateParameter(org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder p_templateParameterBuilder) {
+  public InstanceSpecificationBuilder withTemplateParameter(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> p_templateParameterBuilder) {
     m_featureTemplateParameterBuilder = p_templateParameterBuilder;
     return this;
   }
@@ -233,6 +267,11 @@ public class InstanceSpecificationBuilder {
     return this;
   }
 
+  public InstanceSpecificationBuilder withClassifier(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Classifier> p_classifierBuilder) {
+    m_featureClassifierBuilder.add(p_classifierBuilder);
+    return this;
+  }
+
   public InstanceSpecificationBuilder withClientDependency(org.eclipse.uml2.uml.Dependency p_clientDependency) {
     m_clientDependency.add(p_clientDependency);
     m_featureClientDependencySet = true;
@@ -245,7 +284,7 @@ public class InstanceSpecificationBuilder {
     return this;
   }
 
-  public InstanceSpecificationBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public InstanceSpecificationBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
     return this;
   }
@@ -262,8 +301,25 @@ public class InstanceSpecificationBuilder {
     return this;
   }
 
-  public InstanceSpecificationBuilder withDeployment(DeploymentBuilder p_deploymentBuilder) {
+  public InstanceSpecificationBuilder withDeployment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Deployment> p_deploymentBuilder) {
     m_featureDeploymentBuilder.add(p_deploymentBuilder);
+    return this;
+  }
+
+  public InstanceSpecificationBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public InstanceSpecificationBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public InstanceSpecificationBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -279,7 +335,7 @@ public class InstanceSpecificationBuilder {
     return this;
   }
 
-  public InstanceSpecificationBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public InstanceSpecificationBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }
@@ -296,7 +352,7 @@ public class InstanceSpecificationBuilder {
     return this;
   }
 
-  public InstanceSpecificationBuilder withSlot(SlotBuilder p_slotBuilder) {
+  public InstanceSpecificationBuilder withSlot(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Slot> p_slotBuilder) {
     m_featureSlotBuilder.add(p_slotBuilder);
     return this;
   }

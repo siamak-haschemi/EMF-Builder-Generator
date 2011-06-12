@@ -7,11 +7,11 @@ package org.haschemi.utils.emfbuildergen.company.util.builder;
  * 
  * @generated
  */
-public class DepartmentBuilder {
+public class DepartmentBuilder implements org.haschemi.utils.emfbuildergen.company.util.builder.ICompanyBuilder<org.haschemi.utils.emfbuildergen.company.Department> {
   // features and builders
   private Integer m_number;
   private java.util.Collection<org.haschemi.utils.emfbuildergen.company.Employee> m_employees = new java.util.LinkedList<org.haschemi.utils.emfbuildergen.company.Employee>();
-  private java.util.Collection<org.haschemi.utils.emfbuildergen.company.util.builder.EmployeeBuilder> m_featureEmployeesBuilder = new java.util.LinkedList<org.haschemi.utils.emfbuildergen.company.util.builder.EmployeeBuilder>();
+  private java.util.Collection<org.haschemi.utils.emfbuildergen.company.util.builder.ICompanyBuilder<? extends org.haschemi.utils.emfbuildergen.company.Employee>> m_featureEmployeesBuilder = new java.util.LinkedList<org.haschemi.utils.emfbuildergen.company.util.builder.ICompanyBuilder<? extends org.haschemi.utils.emfbuildergen.company.Employee>>();
   // helper attributes
   private boolean m_featureEmployeesSet = false;
   private boolean m_featureNumberSet = false;
@@ -57,7 +57,7 @@ public class DepartmentBuilder {
       _newInstance.getEmployees().addAll(m_employees);
     } else {
       if (!m_featureEmployeesBuilder.isEmpty()) {
-        for (EmployeeBuilder builder : m_featureEmployeesBuilder) {
+        for (org.haschemi.utils.emfbuildergen.company.util.builder.ICompanyBuilder<? extends org.haschemi.utils.emfbuildergen.company.Employee> builder : m_featureEmployeesBuilder) {
           _newInstance.getEmployees().add(builder.build());
         }
       }
@@ -83,7 +83,7 @@ public class DepartmentBuilder {
     return this;
   }
 
-  public DepartmentBuilder withEmployees(EmployeeBuilder p_employeeBuilder) {
+  public DepartmentBuilder withEmployees(org.haschemi.utils.emfbuildergen.company.util.builder.ICompanyBuilder<? extends org.haschemi.utils.emfbuildergen.company.Employee> p_employeeBuilder) {
     m_featureEmployeesBuilder.add(p_employeeBuilder);
     return this;
   }

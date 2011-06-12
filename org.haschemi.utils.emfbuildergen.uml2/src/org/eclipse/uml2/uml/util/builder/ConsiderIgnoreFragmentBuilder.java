@@ -7,34 +7,38 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class ConsiderIgnoreFragmentBuilder {
+public class ConsiderIgnoreFragmentBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.ConsiderIgnoreFragment> {
   // features and builders
   private org.eclipse.uml2.uml.Interaction m_enclosingInteraction;
-  private org.eclipse.uml2.uml.util.builder.InteractionBuilder m_featureEnclosingInteractionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Interaction> m_featureEnclosingInteractionBuilder;
   private org.eclipse.uml2.uml.InteractionOperand m_enclosingOperand;
-  private org.eclipse.uml2.uml.util.builder.InteractionOperandBuilder m_featureEnclosingOperandBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InteractionOperand> m_featureEnclosingOperandBuilder;
   private org.eclipse.uml2.uml.InteractionOperatorKind m_interactionOperator;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Gate> m_cfragmentGate = new java.util.LinkedList<org.eclipse.uml2.uml.Gate>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.GateBuilder> m_featureCfragmentGateBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.GateBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Gate>> m_featureCfragmentGateBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Gate>>();
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
   private java.util.Collection<org.eclipse.uml2.uml.Lifeline> m_covered = new java.util.LinkedList<org.eclipse.uml2.uml.Lifeline>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.LifelineBuilder> m_featureCoveredBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.LifelineBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline>> m_featureCoveredBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.GeneralOrdering> m_generalOrdering = new java.util.LinkedList<org.eclipse.uml2.uml.GeneralOrdering>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.GeneralOrderingBuilder> m_featureGeneralOrderingBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.GeneralOrderingBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering>> m_featureGeneralOrderingBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering>>();
   private java.util.Collection<org.eclipse.uml2.uml.NamedElement> m_message = new java.util.LinkedList<org.eclipse.uml2.uml.NamedElement>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.NamedElement>> m_featureMessageBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.NamedElement>>();
   private java.util.Collection<org.eclipse.uml2.uml.InteractionOperand> m_operand = new java.util.LinkedList<org.eclipse.uml2.uml.InteractionOperand>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.InteractionOperandBuilder> m_featureOperandBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.InteractionOperandBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InteractionOperand>> m_featureOperandBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InteractionOperand>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   // helper attributes
   private boolean m_featureCfragmentGateSet = false;
   private boolean m_featureClientDependencySet = false;
   private boolean m_featureCoveredSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureEnclosingInteractionSet = false;
   private boolean m_featureEnclosingOperandSet = false;
   private boolean m_featureGeneralOrderingSet = false;
@@ -75,6 +79,9 @@ public class ConsiderIgnoreFragmentBuilder {
     _builder.m_featureCoveredSet = m_featureCoveredSet;
     _builder.m_covered = m_covered;
     _builder.m_featureCoveredBuilder = m_featureCoveredBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureEnclosingInteractionSet = m_featureEnclosingInteractionSet;
     _builder.m_enclosingInteraction = m_enclosingInteraction;
     _builder.m_featureEnclosingInteractionBuilder = m_featureEnclosingInteractionBuilder;
@@ -88,6 +95,7 @@ public class ConsiderIgnoreFragmentBuilder {
     _builder.m_interactionOperator = m_interactionOperator;
     _builder.m_featureMessageSet = m_featureMessageSet;
     _builder.m_message = m_message;
+    _builder.m_featureMessageBuilder = m_featureMessageBuilder;
     _builder.m_featureNameSet = m_featureNameSet;
     _builder.m_name = m_name;
     _builder.m_featureNameExpressionSet = m_featureNameExpressionSet;
@@ -144,7 +152,7 @@ public class ConsiderIgnoreFragmentBuilder {
       _newInstance.getCfragmentGates().addAll(m_cfragmentGate);
     } else {
       if (!m_featureCfragmentGateBuilder.isEmpty()) {
-        for (GateBuilder builder : m_featureCfragmentGateBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Gate> builder : m_featureCfragmentGateBuilder) {
           _newInstance.getCfragmentGates().add(builder.build());
         }
       }
@@ -153,7 +161,7 @@ public class ConsiderIgnoreFragmentBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
         }
       }
@@ -162,8 +170,17 @@ public class ConsiderIgnoreFragmentBuilder {
       _newInstance.getCovereds().addAll(m_covered);
     } else {
       if (!m_featureCoveredBuilder.isEmpty()) {
-        for (LifelineBuilder builder : m_featureCoveredBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline> builder : m_featureCoveredBuilder) {
           _newInstance.getCovereds().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -171,19 +188,25 @@ public class ConsiderIgnoreFragmentBuilder {
       _newInstance.getGeneralOrderings().addAll(m_generalOrdering);
     } else {
       if (!m_featureGeneralOrderingBuilder.isEmpty()) {
-        for (GeneralOrderingBuilder builder : m_featureGeneralOrderingBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering> builder : m_featureGeneralOrderingBuilder) {
           _newInstance.getGeneralOrderings().add(builder.build());
         }
       }
     }
     if (m_featureMessageSet) {
       _newInstance.getMessages().addAll(m_message);
+    } else {
+      if (!m_featureMessageBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.NamedElement> builder : m_featureMessageBuilder) {
+          _newInstance.getMessages().add(builder.build());
+        }
+      }
     }
     if (m_featureOperandSet) {
       _newInstance.getOperands().addAll(m_operand);
     } else {
       if (!m_featureOperandBuilder.isEmpty()) {
-        for (InteractionOperandBuilder builder : m_featureOperandBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InteractionOperand> builder : m_featureOperandBuilder) {
           _newInstance.getOperands().add(builder.build());
         }
       }
@@ -192,7 +215,7 @@ public class ConsiderIgnoreFragmentBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -206,7 +229,7 @@ public class ConsiderIgnoreFragmentBuilder {
     return this;
   }
 
-  public ConsiderIgnoreFragmentBuilder withEnclosingInteraction(org.eclipse.uml2.uml.util.builder.InteractionBuilder p_interactionBuilder) {
+  public ConsiderIgnoreFragmentBuilder withEnclosingInteraction(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Interaction> p_interactionBuilder) {
     m_featureEnclosingInteractionBuilder = p_interactionBuilder;
     return this;
   }
@@ -217,7 +240,7 @@ public class ConsiderIgnoreFragmentBuilder {
     return this;
   }
 
-  public ConsiderIgnoreFragmentBuilder withEnclosingOperand(org.eclipse.uml2.uml.util.builder.InteractionOperandBuilder p_interactionOperandBuilder) {
+  public ConsiderIgnoreFragmentBuilder withEnclosingOperand(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InteractionOperand> p_interactionOperandBuilder) {
     m_featureEnclosingOperandBuilder = p_interactionOperandBuilder;
     return this;
   }
@@ -240,7 +263,7 @@ public class ConsiderIgnoreFragmentBuilder {
     return this;
   }
 
-  public ConsiderIgnoreFragmentBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public ConsiderIgnoreFragmentBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -263,7 +286,7 @@ public class ConsiderIgnoreFragmentBuilder {
     return this;
   }
 
-  public ConsiderIgnoreFragmentBuilder withCfragmentGate(GateBuilder p_gateBuilder) {
+  public ConsiderIgnoreFragmentBuilder withCfragmentGate(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Gate> p_gateBuilder) {
     m_featureCfragmentGateBuilder.add(p_gateBuilder);
     return this;
   }
@@ -280,7 +303,7 @@ public class ConsiderIgnoreFragmentBuilder {
     return this;
   }
 
-  public ConsiderIgnoreFragmentBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public ConsiderIgnoreFragmentBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
     return this;
   }
@@ -297,8 +320,25 @@ public class ConsiderIgnoreFragmentBuilder {
     return this;
   }
 
-  public ConsiderIgnoreFragmentBuilder withCovered(LifelineBuilder p_lifelineBuilder) {
+  public ConsiderIgnoreFragmentBuilder withCovered(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline> p_lifelineBuilder) {
     m_featureCoveredBuilder.add(p_lifelineBuilder);
+    return this;
+  }
+
+  public ConsiderIgnoreFragmentBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ConsiderIgnoreFragmentBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ConsiderIgnoreFragmentBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -314,7 +354,7 @@ public class ConsiderIgnoreFragmentBuilder {
     return this;
   }
 
-  public ConsiderIgnoreFragmentBuilder withGeneralOrdering(GeneralOrderingBuilder p_generalOrderingBuilder) {
+  public ConsiderIgnoreFragmentBuilder withGeneralOrdering(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering> p_generalOrderingBuilder) {
     m_featureGeneralOrderingBuilder.add(p_generalOrderingBuilder);
     return this;
   }
@@ -331,6 +371,11 @@ public class ConsiderIgnoreFragmentBuilder {
     return this;
   }
 
+  public ConsiderIgnoreFragmentBuilder withMessage(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.NamedElement> p_namedElementBuilder) {
+    m_featureMessageBuilder.add(p_namedElementBuilder);
+    return this;
+  }
+
   public ConsiderIgnoreFragmentBuilder withOperand(org.eclipse.uml2.uml.InteractionOperand p_operand) {
     m_operand.add(p_operand);
     m_featureOperandSet = true;
@@ -343,7 +388,7 @@ public class ConsiderIgnoreFragmentBuilder {
     return this;
   }
 
-  public ConsiderIgnoreFragmentBuilder withOperand(InteractionOperandBuilder p_interactionOperandBuilder) {
+  public ConsiderIgnoreFragmentBuilder withOperand(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InteractionOperand> p_interactionOperandBuilder) {
     m_featureOperandBuilder.add(p_interactionOperandBuilder);
     return this;
   }
@@ -360,7 +405,7 @@ public class ConsiderIgnoreFragmentBuilder {
     return this;
   }
 
-  public ConsiderIgnoreFragmentBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public ConsiderIgnoreFragmentBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }

@@ -7,29 +7,33 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class ConnectorBuilder {
+public class ConnectorBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.Connector> {
   // features and builders
   private Boolean m_isLeaf;
   private Boolean m_isStatic;
   private org.eclipse.uml2.uml.ConnectorKind m_kind;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.Association m_type;
-  private org.eclipse.uml2.uml.util.builder.AssociationBuilder m_featureTypeBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Association> m_featureTypeBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
   private java.util.Collection<org.eclipse.uml2.uml.Behavior> m_contract = new java.util.LinkedList<org.eclipse.uml2.uml.Behavior>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Behavior>> m_featureContractBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Behavior>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.ConnectorEnd> m_end = new java.util.LinkedList<org.eclipse.uml2.uml.ConnectorEnd>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ConnectorEndBuilder> m_featureEndBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ConnectorEndBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ConnectorEnd>> m_featureEndBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ConnectorEnd>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   private java.util.Collection<org.eclipse.uml2.uml.Connector> m_redefinedConnector = new java.util.LinkedList<org.eclipse.uml2.uml.Connector>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ConnectorBuilder> m_featureRedefinedConnectorBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ConnectorBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Connector>> m_featureRedefinedConnectorBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Connector>>();
   // helper attributes
   private boolean m_featureClientDependencySet = false;
   private boolean m_featureContractSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureEndSet = false;
   private boolean m_featureIsLeafSet = false;
   private boolean m_featureIsStaticSet = false;
@@ -66,6 +70,10 @@ public class ConnectorBuilder {
     _builder.m_featureClientDependencyBuilder = m_featureClientDependencyBuilder;
     _builder.m_featureContractSet = m_featureContractSet;
     _builder.m_contract = m_contract;
+    _builder.m_featureContractBuilder = m_featureContractBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureEndSet = m_featureEndSet;
     _builder.m_end = m_end;
     _builder.m_featureEndBuilder = m_featureEndBuilder;
@@ -133,19 +141,34 @@ public class ConnectorBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
         }
       }
     }
     if (m_featureContractSet) {
       _newInstance.getContracts().addAll(m_contract);
+    } else {
+      if (!m_featureContractBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Behavior> builder : m_featureContractBuilder) {
+          _newInstance.getContracts().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
+        }
+      }
     }
     if (m_featureEndSet) {
       _newInstance.getEnds().addAll(m_end);
     } else {
       if (!m_featureEndBuilder.isEmpty()) {
-        for (ConnectorEndBuilder builder : m_featureEndBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ConnectorEnd> builder : m_featureEndBuilder) {
           _newInstance.getEnds().add(builder.build());
         }
       }
@@ -154,7 +177,7 @@ public class ConnectorBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -163,7 +186,7 @@ public class ConnectorBuilder {
       _newInstance.getRedefinedConnectors().addAll(m_redefinedConnector);
     } else {
       if (!m_featureRedefinedConnectorBuilder.isEmpty()) {
-        for (ConnectorBuilder builder : m_featureRedefinedConnectorBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Connector> builder : m_featureRedefinedConnectorBuilder) {
           _newInstance.getRedefinedConnectors().add(builder.build());
         }
       }
@@ -201,7 +224,7 @@ public class ConnectorBuilder {
     return this;
   }
 
-  public ConnectorBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public ConnectorBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -212,7 +235,7 @@ public class ConnectorBuilder {
     return this;
   }
 
-  public ConnectorBuilder withType(org.eclipse.uml2.uml.util.builder.AssociationBuilder p_associationBuilder) {
+  public ConnectorBuilder withType(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Association> p_associationBuilder) {
     m_featureTypeBuilder = p_associationBuilder;
     return this;
   }
@@ -235,7 +258,7 @@ public class ConnectorBuilder {
     return this;
   }
 
-  public ConnectorBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public ConnectorBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
     return this;
   }
@@ -252,6 +275,28 @@ public class ConnectorBuilder {
     return this;
   }
 
+  public ConnectorBuilder withContract(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Behavior> p_behaviorBuilder) {
+    m_featureContractBuilder.add(p_behaviorBuilder);
+    return this;
+  }
+
+  public ConnectorBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ConnectorBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ConnectorBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
+    return this;
+  }
+
   public ConnectorBuilder withEnd(org.eclipse.uml2.uml.ConnectorEnd p_end) {
     m_end.add(p_end);
     m_featureEndSet = true;
@@ -264,7 +309,7 @@ public class ConnectorBuilder {
     return this;
   }
 
-  public ConnectorBuilder withEnd(ConnectorEndBuilder p_connectorEndBuilder) {
+  public ConnectorBuilder withEnd(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ConnectorEnd> p_connectorEndBuilder) {
     m_featureEndBuilder.add(p_connectorEndBuilder);
     return this;
   }
@@ -281,7 +326,7 @@ public class ConnectorBuilder {
     return this;
   }
 
-  public ConnectorBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public ConnectorBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }
@@ -298,7 +343,7 @@ public class ConnectorBuilder {
     return this;
   }
 
-  public ConnectorBuilder withRedefinedConnector(ConnectorBuilder p_connectorBuilder) {
+  public ConnectorBuilder withRedefinedConnector(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Connector> p_connectorBuilder) {
     m_featureRedefinedConnectorBuilder.add(p_connectorBuilder);
     return this;
   }

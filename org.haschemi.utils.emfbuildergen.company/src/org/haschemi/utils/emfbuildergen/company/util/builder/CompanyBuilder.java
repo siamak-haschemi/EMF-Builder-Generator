@@ -7,11 +7,11 @@ package org.haschemi.utils.emfbuildergen.company.util.builder;
  * 
  * @generated
  */
-public class CompanyBuilder {
+public class CompanyBuilder implements org.haschemi.utils.emfbuildergen.company.util.builder.ICompanyBuilder<org.haschemi.utils.emfbuildergen.company.Company> {
   // features and builders
   private java.lang.String m_name;
   private java.util.Collection<org.haschemi.utils.emfbuildergen.company.Department> m_department = new java.util.LinkedList<org.haschemi.utils.emfbuildergen.company.Department>();
-  private java.util.Collection<org.haschemi.utils.emfbuildergen.company.util.builder.DepartmentBuilder> m_featureDepartmentBuilder = new java.util.LinkedList<org.haschemi.utils.emfbuildergen.company.util.builder.DepartmentBuilder>();
+  private java.util.Collection<org.haschemi.utils.emfbuildergen.company.util.builder.ICompanyBuilder<? extends org.haschemi.utils.emfbuildergen.company.Department>> m_featureDepartmentBuilder = new java.util.LinkedList<org.haschemi.utils.emfbuildergen.company.util.builder.ICompanyBuilder<? extends org.haschemi.utils.emfbuildergen.company.Department>>();
   // helper attributes
   private boolean m_featureDepartmentSet = false;
   private boolean m_featureNameSet = false;
@@ -57,7 +57,7 @@ public class CompanyBuilder {
       _newInstance.getDepartment().addAll(m_department);
     } else {
       if (!m_featureDepartmentBuilder.isEmpty()) {
-        for (DepartmentBuilder builder : m_featureDepartmentBuilder) {
+        for (org.haschemi.utils.emfbuildergen.company.util.builder.ICompanyBuilder<? extends org.haschemi.utils.emfbuildergen.company.Department> builder : m_featureDepartmentBuilder) {
           _newInstance.getDepartment().add(builder.build());
         }
       }
@@ -83,7 +83,7 @@ public class CompanyBuilder {
     return this;
   }
 
-  public CompanyBuilder withDepartment(DepartmentBuilder p_departmentBuilder) {
+  public CompanyBuilder withDepartment(org.haschemi.utils.emfbuildergen.company.util.builder.ICompanyBuilder<? extends org.haschemi.utils.emfbuildergen.company.Department> p_departmentBuilder) {
     m_featureDepartmentBuilder.add(p_departmentBuilder);
     return this;
   }

@@ -7,15 +7,19 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class CommentBuilder {
+public class CommentBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.Comment> {
   // features and builders
   private java.lang.String m_body;
   private java.util.Collection<org.eclipse.uml2.uml.Element> m_annotatedElement = new java.util.LinkedList<org.eclipse.uml2.uml.Element>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Element>> m_featureAnnotatedElementBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Element>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   // helper attributes
   private boolean m_featureAnnotatedElementSet = false;
   private boolean m_featureBodySet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureOwnedCommentSet = false;
 
   /**
@@ -40,8 +44,12 @@ public class CommentBuilder {
     CommentBuilder _builder = newCommentBuilder();
     _builder.m_featureAnnotatedElementSet = m_featureAnnotatedElementSet;
     _builder.m_annotatedElement = m_annotatedElement;
+    _builder.m_featureAnnotatedElementBuilder = m_featureAnnotatedElementBuilder;
     _builder.m_featureBodySet = m_featureBodySet;
     _builder.m_body = m_body;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureOwnedCommentSet = m_featureOwnedCommentSet;
     _builder.m_ownedComment = m_ownedComment;
     _builder.m_featureOwnedCommentBuilder = m_featureOwnedCommentBuilder;
@@ -59,12 +67,27 @@ public class CommentBuilder {
     }
     if (m_featureAnnotatedElementSet) {
       _newInstance.getAnnotatedElements().addAll(m_annotatedElement);
+    } else {
+      if (!m_featureAnnotatedElementBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Element> builder : m_featureAnnotatedElementBuilder) {
+          _newInstance.getAnnotatedElements().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
+        }
+      }
     }
     if (m_featureOwnedCommentSet) {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -90,6 +113,28 @@ public class CommentBuilder {
     return this;
   }
 
+  public CommentBuilder withAnnotatedElement(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Element> p_elementBuilder) {
+    m_featureAnnotatedElementBuilder.add(p_elementBuilder);
+    return this;
+  }
+
+  public CommentBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public CommentBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public CommentBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
+    return this;
+  }
+
   public CommentBuilder withOwnedComment(org.eclipse.uml2.uml.Comment p_ownedComment) {
     m_ownedComment.add(p_ownedComment);
     m_featureOwnedCommentSet = true;
@@ -102,7 +147,7 @@ public class CommentBuilder {
     return this;
   }
 
-  public CommentBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public CommentBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }

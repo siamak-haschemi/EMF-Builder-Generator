@@ -7,29 +7,35 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class ActivityPartitionBuilder {
+public class ActivityPartitionBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.ActivityPartition> {
   // features and builders
   private org.eclipse.uml2.uml.Activity m_inActivity;
-  private org.eclipse.uml2.uml.util.builder.ActivityBuilder m_featureInActivityBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Activity> m_featureInActivityBuilder;
   private Boolean m_isDimension;
   private Boolean m_isExternal;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.Element m_represents;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Element> m_featureRepresentsBuilder;
   private org.eclipse.uml2.uml.ActivityPartition m_superPartition;
-  private org.eclipse.uml2.uml.util.builder.ActivityPartitionBuilder m_featureSuperPartitionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition> m_featureSuperPartitionBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.ActivityEdge> m_edge = new java.util.LinkedList<org.eclipse.uml2.uml.ActivityEdge>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge>> m_featureEdgeBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge>>();
   private java.util.Collection<org.eclipse.uml2.uml.ActivityNode> m_node = new java.util.LinkedList<org.eclipse.uml2.uml.ActivityNode>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityNode>> m_featureNodeBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityNode>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   private java.util.Collection<org.eclipse.uml2.uml.ActivityPartition> m_subpartition = new java.util.LinkedList<org.eclipse.uml2.uml.ActivityPartition>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ActivityPartitionBuilder> m_featureSubpartitionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ActivityPartitionBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition>> m_featureSubpartitionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition>>();
   // helper attributes
   private boolean m_featureClientDependencySet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureEdgeSet = false;
   private boolean m_featureInActivitySet = false;
   private boolean m_featureIsDimensionSet = false;
@@ -66,8 +72,12 @@ public class ActivityPartitionBuilder {
     _builder.m_featureClientDependencySet = m_featureClientDependencySet;
     _builder.m_clientDependency = m_clientDependency;
     _builder.m_featureClientDependencyBuilder = m_featureClientDependencyBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureEdgeSet = m_featureEdgeSet;
     _builder.m_edge = m_edge;
+    _builder.m_featureEdgeBuilder = m_featureEdgeBuilder;
     _builder.m_featureInActivitySet = m_featureInActivitySet;
     _builder.m_inActivity = m_inActivity;
     _builder.m_featureInActivityBuilder = m_featureInActivityBuilder;
@@ -82,11 +92,13 @@ public class ActivityPartitionBuilder {
     _builder.m_featureNameExpressionBuilder = m_featureNameExpressionBuilder;
     _builder.m_featureNodeSet = m_featureNodeSet;
     _builder.m_node = m_node;
+    _builder.m_featureNodeBuilder = m_featureNodeBuilder;
     _builder.m_featureOwnedCommentSet = m_featureOwnedCommentSet;
     _builder.m_ownedComment = m_ownedComment;
     _builder.m_featureOwnedCommentBuilder = m_featureOwnedCommentBuilder;
     _builder.m_featureRepresentsSet = m_featureRepresentsSet;
     _builder.m_represents = m_represents;
+    _builder.m_featureRepresentsBuilder = m_featureRepresentsBuilder;
     _builder.m_featureSubpartitionSet = m_featureSubpartitionSet;
     _builder.m_subpartition = m_subpartition;
     _builder.m_featureSubpartitionBuilder = m_featureSubpartitionBuilder;
@@ -129,6 +141,10 @@ public class ActivityPartitionBuilder {
     }
     if (m_featureRepresentsSet) {
       _newInstance.setRepresents(m_represents);
+    } else {
+      if (m_featureRepresentsBuilder != null) {
+        _newInstance.setRepresents(m_featureRepresentsBuilder.build());
+      }
     }
     if (m_featureSuperPartitionSet) {
       _newInstance.setSuperPartition(m_superPartition);
@@ -144,22 +160,43 @@ public class ActivityPartitionBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
     if (m_featureEdgeSet) {
       _newInstance.getEdges().addAll(m_edge);
+    } else {
+      if (!m_featureEdgeBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge> builder : m_featureEdgeBuilder) {
+          _newInstance.getEdges().add(builder.build());
+        }
+      }
     }
     if (m_featureNodeSet) {
       _newInstance.getNodes().addAll(m_node);
+    } else {
+      if (!m_featureNodeBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityNode> builder : m_featureNodeBuilder) {
+          _newInstance.getNodes().add(builder.build());
+        }
+      }
     }
     if (m_featureOwnedCommentSet) {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -168,7 +205,7 @@ public class ActivityPartitionBuilder {
       _newInstance.getSubpartitions().addAll(m_subpartition);
     } else {
       if (!m_featureSubpartitionBuilder.isEmpty()) {
-        for (ActivityPartitionBuilder builder : m_featureSubpartitionBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition> builder : m_featureSubpartitionBuilder) {
           _newInstance.getSubpartitions().add(builder.build());
         }
       }
@@ -182,7 +219,7 @@ public class ActivityPartitionBuilder {
     return this;
   }
 
-  public ActivityPartitionBuilder withInActivity(org.eclipse.uml2.uml.util.builder.ActivityBuilder p_activityBuilder) {
+  public ActivityPartitionBuilder withInActivity(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Activity> p_activityBuilder) {
     m_featureInActivityBuilder = p_activityBuilder;
     return this;
   }
@@ -211,7 +248,7 @@ public class ActivityPartitionBuilder {
     return this;
   }
 
-  public ActivityPartitionBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public ActivityPartitionBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -222,13 +259,18 @@ public class ActivityPartitionBuilder {
     return this;
   }
 
+  public ActivityPartitionBuilder withRepresents(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Element> p_elementBuilder) {
+    m_featureRepresentsBuilder = p_elementBuilder;
+    return this;
+  }
+
   public ActivityPartitionBuilder withSuperPartition(org.eclipse.uml2.uml.ActivityPartition p_superPartition) {
     m_superPartition = p_superPartition;
     m_featureSuperPartitionSet = true;
     return this;
   }
 
-  public ActivityPartitionBuilder withSuperPartition(org.eclipse.uml2.uml.util.builder.ActivityPartitionBuilder p_activityPartitionBuilder) {
+  public ActivityPartitionBuilder withSuperPartition(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition> p_activityPartitionBuilder) {
     m_featureSuperPartitionBuilder = p_activityPartitionBuilder;
     return this;
   }
@@ -251,8 +293,25 @@ public class ActivityPartitionBuilder {
     return this;
   }
 
-  public ActivityPartitionBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public ActivityPartitionBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
+    return this;
+  }
+
+  public ActivityPartitionBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ActivityPartitionBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ActivityPartitionBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -268,6 +327,11 @@ public class ActivityPartitionBuilder {
     return this;
   }
 
+  public ActivityPartitionBuilder withEdge(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge> p_activityEdgeBuilder) {
+    m_featureEdgeBuilder.add(p_activityEdgeBuilder);
+    return this;
+  }
+
   public ActivityPartitionBuilder withNode(org.eclipse.uml2.uml.ActivityNode p_node) {
     m_node.add(p_node);
     m_featureNodeSet = true;
@@ -277,6 +341,11 @@ public class ActivityPartitionBuilder {
   public ActivityPartitionBuilder withNode(java.util.Collection<? extends org.eclipse.uml2.uml.ActivityNode> p_node) {
     m_node.addAll(p_node);
     m_featureNodeSet = true;
+    return this;
+  }
+
+  public ActivityPartitionBuilder withNode(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityNode> p_activityNodeBuilder) {
+    m_featureNodeBuilder.add(p_activityNodeBuilder);
     return this;
   }
 
@@ -292,7 +361,7 @@ public class ActivityPartitionBuilder {
     return this;
   }
 
-  public ActivityPartitionBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public ActivityPartitionBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }
@@ -309,7 +378,7 @@ public class ActivityPartitionBuilder {
     return this;
   }
 
-  public ActivityPartitionBuilder withSubpartition(ActivityPartitionBuilder p_activityPartitionBuilder) {
+  public ActivityPartitionBuilder withSubpartition(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition> p_activityPartitionBuilder) {
     m_featureSubpartitionBuilder.add(p_activityPartitionBuilder);
     return this;
   }

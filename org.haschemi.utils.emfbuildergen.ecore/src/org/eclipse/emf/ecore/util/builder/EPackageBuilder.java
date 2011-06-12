@@ -7,18 +7,19 @@ package org.eclipse.emf.ecore.util.builder;
  * 
  * @generated
  */
-public class EPackageBuilder {
+public class EPackageBuilder implements org.eclipse.emf.ecore.util.builder.IEcoreBuilder<org.eclipse.emf.ecore.EPackage> {
   // features and builders
   private org.eclipse.emf.ecore.EFactory m_eFactoryInstance;
-  private org.eclipse.emf.ecore.util.builder.EFactoryBuilder m_featureEFactoryInstanceBuilder;
+  private org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EFactory> m_featureEFactoryInstanceBuilder;
   private java.lang.String m_name;
   private java.lang.String m_nsPrefix;
   private java.lang.String m_nsURI;
   private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.emf.ecore.EClassifier> m_eClassifiers = new java.util.LinkedList<org.eclipse.emf.ecore.EClassifier>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClassifier>> m_featureEClassifiersBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClassifier>>();
   private java.util.Collection<org.eclipse.emf.ecore.EPackage> m_eSubpackages = new java.util.LinkedList<org.eclipse.emf.ecore.EPackage>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EPackageBuilder> m_featureESubpackagesBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EPackageBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EPackage>> m_featureESubpackagesBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EPackage>>();
   // helper attributes
   private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureEClassifiersSet = false;
@@ -53,6 +54,7 @@ public class EPackageBuilder {
     _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureEClassifiersSet = m_featureEClassifiersSet;
     _builder.m_eClassifiers = m_eClassifiers;
+    _builder.m_featureEClassifiersBuilder = m_featureEClassifiersBuilder;
     _builder.m_featureEFactoryInstanceSet = m_featureEFactoryInstanceSet;
     _builder.m_eFactoryInstance = m_eFactoryInstance;
     _builder.m_featureEFactoryInstanceBuilder = m_featureEFactoryInstanceBuilder;
@@ -94,19 +96,25 @@ public class EPackageBuilder {
       _newInstance.getEAnnotations().addAll(m_eAnnotations);
     } else {
       if (!m_featureEAnnotationsBuilder.isEmpty()) {
-        for (EAnnotationBuilder builder : m_featureEAnnotationsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
           _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
     if (m_featureEClassifiersSet) {
       _newInstance.getEClassifiers().addAll(m_eClassifiers);
+    } else {
+      if (!m_featureEClassifiersBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClassifier> builder : m_featureEClassifiersBuilder) {
+          _newInstance.getEClassifiers().add(builder.build());
+        }
+      }
     }
     if (m_featureESubpackagesSet) {
       _newInstance.getESubpackages().addAll(m_eSubpackages);
     } else {
       if (!m_featureESubpackagesBuilder.isEmpty()) {
-        for (EPackageBuilder builder : m_featureESubpackagesBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EPackage> builder : m_featureESubpackagesBuilder) {
           _newInstance.getESubpackages().add(builder.build());
         }
       }
@@ -120,7 +128,7 @@ public class EPackageBuilder {
     return this;
   }
 
-  public EPackageBuilder withEFactoryInstance(org.eclipse.emf.ecore.util.builder.EFactoryBuilder p_eFactoryBuilder) {
+  public EPackageBuilder withEFactoryInstance(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EFactory> p_eFactoryBuilder) {
     m_featureEFactoryInstanceBuilder = p_eFactoryBuilder;
     return this;
   }
@@ -155,7 +163,7 @@ public class EPackageBuilder {
     return this;
   }
 
-  public EPackageBuilder withEAnnotations(EAnnotationBuilder p_eAnnotationBuilder) {
+  public EPackageBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
     m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
@@ -172,6 +180,11 @@ public class EPackageBuilder {
     return this;
   }
 
+  public EPackageBuilder withEClassifiers(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClassifier> p_eClassifierBuilder) {
+    m_featureEClassifiersBuilder.add(p_eClassifierBuilder);
+    return this;
+  }
+
   public EPackageBuilder withESubpackages(org.eclipse.emf.ecore.EPackage p_eSubpackages) {
     m_eSubpackages.add(p_eSubpackages);
     m_featureESubpackagesSet = true;
@@ -184,7 +197,7 @@ public class EPackageBuilder {
     return this;
   }
 
-  public EPackageBuilder withESubpackages(EPackageBuilder p_ePackageBuilder) {
+  public EPackageBuilder withESubpackages(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EPackage> p_ePackageBuilder) {
     m_featureESubpackagesBuilder.add(p_ePackageBuilder);
     return this;
   }

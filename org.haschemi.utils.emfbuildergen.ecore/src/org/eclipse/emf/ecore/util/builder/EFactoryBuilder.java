@@ -7,12 +7,12 @@ package org.eclipse.emf.ecore.util.builder;
  * 
  * @generated
  */
-public class EFactoryBuilder {
+public class EFactoryBuilder implements org.eclipse.emf.ecore.util.builder.IEcoreBuilder<org.eclipse.emf.ecore.EFactory> {
   // features and builders
   private org.eclipse.emf.ecore.EPackage m_ePackage;
-  private org.eclipse.emf.ecore.util.builder.EPackageBuilder m_featureEPackageBuilder;
+  private org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EPackage> m_featureEPackageBuilder;
   private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   // helper attributes
   private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureEPackageSet = false;
@@ -63,7 +63,7 @@ public class EFactoryBuilder {
       _newInstance.getEAnnotations().addAll(m_eAnnotations);
     } else {
       if (!m_featureEAnnotationsBuilder.isEmpty()) {
-        for (EAnnotationBuilder builder : m_featureEAnnotationsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
           _newInstance.getEAnnotations().add(builder.build());
         }
       }
@@ -77,7 +77,7 @@ public class EFactoryBuilder {
     return this;
   }
 
-  public EFactoryBuilder withEPackage(org.eclipse.emf.ecore.util.builder.EPackageBuilder p_ePackageBuilder) {
+  public EFactoryBuilder withEPackage(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EPackage> p_ePackageBuilder) {
     m_featureEPackageBuilder = p_ePackageBuilder;
     return this;
   }
@@ -94,7 +94,7 @@ public class EFactoryBuilder {
     return this;
   }
 
-  public EFactoryBuilder withEAnnotations(EAnnotationBuilder p_eAnnotationBuilder) {
+  public EFactoryBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
     m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }

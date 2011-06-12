@@ -7,15 +7,18 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class ProtocolConformanceBuilder {
+public class ProtocolConformanceBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.ProtocolConformance> {
   // features and builders
   private org.eclipse.uml2.uml.ProtocolStateMachine m_generalMachine;
-  private org.eclipse.uml2.uml.util.builder.ProtocolStateMachineBuilder m_featureGeneralMachineBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ProtocolStateMachine> m_featureGeneralMachineBuilder;
   private org.eclipse.uml2.uml.ProtocolStateMachine m_specificMachine;
-  private org.eclipse.uml2.uml.util.builder.ProtocolStateMachineBuilder m_featureSpecificMachineBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ProtocolStateMachine> m_featureSpecificMachineBuilder;
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   // helper attributes
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureGeneralMachineSet = false;
   private boolean m_featureOwnedCommentSet = false;
   private boolean m_featureSpecificMachineSet = false;
@@ -40,6 +43,9 @@ public class ProtocolConformanceBuilder {
    */
   public ProtocolConformanceBuilder but() {
     ProtocolConformanceBuilder _builder = newProtocolConformanceBuilder();
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureGeneralMachineSet = m_featureGeneralMachineSet;
     _builder.m_generalMachine = m_generalMachine;
     _builder.m_featureGeneralMachineBuilder = m_featureGeneralMachineBuilder;
@@ -72,11 +78,20 @@ public class ProtocolConformanceBuilder {
         _newInstance.setSpecificMachine(m_featureSpecificMachineBuilder.build());
       }
     }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
+        }
+      }
+    }
     if (m_featureOwnedCommentSet) {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -90,7 +105,7 @@ public class ProtocolConformanceBuilder {
     return this;
   }
 
-  public ProtocolConformanceBuilder withGeneralMachine(org.eclipse.uml2.uml.util.builder.ProtocolStateMachineBuilder p_protocolStateMachineBuilder) {
+  public ProtocolConformanceBuilder withGeneralMachine(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ProtocolStateMachine> p_protocolStateMachineBuilder) {
     m_featureGeneralMachineBuilder = p_protocolStateMachineBuilder;
     return this;
   }
@@ -101,8 +116,25 @@ public class ProtocolConformanceBuilder {
     return this;
   }
 
-  public ProtocolConformanceBuilder withSpecificMachine(org.eclipse.uml2.uml.util.builder.ProtocolStateMachineBuilder p_protocolStateMachineBuilder) {
+  public ProtocolConformanceBuilder withSpecificMachine(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ProtocolStateMachine> p_protocolStateMachineBuilder) {
     m_featureSpecificMachineBuilder = p_protocolStateMachineBuilder;
+    return this;
+  }
+
+  public ProtocolConformanceBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ProtocolConformanceBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ProtocolConformanceBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -118,7 +150,7 @@ public class ProtocolConformanceBuilder {
     return this;
   }
 
-  public ProtocolConformanceBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public ProtocolConformanceBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }

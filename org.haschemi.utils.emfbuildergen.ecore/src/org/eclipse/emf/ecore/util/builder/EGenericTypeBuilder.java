@@ -7,17 +7,18 @@ package org.eclipse.emf.ecore.util.builder;
  * 
  * @generated
  */
-public class EGenericTypeBuilder {
+public class EGenericTypeBuilder implements org.eclipse.emf.ecore.util.builder.IEcoreBuilder<org.eclipse.emf.ecore.EGenericType> {
   // features and builders
   private org.eclipse.emf.ecore.EClassifier m_eClassifier;
+  private org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClassifier> m_featureEClassifierBuilder;
   private org.eclipse.emf.ecore.EGenericType m_eLowerBound;
-  private org.eclipse.emf.ecore.util.builder.EGenericTypeBuilder m_featureELowerBoundBuilder;
+  private org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType> m_featureELowerBoundBuilder;
   private org.eclipse.emf.ecore.ETypeParameter m_eTypeParameter;
-  private org.eclipse.emf.ecore.util.builder.ETypeParameterBuilder m_featureETypeParameterBuilder;
+  private org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter> m_featureETypeParameterBuilder;
   private org.eclipse.emf.ecore.EGenericType m_eUpperBound;
-  private org.eclipse.emf.ecore.util.builder.EGenericTypeBuilder m_featureEUpperBoundBuilder;
+  private org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType> m_featureEUpperBoundBuilder;
   private java.util.Collection<org.eclipse.emf.ecore.EGenericType> m_eTypeArguments = new java.util.LinkedList<org.eclipse.emf.ecore.EGenericType>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EGenericTypeBuilder> m_featureETypeArgumentsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EGenericTypeBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType>> m_featureETypeArgumentsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType>>();
   // helper attributes
   private boolean m_featureEClassifierSet = false;
   private boolean m_featureELowerBoundSet = false;
@@ -47,6 +48,7 @@ public class EGenericTypeBuilder {
     EGenericTypeBuilder _builder = newEGenericTypeBuilder();
     _builder.m_featureEClassifierSet = m_featureEClassifierSet;
     _builder.m_eClassifier = m_eClassifier;
+    _builder.m_featureEClassifierBuilder = m_featureEClassifierBuilder;
     _builder.m_featureELowerBoundSet = m_featureELowerBoundSet;
     _builder.m_eLowerBound = m_eLowerBound;
     _builder.m_featureELowerBoundBuilder = m_featureELowerBoundBuilder;
@@ -70,6 +72,10 @@ public class EGenericTypeBuilder {
     final org.eclipse.emf.ecore.EGenericType _newInstance = org.eclipse.emf.ecore.EcoreFactory.eINSTANCE.createEGenericType();
     if (m_featureEClassifierSet) {
       _newInstance.setEClassifier(m_eClassifier);
+    } else {
+      if (m_featureEClassifierBuilder != null) {
+        _newInstance.setEClassifier(m_featureEClassifierBuilder.build());
+      }
     }
     if (m_featureELowerBoundSet) {
       _newInstance.setELowerBound(m_eLowerBound);
@@ -96,7 +102,7 @@ public class EGenericTypeBuilder {
       _newInstance.getETypeArguments().addAll(m_eTypeArguments);
     } else {
       if (!m_featureETypeArgumentsBuilder.isEmpty()) {
-        for (EGenericTypeBuilder builder : m_featureETypeArgumentsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType> builder : m_featureETypeArgumentsBuilder) {
           _newInstance.getETypeArguments().add(builder.build());
         }
       }
@@ -110,13 +116,18 @@ public class EGenericTypeBuilder {
     return this;
   }
 
+  public EGenericTypeBuilder withEClassifier(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClassifier> p_eClassifierBuilder) {
+    m_featureEClassifierBuilder = p_eClassifierBuilder;
+    return this;
+  }
+
   public EGenericTypeBuilder withELowerBound(org.eclipse.emf.ecore.EGenericType p_eLowerBound) {
     m_eLowerBound = p_eLowerBound;
     m_featureELowerBoundSet = true;
     return this;
   }
 
-  public EGenericTypeBuilder withELowerBound(org.eclipse.emf.ecore.util.builder.EGenericTypeBuilder p_eGenericTypeBuilder) {
+  public EGenericTypeBuilder withELowerBound(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType> p_eGenericTypeBuilder) {
     m_featureELowerBoundBuilder = p_eGenericTypeBuilder;
     return this;
   }
@@ -127,7 +138,7 @@ public class EGenericTypeBuilder {
     return this;
   }
 
-  public EGenericTypeBuilder withETypeParameter(org.eclipse.emf.ecore.util.builder.ETypeParameterBuilder p_eTypeParameterBuilder) {
+  public EGenericTypeBuilder withETypeParameter(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.ETypeParameter> p_eTypeParameterBuilder) {
     m_featureETypeParameterBuilder = p_eTypeParameterBuilder;
     return this;
   }
@@ -138,7 +149,7 @@ public class EGenericTypeBuilder {
     return this;
   }
 
-  public EGenericTypeBuilder withEUpperBound(org.eclipse.emf.ecore.util.builder.EGenericTypeBuilder p_eGenericTypeBuilder) {
+  public EGenericTypeBuilder withEUpperBound(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType> p_eGenericTypeBuilder) {
     m_featureEUpperBoundBuilder = p_eGenericTypeBuilder;
     return this;
   }
@@ -155,7 +166,7 @@ public class EGenericTypeBuilder {
     return this;
   }
 
-  public EGenericTypeBuilder withETypeArguments(EGenericTypeBuilder p_eGenericTypeBuilder) {
+  public EGenericTypeBuilder withETypeArguments(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType> p_eGenericTypeBuilder) {
     m_featureETypeArgumentsBuilder.add(p_eGenericTypeBuilder);
     return this;
   }

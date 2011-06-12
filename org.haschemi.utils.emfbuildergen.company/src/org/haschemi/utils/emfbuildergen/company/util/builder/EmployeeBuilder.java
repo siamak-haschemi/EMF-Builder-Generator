@@ -7,7 +7,7 @@ package org.haschemi.utils.emfbuildergen.company.util.builder;
  * 
  * @generated
  */
-public class EmployeeBuilder {
+public class EmployeeBuilder implements org.haschemi.utils.emfbuildergen.company.util.builder.ICompanyBuilder<org.haschemi.utils.emfbuildergen.company.Employee> {
   // features and builders
   private java.lang.String m_name;
   // helper attributes

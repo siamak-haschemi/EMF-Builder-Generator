@@ -7,26 +7,30 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class RedefinableTemplateSignatureBuilder {
+public class RedefinableTemplateSignatureBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.RedefinableTemplateSignature> {
   // features and builders
   private Boolean m_isLeaf;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.TemplateableElement m_template;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateableElement> m_featureTemplateBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.RedefinableTemplateSignature> m_extendedSignature = new java.util.LinkedList<org.eclipse.uml2.uml.RedefinableTemplateSignature>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.RedefinableTemplateSignatureBuilder> m_featureExtendedSignatureBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.RedefinableTemplateSignatureBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.RedefinableTemplateSignature>> m_featureExtendedSignatureBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.RedefinableTemplateSignature>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   private java.util.Collection<org.eclipse.uml2.uml.TemplateParameter> m_ownedParameter = new java.util.LinkedList<org.eclipse.uml2.uml.TemplateParameter>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder> m_featureOwnedParameterBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter>> m_featureOwnedParameterBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter>>();
   private java.util.Collection<org.eclipse.uml2.uml.TemplateParameter> m_parameter = new java.util.LinkedList<org.eclipse.uml2.uml.TemplateParameter>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder> m_featureParameterBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.TemplateParameterBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter>> m_featureParameterBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter>>();
   // helper attributes
   private boolean m_featureClientDependencySet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureExtendedSignatureSet = false;
   private boolean m_featureIsLeafSet = false;
   private boolean m_featureNameSet = false;
@@ -60,6 +64,9 @@ public class RedefinableTemplateSignatureBuilder {
     _builder.m_featureClientDependencySet = m_featureClientDependencySet;
     _builder.m_clientDependency = m_clientDependency;
     _builder.m_featureClientDependencyBuilder = m_featureClientDependencyBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureExtendedSignatureSet = m_featureExtendedSignatureSet;
     _builder.m_extendedSignature = m_extendedSignature;
     _builder.m_featureExtendedSignatureBuilder = m_featureExtendedSignatureBuilder;
@@ -81,6 +88,7 @@ public class RedefinableTemplateSignatureBuilder {
     _builder.m_featureParameterBuilder = m_featureParameterBuilder;
     _builder.m_featureTemplateSet = m_featureTemplateSet;
     _builder.m_template = m_template;
+    _builder.m_featureTemplateBuilder = m_featureTemplateBuilder;
     _builder.m_featureVisibilitySet = m_featureVisibilitySet;
     _builder.m_visibility = m_visibility;
     return _builder;
@@ -107,6 +115,10 @@ public class RedefinableTemplateSignatureBuilder {
     }
     if (m_featureTemplateSet) {
       _newInstance.setTemplate(m_template);
+    } else {
+      if (m_featureTemplateBuilder != null) {
+        _newInstance.setTemplate(m_featureTemplateBuilder.build());
+      }
     }
     if (m_featureVisibilitySet) {
       _newInstance.setVisibility(m_visibility);
@@ -115,8 +127,17 @@ public class RedefinableTemplateSignatureBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -124,7 +145,7 @@ public class RedefinableTemplateSignatureBuilder {
       _newInstance.getExtendedSignatures().addAll(m_extendedSignature);
     } else {
       if (!m_featureExtendedSignatureBuilder.isEmpty()) {
-        for (RedefinableTemplateSignatureBuilder builder : m_featureExtendedSignatureBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.RedefinableTemplateSignature> builder : m_featureExtendedSignatureBuilder) {
           _newInstance.getExtendedSignatures().add(builder.build());
         }
       }
@@ -133,7 +154,7 @@ public class RedefinableTemplateSignatureBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -142,7 +163,7 @@ public class RedefinableTemplateSignatureBuilder {
       _newInstance.getOwnedParameters().addAll(m_ownedParameter);
     } else {
       if (!m_featureOwnedParameterBuilder.isEmpty()) {
-        for (TemplateParameterBuilder builder : m_featureOwnedParameterBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> builder : m_featureOwnedParameterBuilder) {
           _newInstance.getOwnedParameters().add(builder.build());
         }
       }
@@ -151,7 +172,7 @@ public class RedefinableTemplateSignatureBuilder {
       _newInstance.getParameters().addAll(m_parameter);
     } else {
       if (!m_featureParameterBuilder.isEmpty()) {
-        for (TemplateParameterBuilder builder : m_featureParameterBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> builder : m_featureParameterBuilder) {
           _newInstance.getParameters().add(builder.build());
         }
       }
@@ -177,7 +198,7 @@ public class RedefinableTemplateSignatureBuilder {
     return this;
   }
 
-  public RedefinableTemplateSignatureBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public RedefinableTemplateSignatureBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -185,6 +206,11 @@ public class RedefinableTemplateSignatureBuilder {
   public RedefinableTemplateSignatureBuilder withTemplate(org.eclipse.uml2.uml.TemplateableElement p_template) {
     m_template = p_template;
     m_featureTemplateSet = true;
+    return this;
+  }
+
+  public RedefinableTemplateSignatureBuilder withTemplate(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateableElement> p_templateableElementBuilder) {
+    m_featureTemplateBuilder = p_templateableElementBuilder;
     return this;
   }
 
@@ -206,8 +232,25 @@ public class RedefinableTemplateSignatureBuilder {
     return this;
   }
 
-  public RedefinableTemplateSignatureBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public RedefinableTemplateSignatureBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
+    return this;
+  }
+
+  public RedefinableTemplateSignatureBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public RedefinableTemplateSignatureBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public RedefinableTemplateSignatureBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -223,7 +266,8 @@ public class RedefinableTemplateSignatureBuilder {
     return this;
   }
 
-  public RedefinableTemplateSignatureBuilder withExtendedSignature(RedefinableTemplateSignatureBuilder p_redefinableTemplateSignatureBuilder) {
+  public RedefinableTemplateSignatureBuilder withExtendedSignature(
+      org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.RedefinableTemplateSignature> p_redefinableTemplateSignatureBuilder) {
     m_featureExtendedSignatureBuilder.add(p_redefinableTemplateSignatureBuilder);
     return this;
   }
@@ -240,7 +284,7 @@ public class RedefinableTemplateSignatureBuilder {
     return this;
   }
 
-  public RedefinableTemplateSignatureBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public RedefinableTemplateSignatureBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }
@@ -257,7 +301,7 @@ public class RedefinableTemplateSignatureBuilder {
     return this;
   }
 
-  public RedefinableTemplateSignatureBuilder withOwnedParameter(TemplateParameterBuilder p_templateParameterBuilder) {
+  public RedefinableTemplateSignatureBuilder withOwnedParameter(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> p_templateParameterBuilder) {
     m_featureOwnedParameterBuilder.add(p_templateParameterBuilder);
     return this;
   }
@@ -274,7 +318,7 @@ public class RedefinableTemplateSignatureBuilder {
     return this;
   }
 
-  public RedefinableTemplateSignatureBuilder withParameter(TemplateParameterBuilder p_templateParameterBuilder) {
+  public RedefinableTemplateSignatureBuilder withParameter(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.TemplateParameter> p_templateParameterBuilder) {
     m_featureParameterBuilder.add(p_templateParameterBuilder);
     return this;
   }

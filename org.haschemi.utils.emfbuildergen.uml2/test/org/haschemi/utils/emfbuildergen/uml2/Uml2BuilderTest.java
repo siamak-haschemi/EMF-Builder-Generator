@@ -62,13 +62,11 @@ public class Uml2BuilderTest {
           .withType(employeeClass)
           .withUpperValue(
             newLiteralUnlimitedNaturalBuilder()
-              .withValue(LiteralUnlimitedNatural.UNLIMITED)
-            .build()
+              .withValue(LiteralUnlimitedNatural.UNLIMITED)            
           )
           .withLowerValue(
               newLiteralUnlimitedNaturalBuilder()
-              .withValue(0)
-            .build()
+              .withValue(0)            
           )
           .withAggregation(AggregationKind.COMPOSITE_LITERAL)
       )              
@@ -87,13 +85,11 @@ public class Uml2BuilderTest {
           .withType(departmentClass)
           .withUpperValue(
             newLiteralUnlimitedNaturalBuilder()
-              .withValue(LiteralUnlimitedNatural.UNLIMITED)
-            .build()
+              .withValue(LiteralUnlimitedNatural.UNLIMITED)            
           )
           .withLowerValue(
               newLiteralUnlimitedNaturalBuilder()
-              .withValue(0)
-            .build()
+              .withValue(0)            
           )
           .withAggregation(AggregationKind.COMPOSITE_LITERAL)
       )              
@@ -105,8 +101,7 @@ public class Uml2BuilderTest {
 				  .withName("company")
 					.withPackagedElement(employeeClass)
 					.withPackagedElement(companyClass)
-          .withPackagedElement(departmentClass)
-				.build()
+          .withPackagedElement(departmentClass)				
 			  )
 		.build();
 		// @formatter:on

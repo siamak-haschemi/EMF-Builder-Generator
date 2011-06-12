@@ -7,7 +7,7 @@ package org.eclipse.emf.ecore.util.builder;
  * 
  * @generated
  */
-public class EObjectBuilder {
+public class EObjectBuilder implements org.eclipse.emf.ecore.util.builder.IEcoreBuilder<org.eclipse.emf.ecore.EObject> {
   // features and builders
   // helper attributes
   /**

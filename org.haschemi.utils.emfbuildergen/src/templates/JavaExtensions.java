@@ -12,32 +12,18 @@
 package templates;
 
 import java.util.List;
+
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.codegen.util.CodeGenUtil;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.uml2.codegen.ecore.Generator;
 
 public class JavaExtensions {
   private static List<GenModel> s_genModels;
-
-  public static String javaPackage(final String p_javaClass) {
-    return p_javaClass.substring(0, p_javaClass.lastIndexOf("."));
-  }
-
-  public static void throwRuntimeException(final String p_message) {
-    throw new RuntimeException(p_message);
-  }
-
-  public static final String safeSetterName(final EStructuralFeature p_structuralFeature) {
-    return p_structuralFeature.getName().equals("class") ? p_structuralFeature.getName() + "_" : p_structuralFeature.getName();
-  }
-
-  public static final String safeName(final EStructuralFeature p_structuralFeature) {
-    return CodeGenUtil.safeName(p_structuralFeature.getName());
-  }
 
   public static String fqGenJavaPackage(final EClassifier p_eClassifier) {
     final GenPackage genPackage = findGenPackageFor(p_eClassifier);
@@ -59,6 +45,14 @@ public class JavaExtensions {
     return sb.toString();
   }
 
+  public static final String safeName(final EStructuralFeature p_structuralFeature) {
+    return CodeGenUtil.safeName(p_structuralFeature.getName());
+  }
+
+  public static final String safeSetterName(final EStructuralFeature p_structuralFeature) {
+    return p_structuralFeature.getName().equals("class") ? p_structuralFeature.getName() + "_" : p_structuralFeature.getName();
+  }
+
   public static String potentiallyPluralizedName(final EStructuralFeature p_structuralFeature) {
     final GenPackage genPackage = findGenPackageFor(p_structuralFeature.getEContainingClass());
     if (genPackage instanceof org.eclipse.uml2.codegen.ecore.genmodel.GenPackage) {
@@ -71,19 +65,33 @@ public class JavaExtensions {
     return p_structuralFeature.getName();
   }
 
+  public static void throwRuntimeException(final String p_message) {
+    throw new RuntimeException(p_message);
+  }
+
   private static String pluralize(final String name) {
     return Generator.pluralize(name);
   }
 
   private static final GenPackage findGenPackageFor(final EClassifier p_classifier) {
+    final StringBuilder sb = new StringBuilder();
     for (final GenModel genModel : s_genModels) {
       for (final GenPackage genPackage : genModel.getGenPackages()) {
+        sb.append(genPackage.getNSURI()).append(",");
+
+        if (p_classifier.eIsProxy()) {
+          EcoreUtil.resolveAll(p_classifier);
+          if (p_classifier.eIsProxy()) {
+            throw new RuntimeException("Could not resolve proxy object " + p_classifier);
+          }
+        }
+
         if (ePackageEquals(p_classifier.getEPackage(), genPackage.getEcorePackage())) {
           return genPackage;
         }
       }
     }
-    throw new RuntimeException("Did not find genpackage for '" + p_classifier + " using genmodel list " + s_genModels + ".");
+    throw new RuntimeException("Did not find genpackage for '" + p_classifier + " using genmodels " + sb.toString() + ".");
   }
 
   private static boolean ePackageEquals(final EPackage p_this, final EPackage p_other) {

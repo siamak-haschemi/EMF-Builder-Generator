@@ -7,43 +7,49 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class ReadLinkObjectEndQualifierActionBuilder {
+public class ReadLinkObjectEndQualifierActionBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.ReadLinkObjectEndQualifierAction> {
   // features and builders
   private org.eclipse.uml2.uml.Activity m_activity;
-  private org.eclipse.uml2.uml.util.builder.ActivityBuilder m_featureActivityBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Activity> m_featureActivityBuilder;
   private org.eclipse.uml2.uml.StructuredActivityNode m_inStructuredNode;
-  private org.eclipse.uml2.uml.util.builder.StructuredActivityNodeBuilder m_featureInStructuredNodeBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StructuredActivityNode> m_featureInStructuredNodeBuilder;
   private Boolean m_isLeaf;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.InputPin m_object;
-  private org.eclipse.uml2.uml.util.builder.InputPinBuilder m_featureObjectBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InputPin> m_featureObjectBuilder;
   private org.eclipse.uml2.uml.Property m_qualifier;
-  private org.eclipse.uml2.uml.util.builder.PropertyBuilder m_featureQualifierBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property> m_featureQualifierBuilder;
   private org.eclipse.uml2.uml.OutputPin m_result;
-  private org.eclipse.uml2.uml.util.builder.OutputPinBuilder m_featureResultBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OutputPin> m_featureResultBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.ExceptionHandler> m_handler = new java.util.LinkedList<org.eclipse.uml2.uml.ExceptionHandler>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ExceptionHandlerBuilder> m_featureHandlerBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ExceptionHandlerBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExceptionHandler>> m_featureHandlerBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExceptionHandler>>();
   private java.util.Collection<org.eclipse.uml2.uml.InterruptibleActivityRegion> m_inInterruptibleRegion = new java.util.LinkedList<org.eclipse.uml2.uml.InterruptibleActivityRegion>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.InterruptibleActivityRegionBuilder> m_featureInInterruptibleRegionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.InterruptibleActivityRegionBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InterruptibleActivityRegion>> m_featureInInterruptibleRegionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InterruptibleActivityRegion>>();
   private java.util.Collection<org.eclipse.uml2.uml.ActivityPartition> m_inPartition = new java.util.LinkedList<org.eclipse.uml2.uml.ActivityPartition>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ActivityPartitionBuilder> m_featureInPartitionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ActivityPartitionBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition>> m_featureInPartitionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition>>();
   private java.util.Collection<org.eclipse.uml2.uml.ActivityEdge> m_incoming = new java.util.LinkedList<org.eclipse.uml2.uml.ActivityEdge>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge>> m_featureIncomingBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge>>();
   private java.util.Collection<org.eclipse.uml2.uml.Constraint> m_localPostcondition = new java.util.LinkedList<org.eclipse.uml2.uml.Constraint>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ConstraintBuilder> m_featureLocalPostconditionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ConstraintBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint>> m_featureLocalPostconditionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint>>();
   private java.util.Collection<org.eclipse.uml2.uml.Constraint> m_localPrecondition = new java.util.LinkedList<org.eclipse.uml2.uml.Constraint>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ConstraintBuilder> m_featureLocalPreconditionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ConstraintBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint>> m_featureLocalPreconditionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint>>();
   private java.util.Collection<org.eclipse.uml2.uml.ActivityEdge> m_outgoing = new java.util.LinkedList<org.eclipse.uml2.uml.ActivityEdge>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge>> m_featureOutgoingBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   private java.util.Collection<org.eclipse.uml2.uml.ActivityNode> m_redefinedNode = new java.util.LinkedList<org.eclipse.uml2.uml.ActivityNode>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityNode>> m_featureRedefinedNodeBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityNode>>();
   // helper attributes
   private boolean m_featureActivitySet = false;
   private boolean m_featureClientDependencySet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureHandlerSet = false;
   private boolean m_featureInInterruptibleRegionSet = false;
   private boolean m_featureInPartitionSet = false;
@@ -88,6 +94,9 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     _builder.m_featureClientDependencySet = m_featureClientDependencySet;
     _builder.m_clientDependency = m_clientDependency;
     _builder.m_featureClientDependencyBuilder = m_featureClientDependencyBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureHandlerSet = m_featureHandlerSet;
     _builder.m_handler = m_handler;
     _builder.m_featureHandlerBuilder = m_featureHandlerBuilder;
@@ -102,6 +111,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     _builder.m_featureInStructuredNodeBuilder = m_featureInStructuredNodeBuilder;
     _builder.m_featureIncomingSet = m_featureIncomingSet;
     _builder.m_incoming = m_incoming;
+    _builder.m_featureIncomingBuilder = m_featureIncomingBuilder;
     _builder.m_featureIsLeafSet = m_featureIsLeafSet;
     _builder.m_isLeaf = m_isLeaf;
     _builder.m_featureLocalPostconditionSet = m_featureLocalPostconditionSet;
@@ -120,6 +130,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     _builder.m_featureObjectBuilder = m_featureObjectBuilder;
     _builder.m_featureOutgoingSet = m_featureOutgoingSet;
     _builder.m_outgoing = m_outgoing;
+    _builder.m_featureOutgoingBuilder = m_featureOutgoingBuilder;
     _builder.m_featureOwnedCommentSet = m_featureOwnedCommentSet;
     _builder.m_ownedComment = m_ownedComment;
     _builder.m_featureOwnedCommentBuilder = m_featureOwnedCommentBuilder;
@@ -128,6 +139,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     _builder.m_featureQualifierBuilder = m_featureQualifierBuilder;
     _builder.m_featureRedefinedNodeSet = m_featureRedefinedNodeSet;
     _builder.m_redefinedNode = m_redefinedNode;
+    _builder.m_featureRedefinedNodeBuilder = m_featureRedefinedNodeBuilder;
     _builder.m_featureResultSet = m_featureResultSet;
     _builder.m_result = m_result;
     _builder.m_featureResultBuilder = m_featureResultBuilder;
@@ -197,8 +209,17 @@ public class ReadLinkObjectEndQualifierActionBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -206,7 +227,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
       _newInstance.getHandlers().addAll(m_handler);
     } else {
       if (!m_featureHandlerBuilder.isEmpty()) {
-        for (ExceptionHandlerBuilder builder : m_featureHandlerBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExceptionHandler> builder : m_featureHandlerBuilder) {
           _newInstance.getHandlers().add(builder.build());
         }
       }
@@ -215,7 +236,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
       _newInstance.getInInterruptibleRegions().addAll(m_inInterruptibleRegion);
     } else {
       if (!m_featureInInterruptibleRegionBuilder.isEmpty()) {
-        for (InterruptibleActivityRegionBuilder builder : m_featureInInterruptibleRegionBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InterruptibleActivityRegion> builder : m_featureInInterruptibleRegionBuilder) {
           _newInstance.getInInterruptibleRegions().add(builder.build());
         }
       }
@@ -224,19 +245,25 @@ public class ReadLinkObjectEndQualifierActionBuilder {
       _newInstance.getInPartitions().addAll(m_inPartition);
     } else {
       if (!m_featureInPartitionBuilder.isEmpty()) {
-        for (ActivityPartitionBuilder builder : m_featureInPartitionBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition> builder : m_featureInPartitionBuilder) {
           _newInstance.getInPartitions().add(builder.build());
         }
       }
     }
     if (m_featureIncomingSet) {
       _newInstance.getIncomings().addAll(m_incoming);
+    } else {
+      if (!m_featureIncomingBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge> builder : m_featureIncomingBuilder) {
+          _newInstance.getIncomings().add(builder.build());
+        }
+      }
     }
     if (m_featureLocalPostconditionSet) {
       _newInstance.getLocalPostconditions().addAll(m_localPostcondition);
     } else {
       if (!m_featureLocalPostconditionBuilder.isEmpty()) {
-        for (ConstraintBuilder builder : m_featureLocalPostconditionBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> builder : m_featureLocalPostconditionBuilder) {
           _newInstance.getLocalPostconditions().add(builder.build());
         }
       }
@@ -245,25 +272,37 @@ public class ReadLinkObjectEndQualifierActionBuilder {
       _newInstance.getLocalPreconditions().addAll(m_localPrecondition);
     } else {
       if (!m_featureLocalPreconditionBuilder.isEmpty()) {
-        for (ConstraintBuilder builder : m_featureLocalPreconditionBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> builder : m_featureLocalPreconditionBuilder) {
           _newInstance.getLocalPreconditions().add(builder.build());
         }
       }
     }
     if (m_featureOutgoingSet) {
       _newInstance.getOutgoings().addAll(m_outgoing);
+    } else {
+      if (!m_featureOutgoingBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge> builder : m_featureOutgoingBuilder) {
+          _newInstance.getOutgoings().add(builder.build());
+        }
+      }
     }
     if (m_featureOwnedCommentSet) {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
     }
     if (m_featureRedefinedNodeSet) {
       _newInstance.getRedefinedNodes().addAll(m_redefinedNode);
+    } else {
+      if (!m_featureRedefinedNodeBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityNode> builder : m_featureRedefinedNodeBuilder) {
+          _newInstance.getRedefinedNodes().add(builder.build());
+        }
+      }
     }
     return _newInstance;
   }
@@ -274,7 +313,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withActivity(org.eclipse.uml2.uml.util.builder.ActivityBuilder p_activityBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withActivity(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Activity> p_activityBuilder) {
     m_featureActivityBuilder = p_activityBuilder;
     return this;
   }
@@ -285,7 +324,8 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withInStructuredNode(org.eclipse.uml2.uml.util.builder.StructuredActivityNodeBuilder p_structuredActivityNodeBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withInStructuredNode(
+      org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StructuredActivityNode> p_structuredActivityNodeBuilder) {
     m_featureInStructuredNodeBuilder = p_structuredActivityNodeBuilder;
     return this;
   }
@@ -308,7 +348,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -319,7 +359,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withObject(org.eclipse.uml2.uml.util.builder.InputPinBuilder p_inputPinBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withObject(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InputPin> p_inputPinBuilder) {
     m_featureObjectBuilder = p_inputPinBuilder;
     return this;
   }
@@ -330,7 +370,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withQualifier(org.eclipse.uml2.uml.util.builder.PropertyBuilder p_propertyBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withQualifier(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Property> p_propertyBuilder) {
     m_featureQualifierBuilder = p_propertyBuilder;
     return this;
   }
@@ -341,7 +381,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withResult(org.eclipse.uml2.uml.util.builder.OutputPinBuilder p_outputPinBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withResult(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OutputPin> p_outputPinBuilder) {
     m_featureResultBuilder = p_outputPinBuilder;
     return this;
   }
@@ -364,8 +404,25 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
+    return this;
+  }
+
+  public ReadLinkObjectEndQualifierActionBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ReadLinkObjectEndQualifierActionBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public ReadLinkObjectEndQualifierActionBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -381,7 +438,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withHandler(ExceptionHandlerBuilder p_exceptionHandlerBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withHandler(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExceptionHandler> p_exceptionHandlerBuilder) {
     m_featureHandlerBuilder.add(p_exceptionHandlerBuilder);
     return this;
   }
@@ -398,7 +455,8 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withInInterruptibleRegion(InterruptibleActivityRegionBuilder p_interruptibleActivityRegionBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withInInterruptibleRegion(
+      org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InterruptibleActivityRegion> p_interruptibleActivityRegionBuilder) {
     m_featureInInterruptibleRegionBuilder.add(p_interruptibleActivityRegionBuilder);
     return this;
   }
@@ -415,7 +473,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withInPartition(ActivityPartitionBuilder p_activityPartitionBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withInPartition(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition> p_activityPartitionBuilder) {
     m_featureInPartitionBuilder.add(p_activityPartitionBuilder);
     return this;
   }
@@ -432,6 +490,11 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
+  public ReadLinkObjectEndQualifierActionBuilder withIncoming(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge> p_activityEdgeBuilder) {
+    m_featureIncomingBuilder.add(p_activityEdgeBuilder);
+    return this;
+  }
+
   public ReadLinkObjectEndQualifierActionBuilder withLocalPostcondition(org.eclipse.uml2.uml.Constraint p_localPostcondition) {
     m_localPostcondition.add(p_localPostcondition);
     m_featureLocalPostconditionSet = true;
@@ -444,7 +507,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withLocalPostcondition(ConstraintBuilder p_constraintBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withLocalPostcondition(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> p_constraintBuilder) {
     m_featureLocalPostconditionBuilder.add(p_constraintBuilder);
     return this;
   }
@@ -461,7 +524,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withLocalPrecondition(ConstraintBuilder p_constraintBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withLocalPrecondition(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> p_constraintBuilder) {
     m_featureLocalPreconditionBuilder.add(p_constraintBuilder);
     return this;
   }
@@ -478,6 +541,11 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
+  public ReadLinkObjectEndQualifierActionBuilder withOutgoing(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge> p_activityEdgeBuilder) {
+    m_featureOutgoingBuilder.add(p_activityEdgeBuilder);
+    return this;
+  }
+
   public ReadLinkObjectEndQualifierActionBuilder withOwnedComment(org.eclipse.uml2.uml.Comment p_ownedComment) {
     m_ownedComment.add(p_ownedComment);
     m_featureOwnedCommentSet = true;
@@ -490,7 +558,7 @@ public class ReadLinkObjectEndQualifierActionBuilder {
     return this;
   }
 
-  public ReadLinkObjectEndQualifierActionBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public ReadLinkObjectEndQualifierActionBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }
@@ -504,6 +572,11 @@ public class ReadLinkObjectEndQualifierActionBuilder {
   public ReadLinkObjectEndQualifierActionBuilder withRedefinedNode(java.util.Collection<? extends org.eclipse.uml2.uml.ActivityNode> p_redefinedNode) {
     m_redefinedNode.addAll(p_redefinedNode);
     m_featureRedefinedNodeSet = true;
+    return this;
+  }
+
+  public ReadLinkObjectEndQualifierActionBuilder withRedefinedNode(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityNode> p_activityNodeBuilder) {
+    m_featureRedefinedNodeBuilder.add(p_activityNodeBuilder);
     return this;
   }
 }

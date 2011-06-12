@@ -7,42 +7,47 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class StateBuilder {
+public class StateBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.State> {
   // features and builders
   private org.eclipse.uml2.uml.Region m_container;
-  private org.eclipse.uml2.uml.util.builder.RegionBuilder m_featureContainerBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Region> m_featureContainerBuilder;
   private org.eclipse.uml2.uml.Behavior m_doActivity;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Behavior> m_featureDoActivityBuilder;
   private org.eclipse.uml2.uml.Behavior m_entry;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Behavior> m_featureEntryBuilder;
   private org.eclipse.uml2.uml.Behavior m_exit;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Behavior> m_featureExitBuilder;
   private Boolean m_isLeaf;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.State m_redefinedState;
-  private org.eclipse.uml2.uml.util.builder.StateBuilder m_featureRedefinedStateBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.State> m_featureRedefinedStateBuilder;
   private org.eclipse.uml2.uml.Constraint m_stateInvariant;
-  private org.eclipse.uml2.uml.util.builder.ConstraintBuilder m_featureStateInvariantBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> m_featureStateInvariantBuilder;
   private org.eclipse.uml2.uml.StateMachine m_submachine;
-  private org.eclipse.uml2.uml.util.builder.StateMachineBuilder m_featureSubmachineBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StateMachine> m_featureSubmachineBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
   private java.util.Collection<org.eclipse.uml2.uml.ConnectionPointReference> m_connection = new java.util.LinkedList<org.eclipse.uml2.uml.ConnectionPointReference>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ConnectionPointReferenceBuilder> m_featureConnectionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ConnectionPointReferenceBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ConnectionPointReference>> m_featureConnectionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ConnectionPointReference>>();
   private java.util.Collection<org.eclipse.uml2.uml.Pseudostate> m_connectionPoint = new java.util.LinkedList<org.eclipse.uml2.uml.Pseudostate>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.PseudostateBuilder> m_featureConnectionPointBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.PseudostateBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Pseudostate>> m_featureConnectionPointBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Pseudostate>>();
   private java.util.Collection<org.eclipse.uml2.uml.Trigger> m_deferrableTrigger = new java.util.LinkedList<org.eclipse.uml2.uml.Trigger>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.TriggerBuilder> m_featureDeferrableTriggerBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.TriggerBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Trigger>> m_featureDeferrableTriggerBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Trigger>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.ElementImport> m_elementImport = new java.util.LinkedList<org.eclipse.uml2.uml.ElementImport>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ElementImportBuilder> m_featureElementImportBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ElementImportBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ElementImport>> m_featureElementImportBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ElementImport>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   private java.util.Collection<org.eclipse.uml2.uml.Constraint> m_ownedRule = new java.util.LinkedList<org.eclipse.uml2.uml.Constraint>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ConstraintBuilder> m_featureOwnedRuleBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ConstraintBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint>> m_featureOwnedRuleBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint>>();
   private java.util.Collection<org.eclipse.uml2.uml.PackageImport> m_packageImport = new java.util.LinkedList<org.eclipse.uml2.uml.PackageImport>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.PackageImportBuilder> m_featurePackageImportBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.PackageImportBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.PackageImport>> m_featurePackageImportBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.PackageImport>>();
   private java.util.Collection<org.eclipse.uml2.uml.Region> m_region = new java.util.LinkedList<org.eclipse.uml2.uml.Region>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.RegionBuilder> m_featureRegionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.RegionBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Region>> m_featureRegionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Region>>();
   // helper attributes
   private boolean m_featureClientDependencySet = false;
   private boolean m_featureConnectionSet = false;
@@ -50,6 +55,7 @@ public class StateBuilder {
   private boolean m_featureContainerSet = false;
   private boolean m_featureDeferrableTriggerSet = false;
   private boolean m_featureDoActivitySet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureElementImportSet = false;
   private boolean m_featureEntrySet = false;
   private boolean m_featureExitSet = false;
@@ -102,13 +108,19 @@ public class StateBuilder {
     _builder.m_featureDeferrableTriggerBuilder = m_featureDeferrableTriggerBuilder;
     _builder.m_featureDoActivitySet = m_featureDoActivitySet;
     _builder.m_doActivity = m_doActivity;
+    _builder.m_featureDoActivityBuilder = m_featureDoActivityBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureElementImportSet = m_featureElementImportSet;
     _builder.m_elementImport = m_elementImport;
     _builder.m_featureElementImportBuilder = m_featureElementImportBuilder;
     _builder.m_featureEntrySet = m_featureEntrySet;
     _builder.m_entry = m_entry;
+    _builder.m_featureEntryBuilder = m_featureEntryBuilder;
     _builder.m_featureExitSet = m_featureExitSet;
     _builder.m_exit = m_exit;
+    _builder.m_featureExitBuilder = m_featureExitBuilder;
     _builder.m_featureIsLeafSet = m_featureIsLeafSet;
     _builder.m_isLeaf = m_isLeaf;
     _builder.m_featureNameSet = m_featureNameSet;
@@ -157,12 +169,24 @@ public class StateBuilder {
     }
     if (m_featureDoActivitySet) {
       _newInstance.setDoActivity(m_doActivity);
+    } else {
+      if (m_featureDoActivityBuilder != null) {
+        _newInstance.setDoActivity(m_featureDoActivityBuilder.build());
+      }
     }
     if (m_featureEntrySet) {
       _newInstance.setEntry(m_entry);
+    } else {
+      if (m_featureEntryBuilder != null) {
+        _newInstance.setEntry(m_featureEntryBuilder.build());
+      }
     }
     if (m_featureExitSet) {
       _newInstance.setExit(m_exit);
+    } else {
+      if (m_featureExitBuilder != null) {
+        _newInstance.setExit(m_featureExitBuilder.build());
+      }
     }
     if (m_featureIsLeafSet) {
       _newInstance.setIsLeaf(m_isLeaf);
@@ -205,7 +229,7 @@ public class StateBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
         }
       }
@@ -214,7 +238,7 @@ public class StateBuilder {
       _newInstance.getConnections().addAll(m_connection);
     } else {
       if (!m_featureConnectionBuilder.isEmpty()) {
-        for (ConnectionPointReferenceBuilder builder : m_featureConnectionBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ConnectionPointReference> builder : m_featureConnectionBuilder) {
           _newInstance.getConnections().add(builder.build());
         }
       }
@@ -223,7 +247,7 @@ public class StateBuilder {
       _newInstance.getConnectionPoints().addAll(m_connectionPoint);
     } else {
       if (!m_featureConnectionPointBuilder.isEmpty()) {
-        for (PseudostateBuilder builder : m_featureConnectionPointBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Pseudostate> builder : m_featureConnectionPointBuilder) {
           _newInstance.getConnectionPoints().add(builder.build());
         }
       }
@@ -232,8 +256,17 @@ public class StateBuilder {
       _newInstance.getDeferrableTriggers().addAll(m_deferrableTrigger);
     } else {
       if (!m_featureDeferrableTriggerBuilder.isEmpty()) {
-        for (TriggerBuilder builder : m_featureDeferrableTriggerBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Trigger> builder : m_featureDeferrableTriggerBuilder) {
           _newInstance.getDeferrableTriggers().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -241,7 +274,7 @@ public class StateBuilder {
       _newInstance.getElementImports().addAll(m_elementImport);
     } else {
       if (!m_featureElementImportBuilder.isEmpty()) {
-        for (ElementImportBuilder builder : m_featureElementImportBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ElementImport> builder : m_featureElementImportBuilder) {
           _newInstance.getElementImports().add(builder.build());
         }
       }
@@ -250,7 +283,7 @@ public class StateBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -259,7 +292,7 @@ public class StateBuilder {
       _newInstance.getOwnedRules().addAll(m_ownedRule);
     } else {
       if (!m_featureOwnedRuleBuilder.isEmpty()) {
-        for (ConstraintBuilder builder : m_featureOwnedRuleBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> builder : m_featureOwnedRuleBuilder) {
           _newInstance.getOwnedRules().add(builder.build());
         }
       }
@@ -268,7 +301,7 @@ public class StateBuilder {
       _newInstance.getPackageImports().addAll(m_packageImport);
     } else {
       if (!m_featurePackageImportBuilder.isEmpty()) {
-        for (PackageImportBuilder builder : m_featurePackageImportBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.PackageImport> builder : m_featurePackageImportBuilder) {
           _newInstance.getPackageImports().add(builder.build());
         }
       }
@@ -277,7 +310,7 @@ public class StateBuilder {
       _newInstance.getRegions().addAll(m_region);
     } else {
       if (!m_featureRegionBuilder.isEmpty()) {
-        for (RegionBuilder builder : m_featureRegionBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Region> builder : m_featureRegionBuilder) {
           _newInstance.getRegions().add(builder.build());
         }
       }
@@ -291,7 +324,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withContainer(org.eclipse.uml2.uml.util.builder.RegionBuilder p_regionBuilder) {
+  public StateBuilder withContainer(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Region> p_regionBuilder) {
     m_featureContainerBuilder = p_regionBuilder;
     return this;
   }
@@ -302,15 +335,30 @@ public class StateBuilder {
     return this;
   }
 
+  public StateBuilder withDoActivity(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Behavior> p_behaviorBuilder) {
+    m_featureDoActivityBuilder = p_behaviorBuilder;
+    return this;
+  }
+
   public StateBuilder withEntry(org.eclipse.uml2.uml.Behavior p_entry) {
     m_entry = p_entry;
     m_featureEntrySet = true;
     return this;
   }
 
+  public StateBuilder withEntry(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Behavior> p_behaviorBuilder) {
+    m_featureEntryBuilder = p_behaviorBuilder;
+    return this;
+  }
+
   public StateBuilder withExit(org.eclipse.uml2.uml.Behavior p_exit) {
     m_exit = p_exit;
     m_featureExitSet = true;
+    return this;
+  }
+
+  public StateBuilder withExit(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Behavior> p_behaviorBuilder) {
+    m_featureExitBuilder = p_behaviorBuilder;
     return this;
   }
 
@@ -332,7 +380,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public StateBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -343,7 +391,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withRedefinedState(org.eclipse.uml2.uml.util.builder.StateBuilder p_stateBuilder) {
+  public StateBuilder withRedefinedState(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.State> p_stateBuilder) {
     m_featureRedefinedStateBuilder = p_stateBuilder;
     return this;
   }
@@ -354,7 +402,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withStateInvariant(org.eclipse.uml2.uml.util.builder.ConstraintBuilder p_constraintBuilder) {
+  public StateBuilder withStateInvariant(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> p_constraintBuilder) {
     m_featureStateInvariantBuilder = p_constraintBuilder;
     return this;
   }
@@ -365,7 +413,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withSubmachine(org.eclipse.uml2.uml.util.builder.StateMachineBuilder p_stateMachineBuilder) {
+  public StateBuilder withSubmachine(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StateMachine> p_stateMachineBuilder) {
     m_featureSubmachineBuilder = p_stateMachineBuilder;
     return this;
   }
@@ -388,7 +436,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public StateBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
     return this;
   }
@@ -405,7 +453,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withConnection(ConnectionPointReferenceBuilder p_connectionPointReferenceBuilder) {
+  public StateBuilder withConnection(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ConnectionPointReference> p_connectionPointReferenceBuilder) {
     m_featureConnectionBuilder.add(p_connectionPointReferenceBuilder);
     return this;
   }
@@ -422,7 +470,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withConnectionPoint(PseudostateBuilder p_pseudostateBuilder) {
+  public StateBuilder withConnectionPoint(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Pseudostate> p_pseudostateBuilder) {
     m_featureConnectionPointBuilder.add(p_pseudostateBuilder);
     return this;
   }
@@ -439,8 +487,25 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withDeferrableTrigger(TriggerBuilder p_triggerBuilder) {
+  public StateBuilder withDeferrableTrigger(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Trigger> p_triggerBuilder) {
     m_featureDeferrableTriggerBuilder.add(p_triggerBuilder);
+    return this;
+  }
+
+  public StateBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public StateBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public StateBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -456,7 +521,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withElementImport(ElementImportBuilder p_elementImportBuilder) {
+  public StateBuilder withElementImport(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ElementImport> p_elementImportBuilder) {
     m_featureElementImportBuilder.add(p_elementImportBuilder);
     return this;
   }
@@ -473,7 +538,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public StateBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }
@@ -490,7 +555,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withOwnedRule(ConstraintBuilder p_constraintBuilder) {
+  public StateBuilder withOwnedRule(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> p_constraintBuilder) {
     m_featureOwnedRuleBuilder.add(p_constraintBuilder);
     return this;
   }
@@ -507,7 +572,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withPackageImport(PackageImportBuilder p_packageImportBuilder) {
+  public StateBuilder withPackageImport(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.PackageImport> p_packageImportBuilder) {
     m_featurePackageImportBuilder.add(p_packageImportBuilder);
     return this;
   }
@@ -524,7 +589,7 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder withRegion(RegionBuilder p_regionBuilder) {
+  public StateBuilder withRegion(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Region> p_regionBuilder) {
     m_featureRegionBuilder.add(p_regionBuilder);
     return this;
   }

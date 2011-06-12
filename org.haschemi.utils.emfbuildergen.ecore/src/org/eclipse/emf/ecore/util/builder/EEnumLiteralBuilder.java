@@ -7,14 +7,14 @@ package org.eclipse.emf.ecore.util.builder;
  * 
  * @generated
  */
-public class EEnumLiteralBuilder {
+public class EEnumLiteralBuilder implements org.eclipse.emf.ecore.util.builder.IEcoreBuilder<org.eclipse.emf.ecore.EEnumLiteral> {
   // features and builders
   private org.eclipse.emf.common.util.Enumerator m_instance;
   private java.lang.String m_literal;
   private java.lang.String m_name;
   private Integer m_value;
   private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   // helper attributes
   private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureInstanceSet = false;
@@ -78,7 +78,7 @@ public class EEnumLiteralBuilder {
       _newInstance.getEAnnotations().addAll(m_eAnnotations);
     } else {
       if (!m_featureEAnnotationsBuilder.isEmpty()) {
-        for (EAnnotationBuilder builder : m_featureEAnnotationsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
           _newInstance.getEAnnotations().add(builder.build());
         }
       }
@@ -122,7 +122,7 @@ public class EEnumLiteralBuilder {
     return this;
   }
 
-  public EEnumLiteralBuilder withEAnnotations(EAnnotationBuilder p_eAnnotationBuilder) {
+  public EEnumLiteralBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
     m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }

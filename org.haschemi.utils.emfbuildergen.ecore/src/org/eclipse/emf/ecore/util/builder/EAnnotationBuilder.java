@@ -7,17 +7,18 @@ package org.eclipse.emf.ecore.util.builder;
  * 
  * @generated
  */
-public class EAnnotationBuilder {
+public class EAnnotationBuilder implements org.eclipse.emf.ecore.util.builder.IEcoreBuilder<org.eclipse.emf.ecore.EAnnotation> {
   // features and builders
   private org.eclipse.emf.ecore.EModelElement m_eModelElement;
+  private org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EModelElement> m_featureEModelElementBuilder;
   private java.lang.String m_source;
   private java.util.Collection<org.eclipse.emf.ecore.EObject> m_contents = new java.util.LinkedList<org.eclipse.emf.ecore.EObject>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EObjectBuilder> m_featureContentsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EObjectBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EObject>> m_featureContentsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EObject>>();
   private java.util.Collection<java.util.Map.Entry<java.lang.String, java.lang.String>> m_details = new java.util.LinkedList<java.util.Map.Entry<java.lang.String, java.lang.String>>();
   private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.emf.ecore.EObject> m_references = new java.util.LinkedList<org.eclipse.emf.ecore.EObject>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EObjectBuilder> m_featureReferencesBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EObjectBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EObject>> m_featureReferencesBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EObject>>();
   // helper attributes
   private boolean m_featureContentsSet = false;
   private boolean m_featureDetailsSet = false;
@@ -56,6 +57,7 @@ public class EAnnotationBuilder {
     _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureEModelElementSet = m_featureEModelElementSet;
     _builder.m_eModelElement = m_eModelElement;
+    _builder.m_featureEModelElementBuilder = m_featureEModelElementBuilder;
     _builder.m_featureReferencesSet = m_featureReferencesSet;
     _builder.m_references = m_references;
     _builder.m_featureReferencesBuilder = m_featureReferencesBuilder;
@@ -72,6 +74,10 @@ public class EAnnotationBuilder {
     final org.eclipse.emf.ecore.EAnnotation _newInstance = org.eclipse.emf.ecore.EcoreFactory.eINSTANCE.createEAnnotation();
     if (m_featureEModelElementSet) {
       _newInstance.setEModelElement(m_eModelElement);
+    } else {
+      if (m_featureEModelElementBuilder != null) {
+        _newInstance.setEModelElement(m_featureEModelElementBuilder.build());
+      }
     }
     if (m_featureSourceSet) {
       _newInstance.setSource(m_source);
@@ -80,7 +86,7 @@ public class EAnnotationBuilder {
       _newInstance.getContents().addAll(m_contents);
     } else {
       if (!m_featureContentsBuilder.isEmpty()) {
-        for (EObjectBuilder builder : m_featureContentsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EObject> builder : m_featureContentsBuilder) {
           _newInstance.getContents().add(builder.build());
         }
       }
@@ -92,7 +98,7 @@ public class EAnnotationBuilder {
       _newInstance.getEAnnotations().addAll(m_eAnnotations);
     } else {
       if (!m_featureEAnnotationsBuilder.isEmpty()) {
-        for (EAnnotationBuilder builder : m_featureEAnnotationsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
           _newInstance.getEAnnotations().add(builder.build());
         }
       }
@@ -101,7 +107,7 @@ public class EAnnotationBuilder {
       _newInstance.getReferences().addAll(m_references);
     } else {
       if (!m_featureReferencesBuilder.isEmpty()) {
-        for (EObjectBuilder builder : m_featureReferencesBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EObject> builder : m_featureReferencesBuilder) {
           _newInstance.getReferences().add(builder.build());
         }
       }
@@ -112,6 +118,11 @@ public class EAnnotationBuilder {
   public EAnnotationBuilder withEModelElement(org.eclipse.emf.ecore.EModelElement p_eModelElement) {
     m_eModelElement = p_eModelElement;
     m_featureEModelElementSet = true;
+    return this;
+  }
+
+  public EAnnotationBuilder withEModelElement(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EModelElement> p_eModelElementBuilder) {
+    m_featureEModelElementBuilder = p_eModelElementBuilder;
     return this;
   }
 
@@ -133,7 +144,7 @@ public class EAnnotationBuilder {
     return this;
   }
 
-  public EAnnotationBuilder withContents(EObjectBuilder p_eObjectBuilder) {
+  public EAnnotationBuilder withContents(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EObject> p_eObjectBuilder) {
     m_featureContentsBuilder.add(p_eObjectBuilder);
     return this;
   }
@@ -162,7 +173,7 @@ public class EAnnotationBuilder {
     return this;
   }
 
-  public EAnnotationBuilder withEAnnotations(EAnnotationBuilder p_eAnnotationBuilder) {
+  public EAnnotationBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
     m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
@@ -179,7 +190,7 @@ public class EAnnotationBuilder {
     return this;
   }
 
-  public EAnnotationBuilder withReferences(EObjectBuilder p_eObjectBuilder) {
+  public EAnnotationBuilder withReferences(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EObject> p_eObjectBuilder) {
     m_featureReferencesBuilder.add(p_eObjectBuilder);
     return this;
   }

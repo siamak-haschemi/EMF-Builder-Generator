@@ -40,8 +40,7 @@ public class EcoreBuilderTest {
       .withEStructuralFeatures(
         newEAttributeBuilder()
           .withName("name")
-          .withEType(ecore.getEString())
-        .build()
+          .withEType(ecore.getEString())        
       )
     .build();    
         
@@ -50,16 +49,14 @@ public class EcoreBuilderTest {
       .withEStructuralFeatures(
         newEAttributeBuilder()
           .withName("number")
-          .withEType(ecore.getEInt())
-        .build()
+          .withEType(ecore.getEInt())        
       )
       .withEStructuralFeatures(
         newEReferenceBuilder()
           .withName("employees")
           .withEType(employeeClass)
           .withUpperBound(ETypedElement.UNBOUNDED_MULTIPLICITY)
-          .withContainment(true)
-        .build()
+          .withContainment(true)        
       )
     .build();
     
@@ -68,16 +65,14 @@ public class EcoreBuilderTest {
       .withEStructuralFeatures(
         newEAttributeBuilder()
           .withName("name")
-          .withEType(ecore.getEString())
-        .build()
+          .withEType(ecore.getEString())        
       )
       .withEStructuralFeatures(
         newEReferenceBuilder()
           .withName("department")
           .withEType(departmentClass)
           .withUpperBound(ETypedElement.UNBOUNDED_MULTIPLICITY)
-          .withContainment(true)
-        .build()
+          .withContainment(true)        
       )
     .build();
     

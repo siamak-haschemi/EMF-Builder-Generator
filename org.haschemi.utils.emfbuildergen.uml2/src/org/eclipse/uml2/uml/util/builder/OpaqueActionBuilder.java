@@ -7,44 +7,50 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class OpaqueActionBuilder {
+public class OpaqueActionBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.OpaqueAction> {
   // features and builders
   private org.eclipse.uml2.uml.Activity m_activity;
-  private org.eclipse.uml2.uml.util.builder.ActivityBuilder m_featureActivityBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Activity> m_featureActivityBuilder;
   private org.eclipse.uml2.uml.StructuredActivityNode m_inStructuredNode;
-  private org.eclipse.uml2.uml.util.builder.StructuredActivityNodeBuilder m_featureInStructuredNodeBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StructuredActivityNode> m_featureInStructuredNodeBuilder;
   private Boolean m_isLeaf;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<java.lang.String> m_body = new java.util.LinkedList<java.lang.String>();
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.ExceptionHandler> m_handler = new java.util.LinkedList<org.eclipse.uml2.uml.ExceptionHandler>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ExceptionHandlerBuilder> m_featureHandlerBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ExceptionHandlerBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExceptionHandler>> m_featureHandlerBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExceptionHandler>>();
   private java.util.Collection<org.eclipse.uml2.uml.InterruptibleActivityRegion> m_inInterruptibleRegion = new java.util.LinkedList<org.eclipse.uml2.uml.InterruptibleActivityRegion>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.InterruptibleActivityRegionBuilder> m_featureInInterruptibleRegionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.InterruptibleActivityRegionBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InterruptibleActivityRegion>> m_featureInInterruptibleRegionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InterruptibleActivityRegion>>();
   private java.util.Collection<org.eclipse.uml2.uml.ActivityPartition> m_inPartition = new java.util.LinkedList<org.eclipse.uml2.uml.ActivityPartition>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ActivityPartitionBuilder> m_featureInPartitionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ActivityPartitionBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition>> m_featureInPartitionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition>>();
   private java.util.Collection<org.eclipse.uml2.uml.ActivityEdge> m_incoming = new java.util.LinkedList<org.eclipse.uml2.uml.ActivityEdge>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge>> m_featureIncomingBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge>>();
   private java.util.Collection<org.eclipse.uml2.uml.InputPin> m_inputValue = new java.util.LinkedList<org.eclipse.uml2.uml.InputPin>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.InputPinBuilder> m_featureInputValueBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.InputPinBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InputPin>> m_featureInputValueBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InputPin>>();
   private java.util.Collection<java.lang.String> m_language = new java.util.LinkedList<java.lang.String>();
   private java.util.Collection<org.eclipse.uml2.uml.Constraint> m_localPostcondition = new java.util.LinkedList<org.eclipse.uml2.uml.Constraint>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ConstraintBuilder> m_featureLocalPostconditionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ConstraintBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint>> m_featureLocalPostconditionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint>>();
   private java.util.Collection<org.eclipse.uml2.uml.Constraint> m_localPrecondition = new java.util.LinkedList<org.eclipse.uml2.uml.Constraint>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.ConstraintBuilder> m_featureLocalPreconditionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.ConstraintBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint>> m_featureLocalPreconditionBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint>>();
   private java.util.Collection<org.eclipse.uml2.uml.ActivityEdge> m_outgoing = new java.util.LinkedList<org.eclipse.uml2.uml.ActivityEdge>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge>> m_featureOutgoingBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge>>();
   private java.util.Collection<org.eclipse.uml2.uml.OutputPin> m_outputValue = new java.util.LinkedList<org.eclipse.uml2.uml.OutputPin>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.OutputPinBuilder> m_featureOutputValueBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.OutputPinBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OutputPin>> m_featureOutputValueBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OutputPin>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   private java.util.Collection<org.eclipse.uml2.uml.ActivityNode> m_redefinedNode = new java.util.LinkedList<org.eclipse.uml2.uml.ActivityNode>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityNode>> m_featureRedefinedNodeBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityNode>>();
   // helper attributes
   private boolean m_featureActivitySet = false;
   private boolean m_featureBodySet = false;
   private boolean m_featureClientDependencySet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureHandlerSet = false;
   private boolean m_featureInInterruptibleRegionSet = false;
   private boolean m_featureInPartitionSet = false;
@@ -91,6 +97,9 @@ public class OpaqueActionBuilder {
     _builder.m_featureClientDependencySet = m_featureClientDependencySet;
     _builder.m_clientDependency = m_clientDependency;
     _builder.m_featureClientDependencyBuilder = m_featureClientDependencyBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureHandlerSet = m_featureHandlerSet;
     _builder.m_handler = m_handler;
     _builder.m_featureHandlerBuilder = m_featureHandlerBuilder;
@@ -105,6 +114,7 @@ public class OpaqueActionBuilder {
     _builder.m_featureInStructuredNodeBuilder = m_featureInStructuredNodeBuilder;
     _builder.m_featureIncomingSet = m_featureIncomingSet;
     _builder.m_incoming = m_incoming;
+    _builder.m_featureIncomingBuilder = m_featureIncomingBuilder;
     _builder.m_featureInputValueSet = m_featureInputValueSet;
     _builder.m_inputValue = m_inputValue;
     _builder.m_featureInputValueBuilder = m_featureInputValueBuilder;
@@ -125,6 +135,7 @@ public class OpaqueActionBuilder {
     _builder.m_featureNameExpressionBuilder = m_featureNameExpressionBuilder;
     _builder.m_featureOutgoingSet = m_featureOutgoingSet;
     _builder.m_outgoing = m_outgoing;
+    _builder.m_featureOutgoingBuilder = m_featureOutgoingBuilder;
     _builder.m_featureOutputValueSet = m_featureOutputValueSet;
     _builder.m_outputValue = m_outputValue;
     _builder.m_featureOutputValueBuilder = m_featureOutputValueBuilder;
@@ -133,6 +144,7 @@ public class OpaqueActionBuilder {
     _builder.m_featureOwnedCommentBuilder = m_featureOwnedCommentBuilder;
     _builder.m_featureRedefinedNodeSet = m_featureRedefinedNodeSet;
     _builder.m_redefinedNode = m_redefinedNode;
+    _builder.m_featureRedefinedNodeBuilder = m_featureRedefinedNodeBuilder;
     _builder.m_featureVisibilitySet = m_featureVisibilitySet;
     _builder.m_visibility = m_visibility;
     return _builder;
@@ -181,8 +193,17 @@ public class OpaqueActionBuilder {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -190,7 +211,7 @@ public class OpaqueActionBuilder {
       _newInstance.getHandlers().addAll(m_handler);
     } else {
       if (!m_featureHandlerBuilder.isEmpty()) {
-        for (ExceptionHandlerBuilder builder : m_featureHandlerBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExceptionHandler> builder : m_featureHandlerBuilder) {
           _newInstance.getHandlers().add(builder.build());
         }
       }
@@ -199,7 +220,7 @@ public class OpaqueActionBuilder {
       _newInstance.getInInterruptibleRegions().addAll(m_inInterruptibleRegion);
     } else {
       if (!m_featureInInterruptibleRegionBuilder.isEmpty()) {
-        for (InterruptibleActivityRegionBuilder builder : m_featureInInterruptibleRegionBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InterruptibleActivityRegion> builder : m_featureInInterruptibleRegionBuilder) {
           _newInstance.getInInterruptibleRegions().add(builder.build());
         }
       }
@@ -208,19 +229,25 @@ public class OpaqueActionBuilder {
       _newInstance.getInPartitions().addAll(m_inPartition);
     } else {
       if (!m_featureInPartitionBuilder.isEmpty()) {
-        for (ActivityPartitionBuilder builder : m_featureInPartitionBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition> builder : m_featureInPartitionBuilder) {
           _newInstance.getInPartitions().add(builder.build());
         }
       }
     }
     if (m_featureIncomingSet) {
       _newInstance.getIncomings().addAll(m_incoming);
+    } else {
+      if (!m_featureIncomingBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge> builder : m_featureIncomingBuilder) {
+          _newInstance.getIncomings().add(builder.build());
+        }
+      }
     }
     if (m_featureInputValueSet) {
       _newInstance.getInputValues().addAll(m_inputValue);
     } else {
       if (!m_featureInputValueBuilder.isEmpty()) {
-        for (InputPinBuilder builder : m_featureInputValueBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InputPin> builder : m_featureInputValueBuilder) {
           _newInstance.getInputValues().add(builder.build());
         }
       }
@@ -232,7 +259,7 @@ public class OpaqueActionBuilder {
       _newInstance.getLocalPostconditions().addAll(m_localPostcondition);
     } else {
       if (!m_featureLocalPostconditionBuilder.isEmpty()) {
-        for (ConstraintBuilder builder : m_featureLocalPostconditionBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> builder : m_featureLocalPostconditionBuilder) {
           _newInstance.getLocalPostconditions().add(builder.build());
         }
       }
@@ -241,19 +268,25 @@ public class OpaqueActionBuilder {
       _newInstance.getLocalPreconditions().addAll(m_localPrecondition);
     } else {
       if (!m_featureLocalPreconditionBuilder.isEmpty()) {
-        for (ConstraintBuilder builder : m_featureLocalPreconditionBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> builder : m_featureLocalPreconditionBuilder) {
           _newInstance.getLocalPreconditions().add(builder.build());
         }
       }
     }
     if (m_featureOutgoingSet) {
       _newInstance.getOutgoings().addAll(m_outgoing);
+    } else {
+      if (!m_featureOutgoingBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge> builder : m_featureOutgoingBuilder) {
+          _newInstance.getOutgoings().add(builder.build());
+        }
+      }
     }
     if (m_featureOutputValueSet) {
       _newInstance.getOutputValues().addAll(m_outputValue);
     } else {
       if (!m_featureOutputValueBuilder.isEmpty()) {
-        for (OutputPinBuilder builder : m_featureOutputValueBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OutputPin> builder : m_featureOutputValueBuilder) {
           _newInstance.getOutputValues().add(builder.build());
         }
       }
@@ -262,13 +295,19 @@ public class OpaqueActionBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
     }
     if (m_featureRedefinedNodeSet) {
       _newInstance.getRedefinedNodes().addAll(m_redefinedNode);
+    } else {
+      if (!m_featureRedefinedNodeBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityNode> builder : m_featureRedefinedNodeBuilder) {
+          _newInstance.getRedefinedNodes().add(builder.build());
+        }
+      }
     }
     return _newInstance;
   }
@@ -279,7 +318,7 @@ public class OpaqueActionBuilder {
     return this;
   }
 
-  public OpaqueActionBuilder withActivity(org.eclipse.uml2.uml.util.builder.ActivityBuilder p_activityBuilder) {
+  public OpaqueActionBuilder withActivity(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Activity> p_activityBuilder) {
     m_featureActivityBuilder = p_activityBuilder;
     return this;
   }
@@ -290,7 +329,7 @@ public class OpaqueActionBuilder {
     return this;
   }
 
-  public OpaqueActionBuilder withInStructuredNode(org.eclipse.uml2.uml.util.builder.StructuredActivityNodeBuilder p_structuredActivityNodeBuilder) {
+  public OpaqueActionBuilder withInStructuredNode(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StructuredActivityNode> p_structuredActivityNodeBuilder) {
     m_featureInStructuredNodeBuilder = p_structuredActivityNodeBuilder;
     return this;
   }
@@ -313,7 +352,7 @@ public class OpaqueActionBuilder {
     return this;
   }
 
-  public OpaqueActionBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public OpaqueActionBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -348,8 +387,25 @@ public class OpaqueActionBuilder {
     return this;
   }
 
-  public OpaqueActionBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public OpaqueActionBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
+    return this;
+  }
+
+  public OpaqueActionBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public OpaqueActionBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public OpaqueActionBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -365,7 +421,7 @@ public class OpaqueActionBuilder {
     return this;
   }
 
-  public OpaqueActionBuilder withHandler(ExceptionHandlerBuilder p_exceptionHandlerBuilder) {
+  public OpaqueActionBuilder withHandler(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ExceptionHandler> p_exceptionHandlerBuilder) {
     m_featureHandlerBuilder.add(p_exceptionHandlerBuilder);
     return this;
   }
@@ -382,7 +438,7 @@ public class OpaqueActionBuilder {
     return this;
   }
 
-  public OpaqueActionBuilder withInInterruptibleRegion(InterruptibleActivityRegionBuilder p_interruptibleActivityRegionBuilder) {
+  public OpaqueActionBuilder withInInterruptibleRegion(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InterruptibleActivityRegion> p_interruptibleActivityRegionBuilder) {
     m_featureInInterruptibleRegionBuilder.add(p_interruptibleActivityRegionBuilder);
     return this;
   }
@@ -399,7 +455,7 @@ public class OpaqueActionBuilder {
     return this;
   }
 
-  public OpaqueActionBuilder withInPartition(ActivityPartitionBuilder p_activityPartitionBuilder) {
+  public OpaqueActionBuilder withInPartition(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityPartition> p_activityPartitionBuilder) {
     m_featureInPartitionBuilder.add(p_activityPartitionBuilder);
     return this;
   }
@@ -416,6 +472,11 @@ public class OpaqueActionBuilder {
     return this;
   }
 
+  public OpaqueActionBuilder withIncoming(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge> p_activityEdgeBuilder) {
+    m_featureIncomingBuilder.add(p_activityEdgeBuilder);
+    return this;
+  }
+
   public OpaqueActionBuilder withInputValue(org.eclipse.uml2.uml.InputPin p_inputValue) {
     m_inputValue.add(p_inputValue);
     m_featureInputValueSet = true;
@@ -428,7 +489,7 @@ public class OpaqueActionBuilder {
     return this;
   }
 
-  public OpaqueActionBuilder withInputValue(InputPinBuilder p_inputPinBuilder) {
+  public OpaqueActionBuilder withInputValue(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InputPin> p_inputPinBuilder) {
     m_featureInputValueBuilder.add(p_inputPinBuilder);
     return this;
   }
@@ -457,7 +518,7 @@ public class OpaqueActionBuilder {
     return this;
   }
 
-  public OpaqueActionBuilder withLocalPostcondition(ConstraintBuilder p_constraintBuilder) {
+  public OpaqueActionBuilder withLocalPostcondition(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> p_constraintBuilder) {
     m_featureLocalPostconditionBuilder.add(p_constraintBuilder);
     return this;
   }
@@ -474,7 +535,7 @@ public class OpaqueActionBuilder {
     return this;
   }
 
-  public OpaqueActionBuilder withLocalPrecondition(ConstraintBuilder p_constraintBuilder) {
+  public OpaqueActionBuilder withLocalPrecondition(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Constraint> p_constraintBuilder) {
     m_featureLocalPreconditionBuilder.add(p_constraintBuilder);
     return this;
   }
@@ -491,6 +552,11 @@ public class OpaqueActionBuilder {
     return this;
   }
 
+  public OpaqueActionBuilder withOutgoing(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityEdge> p_activityEdgeBuilder) {
+    m_featureOutgoingBuilder.add(p_activityEdgeBuilder);
+    return this;
+  }
+
   public OpaqueActionBuilder withOutputValue(org.eclipse.uml2.uml.OutputPin p_outputValue) {
     m_outputValue.add(p_outputValue);
     m_featureOutputValueSet = true;
@@ -503,7 +569,7 @@ public class OpaqueActionBuilder {
     return this;
   }
 
-  public OpaqueActionBuilder withOutputValue(OutputPinBuilder p_outputPinBuilder) {
+  public OpaqueActionBuilder withOutputValue(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.OutputPin> p_outputPinBuilder) {
     m_featureOutputValueBuilder.add(p_outputPinBuilder);
     return this;
   }
@@ -520,7 +586,7 @@ public class OpaqueActionBuilder {
     return this;
   }
 
-  public OpaqueActionBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public OpaqueActionBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }
@@ -534,6 +600,11 @@ public class OpaqueActionBuilder {
   public OpaqueActionBuilder withRedefinedNode(java.util.Collection<? extends org.eclipse.uml2.uml.ActivityNode> p_redefinedNode) {
     m_redefinedNode.addAll(p_redefinedNode);
     m_featureRedefinedNodeSet = true;
+    return this;
+  }
+
+  public OpaqueActionBuilder withRedefinedNode(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.ActivityNode> p_activityNodeBuilder) {
+    m_featureRedefinedNodeBuilder.add(p_activityNodeBuilder);
     return this;
   }
 }

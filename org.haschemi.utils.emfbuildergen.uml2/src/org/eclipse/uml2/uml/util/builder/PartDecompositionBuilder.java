@@ -7,34 +7,38 @@ package org.eclipse.uml2.uml.util.builder;
  * 
  * @generated
  */
-public class PartDecompositionBuilder {
+public class PartDecompositionBuilder implements org.eclipse.uml2.uml.util.builder.IUmlBuilder<org.eclipse.uml2.uml.PartDecomposition> {
   // features and builders
   private org.eclipse.uml2.uml.Interaction m_enclosingInteraction;
-  private org.eclipse.uml2.uml.util.builder.InteractionBuilder m_featureEnclosingInteractionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Interaction> m_featureEnclosingInteractionBuilder;
   private org.eclipse.uml2.uml.InteractionOperand m_enclosingOperand;
-  private org.eclipse.uml2.uml.util.builder.InteractionOperandBuilder m_featureEnclosingOperandBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InteractionOperand> m_featureEnclosingOperandBuilder;
   private java.lang.String m_name;
   private org.eclipse.uml2.uml.StringExpression m_nameExpression;
-  private org.eclipse.uml2.uml.util.builder.StringExpressionBuilder m_featureNameExpressionBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> m_featureNameExpressionBuilder;
   private org.eclipse.uml2.uml.Interaction m_refersTo;
-  private org.eclipse.uml2.uml.util.builder.InteractionBuilder m_featureRefersToBuilder;
+  private org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Interaction> m_featureRefersToBuilder;
   private org.eclipse.uml2.uml.VisibilityKind m_visibility;
   private java.util.Collection<org.eclipse.uml2.uml.Gate> m_actualGate = new java.util.LinkedList<org.eclipse.uml2.uml.Gate>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.GateBuilder> m_featureActualGateBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.GateBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Gate>> m_featureActualGateBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Gate>>();
   private java.util.Collection<org.eclipse.uml2.uml.Action> m_argument = new java.util.LinkedList<org.eclipse.uml2.uml.Action>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Action>> m_featureArgumentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Action>>();
   private java.util.Collection<org.eclipse.uml2.uml.Dependency> m_clientDependency = new java.util.LinkedList<org.eclipse.uml2.uml.Dependency>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.DependencyBuilder> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.DependencyBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>> m_featureClientDependencyBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency>>();
   private java.util.Collection<org.eclipse.uml2.uml.Lifeline> m_covered = new java.util.LinkedList<org.eclipse.uml2.uml.Lifeline>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.LifelineBuilder> m_featureCoveredBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.LifelineBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline>> m_featureCoveredBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline>>();
+  private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.uml2.uml.GeneralOrdering> m_generalOrdering = new java.util.LinkedList<org.eclipse.uml2.uml.GeneralOrdering>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.GeneralOrderingBuilder> m_featureGeneralOrderingBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.GeneralOrderingBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering>> m_featureGeneralOrderingBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering>>();
   private java.util.Collection<org.eclipse.uml2.uml.Comment> m_ownedComment = new java.util.LinkedList<org.eclipse.uml2.uml.Comment>();
-  private java.util.Collection<org.eclipse.uml2.uml.util.builder.CommentBuilder> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.CommentBuilder>();
+  private java.util.Collection<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>> m_featureOwnedCommentBuilder = new java.util.LinkedList<org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment>>();
   // helper attributes
   private boolean m_featureActualGateSet = false;
   private boolean m_featureArgumentSet = false;
   private boolean m_featureClientDependencySet = false;
   private boolean m_featureCoveredSet = false;
+  private boolean m_featureEAnnotationsSet = false;
   private boolean m_featureEnclosingInteractionSet = false;
   private boolean m_featureEnclosingOperandSet = false;
   private boolean m_featureGeneralOrderingSet = false;
@@ -69,12 +73,16 @@ public class PartDecompositionBuilder {
     _builder.m_featureActualGateBuilder = m_featureActualGateBuilder;
     _builder.m_featureArgumentSet = m_featureArgumentSet;
     _builder.m_argument = m_argument;
+    _builder.m_featureArgumentBuilder = m_featureArgumentBuilder;
     _builder.m_featureClientDependencySet = m_featureClientDependencySet;
     _builder.m_clientDependency = m_clientDependency;
     _builder.m_featureClientDependencyBuilder = m_featureClientDependencyBuilder;
     _builder.m_featureCoveredSet = m_featureCoveredSet;
     _builder.m_covered = m_covered;
     _builder.m_featureCoveredBuilder = m_featureCoveredBuilder;
+    _builder.m_featureEAnnotationsSet = m_featureEAnnotationsSet;
+    _builder.m_eAnnotations = m_eAnnotations;
+    _builder.m_featureEAnnotationsBuilder = m_featureEAnnotationsBuilder;
     _builder.m_featureEnclosingInteractionSet = m_featureEnclosingInteractionSet;
     _builder.m_enclosingInteraction = m_enclosingInteraction;
     _builder.m_featureEnclosingInteractionBuilder = m_featureEnclosingInteractionBuilder;
@@ -144,19 +152,25 @@ public class PartDecompositionBuilder {
       _newInstance.getActualGates().addAll(m_actualGate);
     } else {
       if (!m_featureActualGateBuilder.isEmpty()) {
-        for (GateBuilder builder : m_featureActualGateBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Gate> builder : m_featureActualGateBuilder) {
           _newInstance.getActualGates().add(builder.build());
         }
       }
     }
     if (m_featureArgumentSet) {
       _newInstance.getArguments().addAll(m_argument);
+    } else {
+      if (!m_featureArgumentBuilder.isEmpty()) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Action> builder : m_featureArgumentBuilder) {
+          _newInstance.getArguments().add(builder.build());
+        }
+      }
     }
     if (m_featureClientDependencySet) {
       _newInstance.getClientDependencies().addAll(m_clientDependency);
     } else {
       if (!m_featureClientDependencyBuilder.isEmpty()) {
-        for (DependencyBuilder builder : m_featureClientDependencyBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> builder : m_featureClientDependencyBuilder) {
           _newInstance.getClientDependencies().add(builder.build());
         }
       }
@@ -165,8 +179,17 @@ public class PartDecompositionBuilder {
       _newInstance.getCovereds().addAll(m_covered);
     } else {
       if (!m_featureCoveredBuilder.isEmpty()) {
-        for (LifelineBuilder builder : m_featureCoveredBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline> builder : m_featureCoveredBuilder) {
           _newInstance.getCovereds().add(builder.build());
+        }
+      }
+    }
+    if (m_featureEAnnotationsSet) {
+      _newInstance.getEAnnotations().addAll(m_eAnnotations);
+    } else {
+      if (!m_featureEAnnotationsBuilder.isEmpty()) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
+          _newInstance.getEAnnotations().add(builder.build());
         }
       }
     }
@@ -174,7 +197,7 @@ public class PartDecompositionBuilder {
       _newInstance.getGeneralOrderings().addAll(m_generalOrdering);
     } else {
       if (!m_featureGeneralOrderingBuilder.isEmpty()) {
-        for (GeneralOrderingBuilder builder : m_featureGeneralOrderingBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering> builder : m_featureGeneralOrderingBuilder) {
           _newInstance.getGeneralOrderings().add(builder.build());
         }
       }
@@ -183,7 +206,7 @@ public class PartDecompositionBuilder {
       _newInstance.getOwnedComments().addAll(m_ownedComment);
     } else {
       if (!m_featureOwnedCommentBuilder.isEmpty()) {
-        for (CommentBuilder builder : m_featureOwnedCommentBuilder) {
+        for (org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> builder : m_featureOwnedCommentBuilder) {
           _newInstance.getOwnedComments().add(builder.build());
         }
       }
@@ -197,7 +220,7 @@ public class PartDecompositionBuilder {
     return this;
   }
 
-  public PartDecompositionBuilder withEnclosingInteraction(org.eclipse.uml2.uml.util.builder.InteractionBuilder p_interactionBuilder) {
+  public PartDecompositionBuilder withEnclosingInteraction(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Interaction> p_interactionBuilder) {
     m_featureEnclosingInteractionBuilder = p_interactionBuilder;
     return this;
   }
@@ -208,7 +231,7 @@ public class PartDecompositionBuilder {
     return this;
   }
 
-  public PartDecompositionBuilder withEnclosingOperand(org.eclipse.uml2.uml.util.builder.InteractionOperandBuilder p_interactionOperandBuilder) {
+  public PartDecompositionBuilder withEnclosingOperand(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.InteractionOperand> p_interactionOperandBuilder) {
     m_featureEnclosingOperandBuilder = p_interactionOperandBuilder;
     return this;
   }
@@ -225,7 +248,7 @@ public class PartDecompositionBuilder {
     return this;
   }
 
-  public PartDecompositionBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.StringExpressionBuilder p_stringExpressionBuilder) {
+  public PartDecompositionBuilder withNameExpression(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.StringExpression> p_stringExpressionBuilder) {
     m_featureNameExpressionBuilder = p_stringExpressionBuilder;
     return this;
   }
@@ -236,7 +259,7 @@ public class PartDecompositionBuilder {
     return this;
   }
 
-  public PartDecompositionBuilder withRefersTo(org.eclipse.uml2.uml.util.builder.InteractionBuilder p_interactionBuilder) {
+  public PartDecompositionBuilder withRefersTo(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Interaction> p_interactionBuilder) {
     m_featureRefersToBuilder = p_interactionBuilder;
     return this;
   }
@@ -259,7 +282,7 @@ public class PartDecompositionBuilder {
     return this;
   }
 
-  public PartDecompositionBuilder withActualGate(GateBuilder p_gateBuilder) {
+  public PartDecompositionBuilder withActualGate(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Gate> p_gateBuilder) {
     m_featureActualGateBuilder.add(p_gateBuilder);
     return this;
   }
@@ -276,6 +299,11 @@ public class PartDecompositionBuilder {
     return this;
   }
 
+  public PartDecompositionBuilder withArgument(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Action> p_actionBuilder) {
+    m_featureArgumentBuilder.add(p_actionBuilder);
+    return this;
+  }
+
   public PartDecompositionBuilder withClientDependency(org.eclipse.uml2.uml.Dependency p_clientDependency) {
     m_clientDependency.add(p_clientDependency);
     m_featureClientDependencySet = true;
@@ -288,7 +316,7 @@ public class PartDecompositionBuilder {
     return this;
   }
 
-  public PartDecompositionBuilder withClientDependency(DependencyBuilder p_dependencyBuilder) {
+  public PartDecompositionBuilder withClientDependency(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Dependency> p_dependencyBuilder) {
     m_featureClientDependencyBuilder.add(p_dependencyBuilder);
     return this;
   }
@@ -305,8 +333,25 @@ public class PartDecompositionBuilder {
     return this;
   }
 
-  public PartDecompositionBuilder withCovered(LifelineBuilder p_lifelineBuilder) {
+  public PartDecompositionBuilder withCovered(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Lifeline> p_lifelineBuilder) {
     m_featureCoveredBuilder.add(p_lifelineBuilder);
+    return this;
+  }
+
+  public PartDecompositionBuilder withEAnnotations(org.eclipse.emf.ecore.EAnnotation p_eAnnotations) {
+    m_eAnnotations.add(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public PartDecompositionBuilder withEAnnotations(java.util.Collection<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotations) {
+    m_eAnnotations.addAll(p_eAnnotations);
+    m_featureEAnnotationsSet = true;
+    return this;
+  }
+
+  public PartDecompositionBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
+    m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
 
@@ -322,7 +367,7 @@ public class PartDecompositionBuilder {
     return this;
   }
 
-  public PartDecompositionBuilder withGeneralOrdering(GeneralOrderingBuilder p_generalOrderingBuilder) {
+  public PartDecompositionBuilder withGeneralOrdering(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.GeneralOrdering> p_generalOrderingBuilder) {
     m_featureGeneralOrderingBuilder.add(p_generalOrderingBuilder);
     return this;
   }
@@ -339,7 +384,7 @@ public class PartDecompositionBuilder {
     return this;
   }
 
-  public PartDecompositionBuilder withOwnedComment(CommentBuilder p_commentBuilder) {
+  public PartDecompositionBuilder withOwnedComment(org.eclipse.uml2.uml.util.builder.IUmlBuilder<? extends org.eclipse.uml2.uml.Comment> p_commentBuilder) {
     m_featureOwnedCommentBuilder.add(p_commentBuilder);
     return this;
   }

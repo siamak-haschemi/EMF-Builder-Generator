@@ -7,17 +7,18 @@ package org.eclipse.emf.ecore.util.builder;
  * 
  * @generated
  */
-public class EReferenceBuilder {
+public class EReferenceBuilder implements org.eclipse.emf.ecore.util.builder.IEcoreBuilder<org.eclipse.emf.ecore.EReference> {
   // features and builders
   private Boolean m_changeable;
   private Boolean m_containment;
   private java.lang.String m_defaultValueLiteral;
   private Boolean m_derived;
   private org.eclipse.emf.ecore.EGenericType m_eGenericType;
-  private org.eclipse.emf.ecore.util.builder.EGenericTypeBuilder m_featureEGenericTypeBuilder;
+  private org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType> m_featureEGenericTypeBuilder;
   private org.eclipse.emf.ecore.EReference m_eOpposite;
-  private org.eclipse.emf.ecore.util.builder.EReferenceBuilder m_featureEOppositeBuilder;
+  private org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EReference> m_featureEOppositeBuilder;
   private org.eclipse.emf.ecore.EClassifier m_eType;
+  private org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClassifier> m_featureETypeBuilder;
   private Integer m_lowerBound;
   private java.lang.String m_name;
   private Boolean m_ordered;
@@ -28,9 +29,9 @@ public class EReferenceBuilder {
   private Integer m_upperBound;
   private Boolean m_volatile_;
   private java.util.Collection<org.eclipse.emf.ecore.EAnnotation> m_eAnnotations = new java.util.LinkedList<org.eclipse.emf.ecore.EAnnotation>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EAnnotationBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>> m_featureEAnnotationsBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation>>();
   private java.util.Collection<org.eclipse.emf.ecore.EAttribute> m_eKeys = new java.util.LinkedList<org.eclipse.emf.ecore.EAttribute>();
-  private java.util.Collection<org.eclipse.emf.ecore.util.builder.EAttributeBuilder> m_featureEKeysBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.EAttributeBuilder>();
+  private java.util.Collection<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAttribute>> m_featureEKeysBuilder = new java.util.LinkedList<org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAttribute>>();
   // helper attributes
   private boolean m_featureChangeableSet = false;
   private boolean m_featureContainmentSet = false;
@@ -93,6 +94,7 @@ public class EReferenceBuilder {
     _builder.m_featureEOppositeBuilder = m_featureEOppositeBuilder;
     _builder.m_featureETypeSet = m_featureETypeSet;
     _builder.m_eType = m_eType;
+    _builder.m_featureETypeBuilder = m_featureETypeBuilder;
     _builder.m_featureLowerBoundSet = m_featureLowerBoundSet;
     _builder.m_lowerBound = m_lowerBound;
     _builder.m_featureNameSet = m_featureNameSet;
@@ -148,6 +150,10 @@ public class EReferenceBuilder {
     }
     if (m_featureETypeSet) {
       _newInstance.setEType(m_eType);
+    } else {
+      if (m_featureETypeBuilder != null) {
+        _newInstance.setEType(m_featureETypeBuilder.build());
+      }
     }
     if (m_featureLowerBoundSet) {
       _newInstance.setLowerBound(m_lowerBound);
@@ -180,7 +186,7 @@ public class EReferenceBuilder {
       _newInstance.getEAnnotations().addAll(m_eAnnotations);
     } else {
       if (!m_featureEAnnotationsBuilder.isEmpty()) {
-        for (EAnnotationBuilder builder : m_featureEAnnotationsBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> builder : m_featureEAnnotationsBuilder) {
           _newInstance.getEAnnotations().add(builder.build());
         }
       }
@@ -189,7 +195,7 @@ public class EReferenceBuilder {
       _newInstance.getEKeys().addAll(m_eKeys);
     } else {
       if (!m_featureEKeysBuilder.isEmpty()) {
-        for (EAttributeBuilder builder : m_featureEKeysBuilder) {
+        for (org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAttribute> builder : m_featureEKeysBuilder) {
           _newInstance.getEKeys().add(builder.build());
         }
       }
@@ -227,7 +233,7 @@ public class EReferenceBuilder {
     return this;
   }
 
-  public EReferenceBuilder withEGenericType(org.eclipse.emf.ecore.util.builder.EGenericTypeBuilder p_eGenericTypeBuilder) {
+  public EReferenceBuilder withEGenericType(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EGenericType> p_eGenericTypeBuilder) {
     m_featureEGenericTypeBuilder = p_eGenericTypeBuilder;
     return this;
   }
@@ -238,7 +244,7 @@ public class EReferenceBuilder {
     return this;
   }
 
-  public EReferenceBuilder withEOpposite(org.eclipse.emf.ecore.util.builder.EReferenceBuilder p_eReferenceBuilder) {
+  public EReferenceBuilder withEOpposite(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EReference> p_eReferenceBuilder) {
     m_featureEOppositeBuilder = p_eReferenceBuilder;
     return this;
   }
@@ -246,6 +252,11 @@ public class EReferenceBuilder {
   public EReferenceBuilder withEType(org.eclipse.emf.ecore.EClassifier p_eType) {
     m_eType = p_eType;
     m_featureETypeSet = true;
+    return this;
+  }
+
+  public EReferenceBuilder withEType(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EClassifier> p_eClassifierBuilder) {
+    m_featureETypeBuilder = p_eClassifierBuilder;
     return this;
   }
 
@@ -315,7 +326,7 @@ public class EReferenceBuilder {
     return this;
   }
 
-  public EReferenceBuilder withEAnnotations(EAnnotationBuilder p_eAnnotationBuilder) {
+  public EReferenceBuilder withEAnnotations(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAnnotation> p_eAnnotationBuilder) {
     m_featureEAnnotationsBuilder.add(p_eAnnotationBuilder);
     return this;
   }
@@ -332,7 +343,7 @@ public class EReferenceBuilder {
     return this;
   }
 
-  public EReferenceBuilder withEKeys(EAttributeBuilder p_eAttributeBuilder) {
+  public EReferenceBuilder withEKeys(org.eclipse.emf.ecore.util.builder.IEcoreBuilder<? extends org.eclipse.emf.ecore.EAttribute> p_eAttributeBuilder) {
     m_featureEKeysBuilder.add(p_eAttributeBuilder);
     return this;
   }

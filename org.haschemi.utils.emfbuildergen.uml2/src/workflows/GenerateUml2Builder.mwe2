@@ -3,6 +3,11 @@ module UMLBuilder
 Workflow {
  component = org.haschemi.utils.emfbuildergen.EMFBuilderGenerator {
   ecoreURI = "platform:/resource/org.haschemi.utils.emfbuildergen.uml2/model/UML.ecore"
-  genModelUri = "platform:/resource/org.haschemi.utils.emfbuildergen.uml2/model/UML.genmodel"  
+  genModelUri = "platform:/resource/org.haschemi.utils.emfbuildergen.uml2/model/UML.genmodel"
+  genModelUri = "platform:/resource/org.haschemi.utils.emfbuildergen.uml2/model/Ecore.genmodel"
+  uriMap = org.eclipse.emf.mwe.utils.Mapping {
+    from = "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore"
+    to = "platform:/resource/org.haschemi.utils.emfbuildergen.uml2/model/Ecore.ecore"
+  }  
  }
 }
