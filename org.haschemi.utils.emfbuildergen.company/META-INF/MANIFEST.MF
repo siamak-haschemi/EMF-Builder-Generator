@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.emf.ecore;bundle-version="[2.5.0,3.0.0)";visibility:
  org.eclipse.emf.mwe2.launch;bundle-version="1.0.2";resolution:=optional,
  org.eclipse.emf.mwe.core;bundle-version="[1.0.0,2.0.0)"
 Bundle-ActivationPolicy: lazy
-Import-Package: org.apache.log4j;version="1.2.15",
+Import-Package: org.apache.commons.logging,
+ org.apache.log4j;version="[1.2.15,2.0.0)",
  org.haschemi.utils.emfbuildergen;version="[0.0.1,1.0.0)"
 Export-Package: org.haschemi.utils.emfbuildergen.company,
  org.haschemi.utils.emfbuildergen.company.impl,
