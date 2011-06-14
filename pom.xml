@@ -61,6 +61,7 @@
         <version>${tycho-version}</version>
         <configuration>
           <format>${build.qualifier}</format>
+          <archiveSite>true</archiveSite>
         </configuration>
       </plugin>
     </plugins>
