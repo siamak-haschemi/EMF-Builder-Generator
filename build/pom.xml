@@ -4,12 +4,17 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<artifactId>EMFBuilderGen</artifactId>
 		<groupId>org.haschemi.utils</groupId>
+	  <artifactId>EMFBuilderGen</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<groupId>org.haschemi.azmun</groupId>
-	<artifactId>org.haschemi.utils.emfbuildergen.updatesite</artifactId>
+	<groupId>org.haschemi.utils</groupId>
+	<artifactId>build</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>eclipse-update-site</packaging>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>p2-repository</module>
+	</modules>
 </project>
