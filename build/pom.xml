@@ -16,5 +16,6 @@
 
 	<modules>
 		<module>p2-repository</module>
+		<module>target-platform</module>
 	</modules>
 </project>

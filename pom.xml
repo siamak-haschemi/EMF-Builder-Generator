@@ -69,6 +69,23 @@
           <resolver>p2</resolver>
         </configuration>
       </plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<resolver>p2</resolver>
+					<target>
+						<artifact>
+							<groupId>org.haschemi.utils</groupId>
+							<artifactId>target-platform</artifactId>
+							<version>0.0.1-SNAPSHOT</version>
+							<classifier>emfbuildergen</classifier>
+						</artifact>
+					</target>
+					<ignoreTychoRepositories>false</ignoreTychoRepositories>
+				</configuration>
+			</plugin>
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-packaging-plugin</artifactId>

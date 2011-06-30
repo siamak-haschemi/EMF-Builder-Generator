@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.6"?>
+
+<target name="publicistemplateengine">
+<locations>
+<location includeAllPlatforms="true" includeMode="slicer" type="InstallableUnit">
+<unit id="org.eclipse.sdk.feature.group" version="3.7.0.v20110426-7Q7xA7DPb31rE2_TcfD-VPkLqq8sfDmLus7XtaSo-7NHB"/>
+<unit id="org.eclipse.emf.ecoretools.sdk.feature.group" version="1.0.0.v20110608-1633"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.7.0.v20110606-0949"/>
+<unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.0.0.v201106070634"/>
+<unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="2.0.0.v201106070424"/>
+<unit id="org.eclipse.emf.mwe.core.feature.group" version="1.1.0.v201106070424"/>
+<unit id="org.eclipse.emf.mwe.doc.feature.group" version="1.1.0.v201106070424"/>
+<unit id="org.eclipse.emf.mwe.sdk.feature.group" version="1.1.0.v201106070424"/>
+<unit id="org.eclipse.emf.mwe.ui.feature.group" version="1.1.0.v201106070424"/>
+<unit id="org.eclipse.emf.mwe2.language.sdk.source.feature.group" version="2.0.0.v201106070634"/>
+<unit id="org.eclipse.emf.mwe2.runtime.sdk.source.feature.group" version="2.0.0.v201106070424"/>
+<unit id="org.eclipse.emf.mwe.core.source.feature.group" version="1.1.0.v201106070424"/>
+<unit id="org.eclipse.emf.mwe.ui.source.feature.group" version="1.1.0.v201106070424"/>
+<unit id="org.eclipse.xpand.source.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xpand.examples.source.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xpand.incremental.source.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xpand.ui.source.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtend.source.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtend.dependencies.source.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtend.typesystem.emf.source.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtend.ui.source.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtend.typesystem.xsd.source.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtext.xtend2.sdk.source.feature.group" version="2.0.0.v201106070531"/>
+<unit id="de.itemis.xtext.antlr.source.feature.feature.group" version="2.0.0.v201011091333"/>
+<unit id="org.eclipse.xtext.docs.source.feature.group" version="2.0.0.v201106070531"/>
+<unit id="org.eclipse.xtext.examples.source.feature.group" version="2.0.0.v201106070531"/>
+<unit id="org.eclipse.xtext.runtime.source.feature.group" version="2.0.0.v201106070531"/>
+<unit id="org.eclipse.xtext.sdk.source.feature.group" version="2.0.0.v201106070531"/>
+<unit id="org.eclipse.xtext.xtext.ui.source.feature.group" version="2.0.0.v201106070531"/>
+<unit id="org.eclipse.xtext.ui.source.feature.group" version="2.0.0.v201106070531"/>
+<unit id="org.eclipse.uml2.doc.feature.group" version="3.2.0.v201103291514"/>
+<unit id="org.eclipse.uml2.feature.group" version="3.2.0.v201105231350"/>
+<unit id="org.eclipse.uml2.sdk.feature.group" version="3.2.0.v201105231350"/>
+<unit id="org.eclipse.uml2.source.feature.group" version="3.2.0.v201105231350"/>
+<unit id="org.eclipse.xpand.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xpand.doc.feature.group" version="1.0.1.v201106070515"/>
+<unit id="org.eclipse.xpand.examples.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xpand.incremental.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xpand.sdk.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xpand.ui.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xpand.support.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtend.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtend.dependencies.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtend.typesystem.emf.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtend.ui.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtend.typesystem.uml2.source.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtend.typesystem.uml2.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtend.typesystem.xsd.feature.group" version="1.1.0.v201106070515"/>
+<unit id="org.eclipse.xtext.xtend2.sdk.feature.group" version="2.0.0.v201106070531"/>
+<unit id="de.itemis.xtext.antlr.feature.feature.group" version="2.0.0.v201011091333"/>
+<unit id="de.itemis.xtext.antlr.sdk.feature.group" version="2.0.0.v201011091333"/>
+<unit id="org.eclipse.xtext.docs.feature.group" version="2.0.0.v201106070531"/>
+<unit id="org.eclipse.xtext.examples.feature.group" version="2.0.0.v201106070531"/>
+<unit id="org.eclipse.xtext.runtime.feature.group" version="2.0.0.v201106070531"/>
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.0.0.v201106070531"/>
+<unit id="org.eclipse.xtext.xtext.ui.feature.group" version="2.0.0.v201106070531"/>
+<unit id="org.eclipse.xtext.ui.feature.group" version="2.0.0.v201106070531"/>
+<repository location="http://qcentral.org/p2-repository/"/>
+</location>
+</locations>
+</target>
