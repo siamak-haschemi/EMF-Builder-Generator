@@ -17,10 +17,8 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
-import org.eclipse.core.runtime.jobs.IJobChangeListener;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.core.runtime.jobs.JobChangeAdapter;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
@@ -28,13 +26,11 @@ import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.mwe.core.WorkflowContext;
-import org.eclipse.emf.mwe.core.WorkflowRunner;
+import org.eclipse.emf.mwe.core.WorkflowContextDefaultImpl;
 import org.eclipse.emf.mwe.core.issues.Issues;
 import org.eclipse.emf.mwe.core.issues.IssuesImpl;
 import org.eclipse.emf.mwe.core.monitor.ProgressMonitor;
 import org.eclipse.emf.mwe.core.monitor.ProgressMonitorAdapter;
-import org.eclipse.emf.mwe.core.resources.ResourceLoaderFactory;
-import org.eclipse.emf.mwe.core.resources.ResourceLoaderImpl;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -74,8 +70,8 @@ public class GenerateEMFBuildersAction implements IObjectActionDelegate {
       return;
     }
     final FileEditorInput fileEditorInput = (FileEditorInput) editorInput;
-    final String ecoreFile = genModel.getForeignModel().get(0);
     final IFile file = fileEditorInput.getFile();
+    final String ecoreFile = file.getName().replace("genmodel", "ecore");
     final IResource ecoreFileResource = file.getParent().findMember(ecoreFile);
     final String platformRoot = file.getProject().getLocation().toString() + "/..";
 
@@ -83,8 +79,7 @@ public class GenerateEMFBuildersAction implements IObjectActionDelegate {
 
       @Override
       protected IStatus run(IProgressMonitor p_monitor) {
-        WorkflowRunner runner = new WorkflowRunner();
-        WorkflowContext context = runner.getContext();
+        WorkflowContext context = new WorkflowContextDefaultImpl();
         Issues issues = new IssuesImpl();
         ProgressMonitor progressMonitor = new ProgressMonitorAdapter(p_monitor);
 
