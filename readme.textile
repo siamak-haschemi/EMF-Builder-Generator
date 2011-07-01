@@ -40,3 +40,6 @@ Company company = newCompanyBuilder()
 </pre>
 
 See more examples in the "wiki":https://github.com/siamak-haschemi/EMF-Builder-Generator/wiki
+
+*This software is pubslished under the "Eclipse Public License":http://www.eclipse.org/org/documents/epl-v10.php. Please note the "FAQ":http://www.eclipse.org/legal/eplfaq.php for EPL.*
+
