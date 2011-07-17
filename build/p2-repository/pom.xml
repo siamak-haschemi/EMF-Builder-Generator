@@ -14,37 +14,7 @@
 	<version>0.0.1.qualifier</version>
 	<packaging>eclipse-repository</packaging>
 
-	<profiles>
-		<profile>
-			<id>nightly</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>wagon-maven-plugin</artifactId>
-						<version>1.0-beta-3</version>
-						<executions>
-							<execution>
-								<id>deploy-nightly-p2-repository</id>
-								<phase>deploy</phase>
-								<goals>
-									<goal>upload</goal>
-								</goals>
-								<configuration>
-									<fromDir>${project.build.directory}/repository</fromDir>
-									<url>scpexe://bitnami@metrikforge.informatik.hu-berlin.de</url>
-									<toDir>/var/p2-repositories/EMFBuilderGenerator/nightly/${buildQualifier}</toDir>
-									<serverId>emfbuildergen-repository</serverId>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
+	<profiles>		
 		<profile>
 			<id>release</id>
 			<activation>
@@ -66,7 +36,7 @@
 								<configuration>
 									<fromDir>${project.build.directory}/repository</fromDir>
 									<url>scpexe://bitnami@metrikforge.informatik.hu-berlin.de</url>
-									<toDir>/var/p2-repositories/EMFBuilderGenerator/release</toDir>
+									<toDir>/var/p2-repositories/EMFBuilderGenerator/release/${unqualifiedVersion}.${buildQualifier}/</toDir>
 									<serverId>emfbuildergen-repository</serverId>
 								</configuration>
 							</execution>
