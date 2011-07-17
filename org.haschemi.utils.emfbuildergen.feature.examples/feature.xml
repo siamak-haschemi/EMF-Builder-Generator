@@ -215,15 +215,15 @@ litigation.
    </license>
 
    <requires>
-      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="compatible"/>
-      <import plugin="org.eclipse.emf.ecore.xmi" version="2.5.0" match="compatible"/>
-      <import plugin="org.eclipse.emf.mwe.core" version="1.0.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.xmi" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.mwe.core" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.apache.commons.logging"/>
       <import plugin="org.apache.log4j"/>
       <import plugin="org.haschemi.utils.emfbuildergen"/>
       <import plugin="org.eclipse.uml2.uml" version="3.1.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.uml2.uml.resources" version="3.1.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.mwe.utils" version="1.0.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.mwe.utils" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
