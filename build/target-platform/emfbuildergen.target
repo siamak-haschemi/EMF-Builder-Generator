@@ -52,6 +52,8 @@
 <unit id="org.eclipse.xtend.typesystem.uml2.source.feature.group" version="1.1.0.v201106070515"/>
 <unit id="org.eclipse.xtend.typesystem.uml2.feature.group" version="1.1.0.v201106070515"/>
 <unit id="org.eclipse.xtend.typesystem.xsd.feature.group" version="1.1.0.v201106070515"/>
+
+<!--
 <unit id="org.eclipse.xtext.xtend2.sdk.feature.group" version="2.0.0.v201106070531"/>
 <unit id="de.itemis.xtext.antlr.feature.feature.group" version="2.0.0.v201011091333"/>
 <unit id="de.itemis.xtext.antlr.sdk.feature.group" version="2.0.0.v201011091333"/>
@@ -61,6 +63,7 @@
 <unit id="org.eclipse.xtext.sdk.feature.group" version="2.0.0.v201106070531"/>
 <unit id="org.eclipse.xtext.xtext.ui.feature.group" version="2.0.0.v201106070531"/>
 <unit id="org.eclipse.xtext.ui.feature.group" version="2.0.0.v201106070531"/>
+-->
 <repository location="http://qcentral.org/p2-repository/"/>
 </location>
 </locations>
