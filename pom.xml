@@ -22,7 +22,7 @@
   <distributionManagement>
     <repository>
       <id>emfbuildergen-repository</id>
-      <url>scpexe://bitnami@metrikforge.informatik.hu-berlin.de:/var/p2-repositories/EMFBuilderGenerator</url>
+      <url>scpexe://bitnami@metrikforge.informatik.hu-berlin.de:/var/p2-repositories/EMFBuilderGenerator/release</url>
     </repository>
   </distributionManagement>
 
@@ -61,14 +61,6 @@
         <version>${tycho-version}</version>
         <extensions>true</extensions>
       </plugin>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>target-platform-configuration</artifactId>
-        <version>${tycho-version}</version>
-        <configuration>
-          <resolver>p2</resolver>
-        </configuration>
-      </plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
@@ -98,6 +90,7 @@
     <pluginManagement>
       <plugins>
         <plugin>
+					<groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.6</version>
           <configuration>
