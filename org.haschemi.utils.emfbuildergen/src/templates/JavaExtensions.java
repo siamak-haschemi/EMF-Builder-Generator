@@ -16,6 +16,7 @@ import java.util.List;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.codegen.util.CodeGenUtil;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -76,7 +77,9 @@ public class JavaExtensions {
   private static final GenPackage findGenPackageFor(final EClassifier p_classifier) {
     final StringBuilder sb = new StringBuilder();
     for (final GenModel genModel : s_genModels) {
-      for (final GenPackage genPackage : genModel.getGenPackages()) {
+
+      List<GenPackage> listGenPkgs = getPackagesRecursively(genModel.getGenPackages());
+      for (final GenPackage genPackage : listGenPkgs) {
         sb.append(genPackage.getNSURI()).append(",");
 
         if (p_classifier.eIsProxy()) {
@@ -92,6 +95,16 @@ public class JavaExtensions {
       }
     }
     throw new RuntimeException("Did not find genpackage for '" + p_classifier + " using genmodels " + sb.toString() + ".");
+  }
+
+  private static final List<GenPackage> getPackagesRecursively(List<GenPackage> list) {
+    List<GenPackage> resultList = new BasicEList<GenPackage>();
+    resultList.addAll(list);
+
+    for (final GenPackage genPackage : list) {
+      resultList.addAll(getPackagesRecursively(genPackage.getSubGenPackages()));
+    }
+    return resultList;
   }
 
   private static boolean ePackageEquals(final EPackage p_this, final EPackage p_other) {

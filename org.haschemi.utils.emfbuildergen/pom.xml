@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <groupId>org.haschemi.utils</groupId>
-  <artifactId>org.haschemi.utils.emfbuilder</artifactId>
+  <artifactId>org.haschemi.utils.emfbuildergen</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
 </project>

@@ -28,7 +28,6 @@ import org.eclipse.emf.mwe.utils.StandaloneSetup;
 import org.eclipse.xpand2.Generator;
 import org.eclipse.xpand2.output.JavaBeautifier;
 import org.eclipse.xpand2.output.Outlet;
-import org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.GlobalVar;
 import org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.GlobalVarDef;
 import org.eclipse.xtend.typesystem.emf.EmfMetaModel;
 import org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel;

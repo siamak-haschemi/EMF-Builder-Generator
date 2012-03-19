@@ -4,20 +4,20 @@
 <target name="publicistemplateengine" sequenceNumber="2">
 <locations>
 <location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.6.1.v20100914-1218"/>
-<unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="1.0.2.v201102151014"/>
-<unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="1.0.2.v201102150556"/>
-<unit id="org.eclipse.uml2.sdk.feature.group" version="3.1.2.v201010261927"/>
-<unit id="org.eclipse.xpand.sdk.feature.group" version="1.0.1.v201008251147"/>
-<unit id="org.eclipse.platform.feature.group" version="3.6.2.r362_v20110210-9gF78Gs1FrIGnHDHWkEcopoN8AmxeZflGDGKQi"/>
-<unit id="org.eclipse.sdk.feature.group" version="3.6.2.r362_v20100929-7Q7m7HD5cWlFgdCBHllpZMd2M468sbnm2RJvUWIbiJnWC"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.uml2.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.xpand.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.sdk.feature.group" version="0.0.0"/>
 
-<unit id="org.eclipse.emf.mwe.core" version="1.0.2.v201102150556"/>
-<unit id="org.eclipse.emf.mwe.utils" version="1.0.2.v201102150556"/>
-<unit id="org.junit" version="4.8.1.v4_8_1_v20100427-1100"/>
-<unit id="com.google.inject" version="2.0.0.v201003051000"/>
+<unit id="org.eclipse.emf.mwe.core" version="0.0.0"/>
+<unit id="org.eclipse.emf.mwe.utils" version="0.0.0"/>
+<unit id="org.junit" version="0.0.0"/>
+<unit id="com.google.inject" version="0.0.0"/>
 
-<repository location="http://qcentral.org/p2-repository/eclipse-helios/"/>
+<repository location="http://download.eclipse.org/releases/indigo/"/>
 </location>
 </locations>
 </target>

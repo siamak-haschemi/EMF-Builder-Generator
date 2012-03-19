@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.haschemi.utils.emfbuildergen.tests/src/gen/java"
+    editDirectory="/org.haschemi.utils.emfbuildergen.tests.edit/src/gen/java" editorDirectory="/org.haschemi.utils.emfbuildergen.tests.editor/src/gen/java"
+    modelPluginID="org.haschemi.utils.emfbuildergen.tests" modelName="Issue6" testsDirectory="/org.haschemi.utils.emfbuildergen.tests.tests/src/gen/java"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>issue6.ecore</foreignModel>
+  <genPackages prefix="Organization" disposableProviderFactory="true" ecorePackage="issue6.ecore#/">
+    <genClasses ecoreClass="issue6.ecore#//Employee">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute issue6.ecore#//Employee/name"/>
+    </genClasses>
+    <genClasses ecoreClass="issue6.ecore#//Company">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute issue6.ecore#//Company/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference issue6.ecore#//Company/department"/>
+    </genClasses>
+    <genClasses ecoreClass="issue6.ecore#//Department">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute issue6.ecore#//Department/number"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference issue6.ecore#//Department/employees"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="issue6.ecore#//ABase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute issue6.ecore#//ABase/id"/>
+    </genClasses>
+    <nestedGenPackages prefix="Core" disposableProviderFactory="true" ecorePackage="issue6.ecore#//core">
+      <genClasses ecoreClass="issue6.ecore#//core/Cass"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
