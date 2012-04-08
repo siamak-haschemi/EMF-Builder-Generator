@@ -1,8 +1,0 @@
-module EcoreBuilder
-
-Workflow {
- component = org.haschemi.utils.emfbuildergen.EMFBuilderGenerator {
-  ecoreURI = "platform:/resource/org.haschemi.utils.emfbuildergen.ecore/model/Ecore.ecore"
-  genModelUri = "platform:/resource/org.haschemi.utils.emfbuildergen.ecore/model/Ecore.genmodel"  
- }
-}

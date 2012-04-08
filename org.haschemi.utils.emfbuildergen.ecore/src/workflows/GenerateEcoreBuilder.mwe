@@ -1,7 +1,0 @@
-<?xml version="1.0"?> 
-<workflow>
-  <component class="org.haschemi.utils.emfbuildergen.EMFBuilderGenerator">
-    <ecoreURI value="platform:/resource/org.haschemi.utils.emfbuildergen.ecore/model/Ecore.ecore"/>
-    <genModelUri value="platform:/resource/org.haschemi.utils.emfbuildergen.ecore/model/Ecore.genmodel"/>
-  </component>  
-</workflow> 
